@@ -1,9 +1,5 @@
 import React  from 'react';
 import './App.css';
-import './Home.css';
-import './Login.css';
-import './CreateGroup.css';
-import './Project.css';
 import Home from './Home';
 import Login from './Login';
 import CreateGroup from './CreateGroup';
@@ -12,22 +8,29 @@ import Task from './Task';
 import Calendar from './Calendar';
 import Setting from './Setting';
 import Message from './Message';
-import Signup from './Components/Signup';
 import Notification from './Notification';
 import Comment from './Comment';
-
 import {GlobalProvider} from './Context/GlobalState';
 
 import {observer} from 'mobx-react' ;
 import { BrowserRouter, Router, Route , Switch} from "react-router-dom";
 
-
-class App extends React.Component{
+//test
+// import { Hometest } from './Components/Hometest';
+import { AddUser } from './Components/AddUser';
+import { EditUser } from './Components/EditUser';
+import 'bootstrap/dist/css/bootstrap.min.css'
+class App extends React.Component
+{
   renderRouter(){
     return (
 
-    
-      <Switch>
+      // <div style={{maxWidth: "30rem" , margin: "4rem auto"}}>
+      <GlobalProvider>
+        {/* <Router> */}
+
+        
+        <Switch>
         <Route exact path="/" component={Login} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/create" component={CreateGroup} />
@@ -38,9 +41,14 @@ class App extends React.Component{
         <Route exact path="/message" component={Message} />
         <Route exact path="/notification" component={Notification} />
         <Route exact path="/comment" component={Comment} />
+        {/* <Route exact path="/hometest" component={Hometest} /> */}
+        <Route exact path="/add" component={AddUser} />
+        <Route exact path="/edit/:id" component={EditUser} />
         
-      </Switch>
-      
+        </Switch>
+        {/* </Router> */}
+      </GlobalProvider>
+      // </div>
      
     )
   }
@@ -58,4 +66,6 @@ class App extends React.Component{
 
 }
 
-export default observer (App);
+export default  App;
+
+//export default observer (App);

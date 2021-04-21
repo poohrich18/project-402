@@ -2,7 +2,7 @@ import React, { useState , useContext} from 'react';
 import {Link , useHistory} from 'react-router-dom';
 import {GlobalContext} from '../Context/GlobalState' ;
 import { Row, Col } from 'react-bootstrap';
-import { Form ,FormGroup } from 'react-bootstrap';
+// import { Form ,FormGroup } from 'react-bootstrap';
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -11,7 +11,15 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import AddIcon from '@material-ui/icons/Add';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles } from '@material-ui/core/styles';
-import { Input } from '@material-ui/core';
+// import { Input } from '@material-ui/core';
+import {v4 as uuid} from 'uuid' ;
+import {
+    Form,
+    FormGroup,
+    Label,
+    Input,
+    // Button
+} from 'reactstrap' ;
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -31,11 +39,14 @@ const useStyles = makeStyles((theme) => ({
     }
 
 }))
-
-function BlockCreate() {
+export const BlockCreate = () => {
 
     const classes = useStyles();
     
+    const [name , setName] = useState('');
+    const {addUser} = useContext(GlobalContext) ;
+    const history = useHistory();
+
     const [inputNameGroup, setInputGroupName] = useState([
         { groupname: ''},
     ]);
@@ -46,12 +57,31 @@ function BlockCreate() {
         { firstName: '', lastName: '' },
     ]);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    
+
+    const onChange = (e) => {
+        setName(e.target.value);
+    }
+
+    const handleSubmit = () => {
+        // e.preventDefault();
+        history.push('/project') ;
         console.log("InputFields", inputNameGroup)
         console.log("InputFields", inputFields)
         console.log("InputFields", inputFields2)
     };
+
+    const onSubmit = () => {
+        const newUser = {
+            id: uuid(),
+            name
+        }
+        addUser(newUser);
+        history.push('/project') ;
+        console.log("InputFields", inputNameGroup)
+        console.log("InputFields", inputFields)
+        console.log("InputFields", inputFields2)
+    }
 
     //Group Name
     const handleChangeInput0 = (index0, event) => {
@@ -95,32 +125,45 @@ function BlockCreate() {
         setInputFields2([...inputFields2, { firstName: '', lastName: '' }])
     }
 
-    
-    
     return (
         <div className="rightblockcreate">
 
-            {/* <div className="blockwhitecreate"> */}
+            <div className="blockwhitecreate">
             <h1 className="Topname">Create Group</h1>
 
             <Container>
-                <h4 className="GroupName">Group Name</h4>
-                <form className={classes.root} onSubmit={handleSubmit}>
+                <Form onSubmit={onSubmit}>
+                    <h4 className="GroupName">Group Name</h4>
+                    <div className="fieldmember" >
+                        <TextField 
+                        type="text" 
+                        label="Enter Name"
+                        variant="outlined"
+                        value={inputNameGroup.name} 
+                        onChange = {onChange}
+                         
+                        />
+                    </div>
+            
+                {/* <h4 className="GroupName">Group Name</h4>
+                <form className={classes.root}>
                     {inputNameGroup.map((inputNameGroup, index0) => (
                         <div className="fieldmember"  key={index0}>
-                            <TextField
+                            <TextField onSubmit={handleSubmit}
                             name="groupname"
                             label="Group name"
                             variant="outlined"
+                            // value={name} 
+                            // onChange = {onChange}
                             value={inputNameGroup.groupname}
                             onChange={event => handleChangeInput0(index0, event)}
                             />
                         </div>
                     ))}
-                </form>
-            </Container>  
+                </form> */}
+             
                 
-            <Container>
+            
                 <h4 className="Add-Member">Member</h4>
 
                 <form className={classes.root} onSubmit={handleSubmit}>
@@ -155,9 +198,9 @@ function BlockCreate() {
 
 
                 </form>
-            </Container>
+            
 
-            <Container>
+            
                 <h4 className="Add-Advisor">Advistor</h4>
 
                 <form className={classes.root} onSubmit={handleSubmit}>
@@ -187,16 +230,36 @@ function BlockCreate() {
                                 <AddIcon />
                             </IconButton>
                         </div>
-                    ))
-                }
+                    ))}
 
                 </form>
+                
+                <Button 
+                    id="btn-create"
+                    className={classes.button}
+                    variant="outlined"
+                    color="primary"
+                    type="submit"
+                    endIcon={<Icon>add</Icon>}
+                    >Submit
+                </Button>
 
-                
-                
-                   
-            </Container>
-                <Button id="btn-create"
+                <Button id="btn-cancel"
+                    className={classes.button2}
+                    variant="outlined"
+                    color="primary"
+                    type="submit"
+                    endIcon={<Icon>close</Icon>}
+                    onClick={handleSubmit}
+                > 
+                <Link to="/project">Cancel</Link>
+                </Button>
+                {/* <Link to="/project" className="btn btn-danger ml-2">Cancel</Link> */}
+            </Form>
+            </Container> 
+            
+            
+                 {/* <Button id="btn-create"
                     className={classes.button}
                     variant="outlined"
                     color="primary"
@@ -215,9 +278,8 @@ function BlockCreate() {
                     onClick={handleSubmit}
                 > 
                 <Link to="/project">Cancel</Link>
-                </Button>
+                </Button> */}
         </div>
-    );
+    </div>
+    )
 }
-
-export default BlockCreate;
