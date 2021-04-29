@@ -1,6 +1,12 @@
 const router = require('express').Router();
 let Username = require('../models/username.model');
 
+router.route('/show').get((req, res) => {
+  Username.find()
+    .then(username => res.json(username))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/').post((req, res) => {
   const username = req.body.username;
   const password = req.body.password;
@@ -12,7 +18,7 @@ router.route('/').post((req, res) => {
       if(data[0].id == username){
         if(data[0].pass == password){
           res.send(data[0].type)
-          res[1].send(data[0].username)
+          
           //console.log(data[0].type);
         }
       }

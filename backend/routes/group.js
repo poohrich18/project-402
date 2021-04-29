@@ -14,7 +14,7 @@ router.route('/add').post((req, res) => {
   const memberlastname = req.body.memberlastname;
   const advisorfirstname = req.body.advisorfirstname;
   const advisorlastname = req.body.advisorlastname;
-
+  console.log("groupname",groupname)
   const newGroup = new Group({
     groupname,
     memberfirstname,

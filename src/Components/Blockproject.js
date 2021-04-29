@@ -1,50 +1,70 @@
-import React from 'react'
-import {Link} from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import Button from '@material-ui/core/Button'
-import Icon from '@material-ui/core/Icon';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import {ProjectList} from './ProjectList';
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import { ProjectList } from "./ProjectList";
+import { useState } from "react";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
-   
-    button2: {
-        margin: theme.spacing(1),
-        marginLeft: "24px",
-        // marginTop: "40px"
-    }
-
-}))
+  button2: {
+    margin: theme.spacing(1),
+    marginLeft: "24px",
+    // marginTop: "40px"
+  },
+}));
 
 export const Blockproject = () => {
-    const classes = useStyles();
+  const classes = useStyles();
 
-    return (
-        <div className="rightblockproject">
-            
-            <div className="blockwhiteproject">
-            <h1 className="Topname">Project</h1> 
+  const [groupList, setgroupList] = useState([]);
 
-            <Container>
-                <Button id="btn-addproject"
-                    className={classes.button2}
-                    variant="outlined"
-                    color="primary"
-                    type="submit"
-                    endIcon={<Icon>add</Icon>}
-                   
-                > 
-                <Link to="/create">Add Project</Link>
-                </Button>
-            </Container>
+  const getGroup = () => {
+    axios.get("http://localhost:5000/group/").then((respond) => {
+      setgroupList(respond.data);
+    });
+  };
 
-            <Container>
-                <ProjectList />
-            </Container>
-            
-        </div>
+  return (
+    <div className="rightblockproject">
+      <div className="blockwhiteproject">
+        <h1 className="Topname">Project</h1>
 
-        </div>
-    )
-}
+        <Container>
+          <Button
+            id="btn-addproject"
+            className={classes.button2}
+            variant="outlined"
+            color="primary"
+            type="submit"
+            endIcon={<Icon>add</Icon>}
+          >
+            <Link to="/create">Add Project</Link>
+          </Button>
+          <Button className="btn btn-primary" onClick={getGroup}> Show All Group</Button>
+          <br></br>
+          <br></br>
+          {groupList.map((val, key) => {
+            return (
+                <div className=" group list"> 
+                    <div className="card-body text-left">
+                    <p className="card-text">Groupname: {val.groupname}</p>
+                    <p className="card-text">Firstname Member: {val.memberfirstname}</p>
+                    <p className="card-text">Lastname Member: {val.memberlastname}</p>
+                    <p className="card-text">Adivisor: {val.advisorfirstname}</p>
+                    </div>
+              </div>
+            )
+          })}
+        </Container>
+
+        <Container>
+          <ProjectList />
+        </Container>
+      </div>
+    </div>
+  );
+};
