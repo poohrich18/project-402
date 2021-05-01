@@ -7,35 +7,35 @@ import EventIcon from '@material-ui/icons/Event';
 import SettingsIcon from '@material-ui/icons/Settings';
 
 
-export const SidebarData = [
+export const SidebarData_Teacher = [
     {
         title : "Dashboard" ,
         icon : <DashboardIcon /> ,
-        link : "/home"
+        link : "/home_t"
     },
     {
         title : "Create Group" ,
         icon : <AddBoxIcon /> ,
-        link : "/create"
+        link : "/create_t"
     },
     {
         title : "Group" ,
         icon : <WorkIcon /> ,
-        link : "/group"
+        link : "/group_t"
     },
     {
         title : "My Group" ,
         icon : <PlaylistAddCheckIcon /> ,
-        link : "/mygroup"
+        link : "/group_t"
     },
     {
         title : "Calendar" ,
         icon : <EventIcon /> ,
-        link : "/calendar"
+        link : "/calendar_t"
     },
     {
         title : "Setting" ,
         icon : <SettingsIcon /> ,
-        link : "/setting"
+        link : "/setting_t"
     },
 ];

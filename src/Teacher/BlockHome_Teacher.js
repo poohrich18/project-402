@@ -1,17 +1,16 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import 'font-awesome/css/font-awesome.css'
-import pooh2 from '../assets/pooh2.jpg';
-import {Link } from 'react-router-dom';
+import sweetmango from '../assets/sweetmango.png';
+export const BlockHome_Teacher = () => {
 
-export const BlockHome = () => {
     return (
         <div className="rightblockhome">
             <div className="blockwhitehome">
                 <Row className="blocktop">
                 <Col >
                         <div className="block1">
-                            <p className="hello">Hello, Phurit</p>
+                            <p className="hello">Hello, Nutchakorn</p>
                         </div>
 
                         <div className="block2">
@@ -90,11 +89,11 @@ export const BlockHome = () => {
                     <Col >
                         <Row className="block123">
                             
-                            <span className="search"><i class="fa fa-search fa-2x" aria-hidden="true"></i> </span>
+                            <span className="search_t"><i class="fa fa-search fa-2x" aria-hidden="true"></i> </span>
                             
-                            <span className="stuname">Phurit Apichonlati</span>
+                            <span className="stuname">Nutchakorn Ngamsaowaros</span>
 
-                            <span><img className="pichome" src={pooh2} alt=""/></span>
+                            <span><img className="pichome" src={sweetmango} alt=""/></span>
                            
                         </Row>
                         

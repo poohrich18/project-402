@@ -1,13 +1,15 @@
 import React from 'react';
 
-function BlockCalendar(){
+export const BlockCalendar = () => {
+
+
     return (
-        <div className="rightblock">
-            <div className="blockwhite">
-            <p className="Topname">Calendar</p>
+        <div className="rightblockcalendar">
+            <div className="blockwhitecalendar">
+            <h1 className="TopnameCalendar">Calendar</h1>
+            
+            <hr className="hr-calendar"></hr>
             </div>
         </div>
     )
 }
-
-export default BlockCalendar;

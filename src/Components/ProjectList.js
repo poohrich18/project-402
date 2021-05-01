@@ -15,7 +15,7 @@ export const ProjectList = () => {
          axios.get('http://localhost:5000/group/').then((respond) =>{
             setgroupList(respond.data);
          });
-        }
+    }
 
     return (
         <ListGroup className="mt-4">
@@ -23,7 +23,12 @@ export const ProjectList = () => {
                  <>
                 {users.map(user => (
                     <ListGroupItem className="d-flex" key={user.id}>
-                        <strong className="groupnamelist">{user.name}</strong>
+                        <strong className="groupnamelist">
+                            <Link
+                                to="/mygroup">
+                                {user.groupname}
+                            </Link>
+                        </strong>
                         <div className="btn-list ml-auto">
                             <Link 
                                 className="btn btn-warning mr-1" 

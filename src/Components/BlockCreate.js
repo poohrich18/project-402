@@ -21,6 +21,7 @@ import {
   Input,
   // Button
 } from "reactstrap";
+import { set } from "mobx";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,13 +42,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const BlockCreate = () => {
+
   const classes = useStyles();
 
   const [name, setName] = useState("");
   const { addUser } = useContext(GlobalContext);
   const history = useHistory();
 
-  const [inputNameGroup, setInputGroupName] = useState([{ groupname: "" }]);
+  const [inputNameGroup, setInputGroupName] = useState([
+    { groupname: "" }]);
   const [inputFields, setInputFields] = useState([
     { firstName: "", lastName: "" },
   ]);
@@ -56,43 +59,29 @@ export const BlockCreate = () => {
   ]);
 
   const onChange = (e) => {
-    //setName(e.target.value);
+    // setName(e.target.value);
     setGroupname(e.target.value)
-
   };
 
-  const handleSubmit = () => {
-    // e.preventDefault();
-    history.push("/project");
-    console.log("InputFields", inputNameGroup);
-    console.log("InputFields", inputFields);
-    console.log("InputFields", inputFields2);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
   };
 
   const onSubmit = () => {
     const newUser = {
       id: uuid(),
-      name,
+      groupname
     };
     addUser(newUser);
-    history.push("/project");
-    console.log("InputFields", inputNameGroup);
-    console.log("InputFields", inputFields);
-    console.log("InputFields", inputFields2);
+    history.push("/group");
+    console.log("InputFields NameGroup", groupname);
+    console.log("InputFields FirstName Member: ", memberfirstname);
+    console.log("InputFields LastName Member: ", memberlastname);
+    console.log("InputFields FirstName Advisor: ", advisorfirstname);
+    console.log("InputFields LastName Advisor: ", advisorlastname);
   };
-  // const componentDidMount = () => {
-  //     axios.get('http://localhost:5000/group/')
-  //       .then(response => {
-  //         if (response.data.length > 0) {
-  //           this.setState({
-  //             // users: response.data.map(user => user.username),
-  //             // username: response.data[0].username
-  //           })
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       })}
+
   const [groupname, setGroupname] = useState("");
   const [memberfirstname, setmemberFirstname] = useState("");
   const [memberlastname, setmemberLastname] = useState("");
@@ -100,7 +89,6 @@ export const BlockCreate = () => {
   const [advisorlastname, setadvisorlastname] = useState("");
 
   const [groupList, setgroupList] = useState([]);
-
   const addGroup = () => {
     axios
       .post("http://localhost:5000/group/add", {
@@ -123,47 +111,8 @@ export const BlockCreate = () => {
         ]);
       });
   };
-  console.log(groupname);
-  //Group Name
-  const handleChangeInput0 = (index0, event) => {
-    const values0 = [...inputNameGroup];
-    values0[index0][event.target.name] = event.target.value;
-    setInputGroupName(values0);
-  };
+  // console.log(groupname);
 
-  // Member
-  const handleChangeInput = (index, event) => {
-    const values = [...inputFields];
-    values[index][event.target.name] = event.target.value;
-    setInputFields(values);
-  };
-
-  const handleRemoveFields = (index) => {
-    const values = [...inputFields];
-    values.splice(index, 1);
-    setInputFields(values);
-  };
-
-  const handleAddFields = () => {
-    setInputFields([...inputFields, { firstName: "", lastName: "" }]);
-  };
-
-  //Advisor
-  const handleChangeInput2 = (index2, event) => {
-    const values2 = [...inputFields2];
-    values2[index2][event.target.name] = event.target.value;
-    setInputFields2(values2);
-  };
-
-  const handleRemoveFields2 = (index2) => {
-    const values2 = [...inputFields2];
-    values2.splice(index2, 1);
-    setInputFields2(values2);
-  };
-
-  const handleAddFields2 = () => {
-    setInputFields2([...inputFields2, { firstName: "", lastName: "" }]);
-  };
 
   return (
     <div className="rightblockcreate">
@@ -173,108 +122,94 @@ export const BlockCreate = () => {
         <Container>
           <Form onSubmit={onSubmit}>
             <h4 className="GroupName">Group Name</h4>
-            <div className="fieldmember">
-              <TextField
-                type="text"
-                label="Enter Name"
-                variant="outlined"
-                value={inputNameGroup.setGroupname} //inputNameGroup.setGroupname
 
+            <div className="fieldmember"  >
+              <TextField
+                name="groupname"
+                label="Group name"
+                variant="outlined"
+                // value={name} 
                 onChange={onChange}
+                value={groupname.setGroupname}
+              // onChange={event => handleChangeInput0(index0, event)}
               />
-             
             </div>
 
-            {/* <h4 className="GroupName">Group Name</h4>
-                <form className={classes.root}>
-                    {inputNameGroup.map((inputNameGroup, index0) => (
-                        <div className="fieldmember"  key={index0}>
-                            <TextField onSubmit={handleSubmit}
-                            name="groupname"
-                            label="Group name"
-                            variant="outlined"
-                            // value={name} 
-                            // onChange = {onChange}
-                            value={inputNameGroup.groupname}
-                            onChange={event => handleChangeInput0(index0, event)}
-                            />
-                        </div>
-                    ))}
-                </form> */}
+
 
             <h4 className="Add-Member">Member</h4>
 
-            <form className={classes.root} onSubmit={handleSubmit}>
-              {inputFields.map((inputField, index) => (
-                <div className="fieldmember" key={index}>
+            <form className={classes.root} >
+            <div className="fieldmember"  >
                   <TextField
-                    name="firstName"
+                    name="memberfirst"
                     label="First Name"
                     variant="outlined"
-                    value={inputField.firstName.setGroupname}//inputField.firstName
+                    value={memberfirstname.setmemberFirstname}//inputField.firstName
                     // onChange={(event) => handleChangeInput(index, event)}
+                    // onChange={onChange}
                     onChange={(e)=>{
                       setmemberFirstname(e.target.value);
                     }}
                   />
                   <TextField
-                    name="lastName"
+                    name="memberlast"
                     label="Last Name"
                     variant="outlined"
-                    value={inputField.lastName.setmemberLastname}
+                    value={memberlastname.setmemberLastname}
                     // onChange={(event) => handleChangeInput(index, event)}
+                    // onChange={onChange}
                     onChange={(e)=>{
                       setmemberLastname(e.target.value);
                     }}
                   />
-                  <IconButton onClick={() => handleRemoveFields(index)}>
+                  <IconButton >
                     <RemoveIcon />
                   </IconButton>
 
-                  <IconButton onClick={() => handleAddFields()}>
+                  <IconButton >
                     <AddIcon />
                   </IconButton>
-                </div>
-              ))}
+                /</div>
             </form>
 
             <h4 className="Add-Advisor">Advistor</h4>
 
-            <form className={classes.root} onSubmit={handleSubmit}>
-              {inputFields2.map((inputField2, index2) => (
-                <div className="fieldmember" key={index2}>
+            <form className={classes.root} >
+              
+            <div className="fieldmember"  >
                   <TextField
-                    name="firstName"
+                    name="advisorfirst"
                     label="First Name"
                     variant="outlined"
-                    value2={inputField2.setadvisorFirstname}
+                    value2={advisorfirstname.setadvisorFirstname}
                     // onChange={(event) => handleChangeInput2(index2, event)}
                     onChange={(e)=>{
                       setadvisorFirstname(e.target.value);
                     }}
                   />
                   <TextField
-                    name="lastName"
+                    name="advisorlast"
                     label="Last Name"
                     variant="outlined"
-                    value2={inputField2.setadvisorlastname}
+                    value2={advisorlastname.setadvisorlastname}
                     // onChange={(event) => handleChangeInput2(index2, event)}
                     onChange={(e)=>{
                       setadvisorlastname(e.target.value);
                     }}
                   />
-                  <IconButton onClick={() => handleRemoveFields2(index2)}>
+                  <IconButton >
                     <RemoveIcon />
                   </IconButton>
 
-                  <IconButton onClick={() => handleAddFields2()}>
+                  <IconButton >
                     <AddIcon />
                   </IconButton>
-                </div>
-              ))}
+              
+              </div>
             </form>
 
-            <Button onClick={addGroup}
+            <Button  onClick={addGroup}
               id="btn-create"
               className={classes.button}
               variant="outlined"
@@ -299,27 +234,6 @@ export const BlockCreate = () => {
             {/* <Link to="/project" className="btn btn-danger ml-2">Cancel</Link> */}
           </Form>
         </Container>
-
-        {/* <Button id="btn-create"
-                    className={classes.button}
-                    variant="outlined"
-                    color="primary"
-                    type="submit"
-                    endIcon={<Icon>add</Icon>}
-                    onClick={handleSubmit}
-                > Create
-                </Button>
-                   
-                <Button id="btn-cancel"
-                    className={classes.button2}
-                    variant="outlined"
-                    color="primary"
-                    type="submit"
-                    endIcon={<Icon>close</Icon>}
-                    onClick={handleSubmit}
-                > 
-                <Link to="/project">Cancel</Link>
-                </Button> */}
       </div>
     </div>
   );
