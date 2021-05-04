@@ -6,6 +6,8 @@ import Icon from "@material-ui/core/Icon";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { ProjectList } from "./ProjectList";
+import BorderAllIcon from '@material-ui/icons/BorderAll';
+
 import { useState } from "react";
 import axios from "axios";
 
@@ -13,7 +15,12 @@ const useStyles = makeStyles((theme) => ({
   button2: {
     margin: theme.spacing(1),
     marginLeft: "24px",
-    // marginTop: "40px"
+    marginTop: "20px"
+  },
+  button3: {
+    margin: theme.spacing(1),
+    marginLeft: "4px",
+    marginTop: "20px"
   },
 }));
 
@@ -30,9 +37,10 @@ export const Blockproject = () => {
 
   return (
     <div className="rightblockproject">
-      <div className="blockwhiteproject">
-        <h1 className="Topname">Project</h1>
 
+      <div className="blockwhiteproject">
+        <h1 className="TopnameGroup">Group</h1>
+        <hr className="hr-group"></hr>
         <Container>
           <Button
             id="btn-addproject"
@@ -42,20 +50,28 @@ export const Blockproject = () => {
             type="submit"
             endIcon={<Icon>add</Icon>}
           >
-            <Link to="/create">Add Project</Link>
+          <Link to="/create">Add Group</Link>
           </Button>
-          <Button className="btn btn-primary" onClick={getGroup}> Show All Group</Button>
-          <br></br>
-          <br></br>
+
+          <Button 
+            className={classes.button3} 
+            variant="outlined"
+            color="primary"
+            type="submit"
+            endIcon={<BorderAllIcon />}
+            onClick={getGroup}> Show All Group
+          </Button>
+          {/* <br></br>
+          <br></br> */}
           {groupList.map((val, key) => {
             return (
-                <div className=" group list"> 
-                    <div className="card-body text-left">
-                    <p className="card-text">Groupname: {val.groupname}</p>
-                    <p className="card-text">Firstname Member: {val.memberfirstname}</p>
-                    <p className="card-text">Lastname Member: {val.memberlastname}</p>
-                    <p className="card-text">Adivisor: {val.advisorfirstname}</p>
-                    </div>
+              <div className=" group list">
+                <div className="card-body text-left">
+                  <p className="card-text">Groupname: {val.groupname}</p>
+                  <p className="card-text">Firstname Member: {val.memberfirstname}</p>
+                  <p className="card-text">Lastname Member: {val.memberlastname}</p>
+                  <p className="card-text">Adivisor: {val.advisorfirstname}</p>
+                </div>
               </div>
             )
           })}

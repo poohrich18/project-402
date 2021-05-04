@@ -31,8 +31,8 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     margin: theme.spacing(1),
-    marginLeft: "70px",
-    marginTop: "50px",
+    marginLeft: "48px",
+    marginTop: "50px"
   },
   button2: {
     margin: theme.spacing(1),
@@ -117,7 +117,9 @@ export const BlockCreate = () => {
   return (
     <div className="rightblockcreate">
       <div className="blockwhitecreate">
-        <h1 className="Topname">Create Group</h1>
+      <h1 className="TopnameCreate">Create Group</h1>
+
+      <hr className="hr-create"></hr>
 
         <Container>
           <Form onSubmit={onSubmit}>
@@ -126,8 +128,9 @@ export const BlockCreate = () => {
             <div className="fieldmember"  >
               <TextField
                 name="groupname"
-                label="Group name"
+                label="Enter Name"
                 variant="outlined"
+                type="text"
                 // value={name} 
                 onChange={onChange}
                 value={groupname.setGroupname}
@@ -170,7 +173,7 @@ export const BlockCreate = () => {
                   <IconButton >
                     <AddIcon />
                   </IconButton>
-                /</div>
+                </div>
             </form>
 
             <h4 className="Add-Advisor">Advistor</h4>

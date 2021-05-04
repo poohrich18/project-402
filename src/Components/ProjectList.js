@@ -32,13 +32,14 @@ export const ProjectList = () => {
                         <div className="btn-list ml-auto">
                             <Link 
                                 className="btn btn-warning mr-1" 
-                                to={`/edit/${user.id}`}>Edit</Link>
-                        <Button className="btn btn-primary">Show All Group</Button>
-                        <Button
-                        className="btn-delete"
-                        onClick={() => removeUser(user.id)}
-                        color="danger">Delete</Button>
-                    </div>
+                                to={`/edit/${user.id}`}>Edit
+                            </Link>
+                            <Button
+                                className="btn-delete"
+                                onClick={() => removeUser(user.id)}
+                                color="danger">Delete
+                            </Button>
+                        </div>
                 </ListGroupItem>
                 ))}
                 </>
