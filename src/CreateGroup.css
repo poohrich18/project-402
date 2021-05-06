@@ -90,3 +90,12 @@ hr.hr-create{
     margin-bottom: 0px;
     margin-left: 48px;
 }
+
+label.form-label{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+input.from-control.form-control {
+    width: 200px;
+    margin-left: 10px;
+}
