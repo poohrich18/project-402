@@ -75,10 +75,13 @@ body{
 .block123.row{
     margin-top: 33px;
     /* background-color: aqua; */
-    /* width: fit-content; */
-    width: 346px;
+    width: fit-content;
+    /* width: 346px; */
     margin-left: 18px;
     height: 40px;
+    margin-right: 32px;
+    Justify-content:right ;
+    Float:right ;
 }
 
 
@@ -117,8 +120,8 @@ body{
     color: #134F71;
     font-weight: bold;
     font-family: SF Pro Display;
-    /* margin-left: 10px; */
-    padding-left: 18px;
+    margin-left: 10px;
+    /* padding-left: 18px; */
     /* text-align: center; */
     vertical-align:middle;
     
@@ -311,7 +314,7 @@ p.noti1{
     
 }
 
-.fa-calendar{
+.fa-calendar-o{
     margin-left: 24px;
 }
 

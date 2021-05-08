@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const BlockCreate = () => {
+export const BlockCreate_Student2 = () => {
   const classes = useStyles();
   const { addUser } = useContext(GlobalContext);
   const history = useHistory();
@@ -71,7 +71,7 @@ export const BlockCreate = () => {
       groupname
     }
     addUser(newUser);
-    history.push('/group');
+    history.push('/group2');
   }
 
   const addGroup = () => {
