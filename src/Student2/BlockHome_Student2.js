@@ -1,8 +1,9 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import 'font-awesome/css/font-awesome.css'
-import noon from '../assets/noon.jpg';
-export const BlockHome_Teacher = () => {
+import praew1 from '../assets/praew1.jpg';
+
+export const BlockHome_Student2 = () => {
 
     return (
         <div className="rightblockhome">
@@ -10,7 +11,7 @@ export const BlockHome_Teacher = () => {
                 <Row className="blocktop">
                 <Col >
                         <div className="block1">
-                            <p className="hello">Hello, Prapaporn</p>
+                            <p className="hello">Hello, Supitcha</p>
                         </div>
 
                         <div className="block2">
@@ -86,13 +87,15 @@ export const BlockHome_Teacher = () => {
                 </Row>
                 <Row className="blocktop2">
                     <Col >
-                        <Row className="block123">
+                    <Row className="block123">
                             
-                            {/* <span className="search_t"><i class="fa fa-search fa-2x" aria-hidden="true"></i> </span> */}
+                            {/* <span className="search"><i class="fa fa-search fa-2x" aria-hidden="true"></i> </span> */}
                             
-                            <span className="stuname">Prapaporn Rattanatamrong</span>
+                            {/* <span className="search"><i class="fa fa-search fa-2x" aria-hidden="true"></i> </span> */}
+                            
+                            <span className="stuname">Supitcha Ratanatrimas</span>
 
-                            <span><img className="pichome" src={noon} alt=""/></span>
+                            <span><img className="pichome" src={praew1} alt=""/></span>
                            
                         </Row>
                         
@@ -182,7 +185,7 @@ export const BlockHome_Teacher = () => {
                         <div className="c">
                             <p className="noti1">First Meet: Online Meeting Via Cisco Webex</p>
                             <div className="noti1-1">
-                                <span><i class="fa fa-calendar fa-1x" aria-hidden="true"></i></span>
+                                <span><i class="fa fa-calendar-o fa-1x" aria-hidden="true"></i></span>
                                 <span className="noti2">Thursday 12, 2020</span>
                             </div>
                            <div className="noti1-1">
@@ -195,7 +198,7 @@ export const BlockHome_Teacher = () => {
                         <div className="d">
                             <p className="noti1">First Meet: Online Meeting Via Cisco Webex</p>
                             <div className="noti1-1">
-                                <span><i class="fa fa-calendar fa-1x" aria-hidden="true"></i></span>
+                                <span><span><i class="fa fa-calendar-o fa-1x" aria-hidden="true"></i></span></span>
                                 <span className="noti2">Thursday 12, 2020</span>
                             </div>
                            <div className="noti1-1">
