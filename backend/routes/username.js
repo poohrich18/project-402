@@ -14,12 +14,11 @@ router.route('/').post((req, res) => {
   Username.find({id:username})
     .then(data =>{ 
      // console.log("type",data[0].type); 
- 
       if(data[0].id == username){
         if(data[0].pass == password){
-          res.send(data[0].type)
+          res.send(data[0])
           
-          //console.log(data[0].type);
+          //console.log(data[0].id);
         }
       }
     })
