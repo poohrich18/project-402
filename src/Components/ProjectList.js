@@ -9,14 +9,8 @@ export const ProjectList = () => {
 
     const {users , removeUser} = useContext(GlobalContext);
     console.log(users) ;
-    const [groupList , setgroupList] = useState([]);
+   
     
-    const getGroup = () =>{
-         axios.get('http://localhost:5000/group/').then((respond) =>{
-            setgroupList(respond.data);
-         });
-    }
-
     return (
         <ListGroup className="mt-4">
             {users.length > 0 ? (
@@ -32,14 +26,13 @@ export const ProjectList = () => {
                         <div className="btn-list ml-auto">
                             <Link 
                                 className="btn btn-warning mr-1" 
-                                to={`/edit/${user.id}`}>Edit
-                            </Link>
-                            <Button
-                                className="btn-delete"
-                                onClick={() => removeUser(user.id)}
-                                color="danger">Delete
-                            </Button>
-                        </div>
+                                to={`/edit/${user.id}`}>Edit</Link>
+                       
+                        <Button
+                        className="btn-delete"
+                        onClick={() => removeUser(user.id)}
+                        color="danger">Delete</Button>
+                    </div>
                 </ListGroupItem>
                 ))}
                 </>
