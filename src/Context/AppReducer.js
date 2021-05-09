@@ -10,6 +10,10 @@ export default (state, action) => {
             return {
                 users: [action.payload, ...state.users]
             }
+        case 'ADD_FORM':
+            return {
+                users: [action.payload, ...state.users]
+            }
         case 'EDIT_USER':
             const updateUser = action.payload;
 

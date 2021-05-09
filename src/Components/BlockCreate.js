@@ -72,6 +72,7 @@ export const BlockCreate = () => {
     }
     addUser(newUser);
     history.push('/group');
+    console.log(groupname);
   }
 
   const addGroup = () => {
@@ -178,9 +179,20 @@ export const BlockCreate = () => {
               color="primary"
               type="submit"
               variant="outlined"
-              endIcon={<Icon>close</Icon>}
+              endIcon={<Icon>add</Icon>}
             >
               Submit
+            </Button>
+
+            <Button id="btn-cancel"
+              className={classes.button2}
+              variant="outlined"
+              color="primary"
+              type="submit"
+              endIcon={<Icon>close</Icon>}
+              // onClick={handleSubmit}
+            >
+              <Link to="/group">Cancel</Link>
             </Button>
           </Form>
         </Container>

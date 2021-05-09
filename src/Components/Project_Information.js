@@ -1,17 +1,13 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
+import React , { useEffect, useState , useContext} from "react";
+import { Row, Col, Container } from "react-bootstrap";
+import { GlobalContext } from "../Context/GlobalState";
 import { Link } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import "../Project_Information.css";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import FormControl from "@material-ui/core/FormControl";
-import MenuItem from "@material-ui/core/MenuItem";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
 import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
-import react, { useEffect, useState } from "react";
 import axios from "axios";
 import {
   Form,
@@ -53,62 +49,73 @@ const useStyles = makeStyles((theme) => ({
 
 export const Project_Information = () => {
   const classes = useStyles();
+  const { addForm } = useContext(GlobalContext);
 
-const [projnamethai, setprojnamethai] = useState("");
-const [projnameeng, setprojnameeng] = useState("");
-const [member1firstname, setmember1Firstname] = useState("");
-const [member1lastname, setmember1Lastname] = useState("");
-const [id1, setid1] = useState("");
-const [semester1, setsemester1] = useState("");
-const [member2firstname, setmember2Firstname] = useState("");
-const [member2lastname, setmember2Lastname] = useState("");
-const [id2, setid2] = useState("");
-const [semester2, setsemester2] = useState("");
-const [advisor, setadvisor] = useState("");
+  const [projnamethai, setprojnamethai] = useState("");
+  const [projnameeng, setprojnameeng] = useState("");
+  const [member1firstname, setmember1Firstname] = useState("");
+  const [member1lastname, setmember1Lastname] = useState("");
+  const [id1, setid1] = useState("");
+  const [semester1, setsemester1] = useState("");
+  const [member2firstname, setmember2Firstname] = useState("");
+  const [member2lastname, setmember2Lastname] = useState("");
+  const [id2, setid2] = useState("");
+  const [semester2, setsemester2] = useState("");
+  const [advisor, setadvisor] = useState("");
 
 
-const [projectList, setprojectList] = useState([]);
-
-const addProject = () => {
-  axios
-    .post("http://localhost:5000/projinfo/add", {
-      projnamethai: projnamethai,
-      projnameeng: projnameeng,
-      member1firstname: member1firstname,
-      member1lastname: member1lastname,
-      id1: id1,
-      semester1: semester1,
-      member2firstname: member2firstname,
-      member2lastname: member2lastname,
-      id2: id2,
-      semester2: semester2,
-      advisor: advisor,
-    })
-    .then(() => {
-      setprojectList([
-        ...projectList,
-        {
-          projnamethai: projnamethai,
-          projnameeng: projnameeng,
-          member1firstname: member1firstname,
-          member1lastname: member1lastname,
-          id1: id1,
-          semester1: semester1,
-          member2firstname: member2firstname,
-          member2lastname: member2lastname,
-          id2: id2,
-          semester2: semester2,
-          advisor: advisor,
-        },
-      ]);
-    });
+  const [projectList, setprojectList] = useState([]);
+  
+  const SubmitForm = (e) => {
+    // e.preventDefault();
+    const newForm = {
+      projnamethai,
+      projnameeng
+    }
+    addForm(newForm);
+  };
+  console.log(projnamethai);
+  console.log(projnameeng);
+  const addProject = () => {
+    axios
+      .post("http://localhost:5000/projinfo/add", {
+        projnamethai: projnamethai,
+        projnameeng: projnameeng,
+        member1firstname: member1firstname,
+        member1lastname: member1lastname,
+        id1: id1,
+        semester1: semester1,
+        member2firstname: member2firstname,
+        member2lastname: member2lastname,
+        id2: id2,
+        semester2: semester2,
+        advisor: advisor,
+      })
+      .then(() => {
+        setprojectList([
+          ...projectList,
+          {
+            projnamethai: projnamethai,
+            projnameeng: projnameeng,
+            member1firstname: member1firstname,
+            member1lastname: member1lastname,
+            id1: id1,
+            semester1: semester1,
+            member2firstname: member2firstname,
+            member2lastname: member2lastname,
+            id2: id2,
+            semester2: semester2,
+            advisor: advisor,
+          },
+        ]);
+      });
 };
 
+  
   return (
     <Row className="content">
       <Col>
-        {" "}
-        <Sidebar />{" "}
+        <Sidebar />
       </Col>
 
       <Col>
@@ -118,7 +125,8 @@ const addProject = () => {
 
             <hr className="hr-InformProject"></hr>
 
-            <Form>
+            <Container>
+            <Form onSubmit={SubmitForm}>
               <h4 className="GroupName">ชื่อโครงงานภาษาไทย</h4>
               <div className="fieldmember">
                 <TextField
@@ -285,6 +293,7 @@ const addProject = () => {
                 <Link to="/home">Cancel</Link>
               </Button>
             </Form>
+            </Container>
           </div>
         </div>
       </Col>
