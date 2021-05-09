@@ -20,7 +20,6 @@ router.route("/add").post((req, res) => {
   const semester2 = req.body.semester2;
   const advisor = req.body.advisor;
   
-  //console.log("projinfo", projinfo);
   const newProjinfo = new Projinfo({
     projnamethai,
     projnameeng,
