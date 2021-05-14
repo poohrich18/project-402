@@ -9,7 +9,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 export const SidebarData_Teacher = [
     {
         title : "Dashboard" ,
-        icon : <DashboardIcon /> ,
+        icon : <i class="fa fa-home fa-1x" aria-hidden="true"></i> ,
         link : "/home_t"
     },
     // {
@@ -19,22 +19,22 @@ export const SidebarData_Teacher = [
     // },
     {
         title : "Group" ,
-        icon : <WorkIcon /> ,
+        icon : <i class="fa fa-users fa-1x" aria-hidden="true"></i> ,
         link : "/group_t"
     },
     {
         title : "My Group" ,
-        icon : <PlaylistAddCheckIcon /> ,
+        icon : <i class="fa fa-briefcase fa-1x" aria-hidden="true"></i> ,
         link : "/group_t"
     },
     {
         title : "Calendar" ,
-        icon : <EventIcon /> ,
+        icon : <i class="fa fa-calendar fa-1x" aria-hidden="true"></i>,
         link : "/calendar_t"
     },
     {
         title : "Setting" ,
-        icon : <SettingsIcon /> ,
+        icon : <i class="fa fa-cog fa-1x" aria-hidden="true"></i> ,
         link : "/setting_t"
     },
 ];

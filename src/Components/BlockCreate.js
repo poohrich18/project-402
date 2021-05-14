@@ -174,7 +174,7 @@ export const BlockCreate = () => {
 
 
             <Button
-              className={classes.button}
+              className="buttonadd"
               onClick={addGroup}
               color="primary"
               type="submit"
@@ -185,7 +185,7 @@ export const BlockCreate = () => {
             </Button>
 
             <Button id="btn-cancel"
-              className={classes.button2}
+              className="buttoncancel"
               variant="outlined"
               color="primary"
               type="submit"

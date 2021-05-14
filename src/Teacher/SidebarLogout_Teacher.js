@@ -6,7 +6,7 @@ export const SidebarLogout_Teacher = [
     
     {
         title : "Log out" ,
-        icon : <ExitToAppIcon /> ,
+        icon : <i class="fa fa-sign-out fa-1x" aria-hidden="true"></i> ,
         link : "/"
     },
 ];

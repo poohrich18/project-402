@@ -17,14 +17,14 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "24px",
     marginTop: "20px"
   },
-  button3: {
-    margin: theme.spacing(1),
-    marginLeft: "4px",
-    marginTop: "20px"
-  },
+  // button3: {
+  //   margin: theme.spacing(1),
+  //   marginLeft: "4px",
+  //   marginTop: "20px"
+  // },
 }));
 
-export const Blockproject = () => {
+export const BlockGroup = () => {
   const classes = useStyles();
 
   const [groupList, setgroupList] = useState([]);
@@ -44,7 +44,7 @@ export const Blockproject = () => {
         <Container>
           <Button
             id="btn-addproject"
-            className={classes.button2}
+            className="buttonaddgroup"
             variant="outlined"
             color="primary"
             type="submit"
@@ -53,14 +53,14 @@ export const Blockproject = () => {
           <Link to="/create">Add Group</Link>
           </Button>
 
-          <Button 
+          {/* <Button 
             className={classes.button3} 
             variant="outlined"
             color="primary"
             type="submit"
             endIcon={<BorderAllIcon />}
             onClick={getGroup}> Show All Group
-          </Button>
+          </Button> */}
           {/* <br></br>
           <br></br> */}
           {groupList.map((val, key) => {

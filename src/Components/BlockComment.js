@@ -4,8 +4,9 @@ function BlockComment() {
     return (
         <div className="rightblockcomment">
             <div className="blockwhitecomment">
-                <p className="Topname">Comment</p>
-
+                
+                <h1 className="TopnameComment">Comment</h1>
+                <hr className="hr-comment"></hr>
                 {/* <Form.Group as={Row} controlId="detail-product">
                     <Form.Label column sm={3}>
                         ความคิดเห็น:
