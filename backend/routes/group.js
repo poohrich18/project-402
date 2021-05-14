@@ -100,6 +100,17 @@ router.route("/update5").put((req, res) => {
   }
 });
 
+router.route("/delete1/:id").delete((req, res) => {
+  const id = req.params.id;
+  Group.findByIdAndRemove(id).exec();
+  res.send("delete");
+});
+
+router.route("/delete2/:id").delete((req, res) => {
+  const id = req.params.id;
+  res.send(id);
+});
+
 router.route("/:id").get((req, res) => {
   Group.findById(req.params.id)
     .then((group) => res.json(group))

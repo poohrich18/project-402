@@ -69,11 +69,17 @@ export const Blockproject = () => {
       id: id,
     });
   };
-  const updateAvisorLastname = (id) => {
+
+  const  updateAvisorLastname = (id) => {
     axios.put("http://localhost:5000/group/update5/", {
       advisorlaststname: newadvisorlastname,
       id: id,
     });
+  };
+
+  const deleteGroupname = (id) => {
+    axios.delete(`http://localhost:5000/group/delete1/${id}`);
+   
   };
   // const updateGroupname = (id) => {
   //   axios
@@ -162,6 +168,14 @@ export const Blockproject = () => {
                       }}
                     >
                       Update
+                    </button>
+                    <button
+                      className="btn btn-warning"
+                      onClick={() => {
+                        deleteGroupname(val._id);
+                      }}
+                    >
+                      Delete
                     </button>
                   </div>
                   <div className="d-flex">
