@@ -173,14 +173,25 @@ export const BlockCreate_Student2 = () => {
 
 
             <Button
-              className={classes.button}
+              className="buttonadd"
               onClick={addGroup}
               color="primary"
               type="submit"
               variant="outlined"
-              endIcon={<Icon>close</Icon>}
+              endIcon={<Icon>add</Icon>}
             >
               Submit
+            </Button>
+
+            <Button id="btn-cancel"
+              className="buttoncancel"
+              variant="outlined"
+              color="primary"
+              type="submit"
+              endIcon={<Icon>close</Icon>}
+              // onClick={handleSubmit}
+            >
+              <Link to="/group2">Cancel</Link>
             </Button>
           </Form>
         </Container>

@@ -4,7 +4,7 @@ import pooh2 from '../assets/pooh2.jpg';
 import praew1 from '../assets/praew1.jpg';
 import sweetmango from '../assets/sweetmango.png';
 
-export const BlockGroup = () => {
+export const BlockMyGroup2 = () => {
 
     return (
         <div className="rightblocktask">

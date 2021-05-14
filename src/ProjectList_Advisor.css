@@ -1,4 +1,4 @@
-.rightblockmessage{
+.rightblockCSproject{
     margin: 0px;
     margin-left: 276px;
     width: 1275px;
@@ -12,7 +12,7 @@
    
 }
 
-.blockwhitemessage{
+.blockwhiteCSproject{
     height: 693px; 
     display: block;
     width: 1247px;
@@ -24,12 +24,32 @@
     margin-right: 14px;
     position: absolute;
     border-radius: 25px;
+    display: block;
+    overflow-y: auto;
+    white-space: nowrap;
 }
-.Topname{
-    margin-top: 48px;
+
+.TopnameCSproject{
+    margin-top: 28px;
     margin-left: 48px;
     font-family: SF Pro Display;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: bold;
     color: #2F4050;
 }
+
+hr.hr-csproject{
+    /* color: #134F71; */
+    /* justify-items: center; */
+    width: 1151px;
+    margin-top: 12px;
+    border-top: 1px solid rgba(229, 229, 229, 1);
+    margin-bottom: 0px;
+    margin-left: 48px;
+}
+button.buttonttt{
+     margin-right: 32px;
+     margin-top: 40px;
+     margin-bottom: 20px;
+     float: right;
+ }

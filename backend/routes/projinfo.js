@@ -1,13 +1,13 @@
-const router = require("express").Router();
-let Projinfo = require("../models/projinfo.model");
+const router = require('express').Router();
+let Projinfo = require('../models/projinfo.model');
 
-router.route("/").get((req, res) => {
+router.route('/').get((req, res) => {
   Projinfo.find()
     .then((projinfo) => res.json(projinfo))
-    .catch((err) => res.status(400).json("Error: " + err));
+    .catch((err) => res.status(400).json('Error: ' + err));
 });
 
-router.route("/add").post((req, res) => {
+router.route('/add').post((req, res) => {
   const projnamethai = req.body.projnamethai;
   const projnameeng = req.body.projnameeng;
   const member1firstname = req.body.member1firstname;
@@ -36,23 +36,23 @@ router.route("/add").post((req, res) => {
 
   newProjinfo
     .save()
-    .then(() => res.json("Project added!"))
-    .catch((err) => res.status(400).json("Error: " + err));
+    .then(() => res.json('Project added!'))
+    .catch((err) => res.status(400).json('Error: ' + err));
 });
 
-router.route("/:id").get((req, res) => {
+router.route('/:id').get((req, res) => {
   Projinfo.findById(req.params.id)
     .then((projinfo) => res.json(projinfo))
-    .catch((err) => res.status(400).json("Error: " + err));
+    .catch((err) => res.status(400).json('Error: ' + err));
 });
 
-router.route("/:id").delete((req, res) => {
+router.route('/:id').delete((req, res) => {
   Projinfo.findByIdAndDelete(req.params.id)
-    .then(() => res.json("Group deleted."))
-    .catch((err) => res.status(400).json("Error: " + err));
+    .then(() => res.json('Group deleted.'))
+    .catch((err) => res.status(400).json('Error: ' + err));
 });
 
-router.route("/update/:id").post((req, res) => {
+router.route('/update/:id').post((req, res) => {
   Projinfo.findById(req.params.id)
     .then((projinfo) => {
         const projnamethai = req.body.projnamethai;
@@ -69,10 +69,10 @@ router.route("/update/:id").post((req, res) => {
 
       projinfo
         .save()
-        .then(() => res.json("Group updated!"))
-        .catch((err) => res.status(400).json("Error: " + err));
+        .then(() => res.json('Group updated!'))
+        .catch((err) => res.status(400).json('Error: ' + err));
     })
-    .catch((err) => res.status(400).json("Error: " + err));
+    .catch((err) => res.status(400).json('Error: ' + err));
 });
 
 module.exports = router;

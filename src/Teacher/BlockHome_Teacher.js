@@ -64,7 +64,7 @@ export const BlockHome_Teacher = () => {
                         <Row className="pdf3">
                             <span className="pdf2-1"><i class="fa fa-file-text fa-2x" aria-hidden="true"></i></span>
                             <span className="pdf3-2">
-                                <a href="/project_inform">คลิกที่นี่เพื่อแจ้งข้อมูลเกี่ยวกับโครงงานวิชา คพ.401 และ คพ.402 ปีการศึกษา 2563 </a>
+                                คลิกที่นี่เพื่อแจ้งข้อมูลเกี่ยวกับโครงงานวิชา คพ.401 และ คพ.402 ปีการศึกษา 2563
                             </span>
                             <div className="pdf3-3">Available Until 15 October 2020, 11:55 Pm</div>
                         </Row>
@@ -182,7 +182,7 @@ export const BlockHome_Teacher = () => {
                         <div className="c">
                             <p className="noti1">First Meet: Online Meeting Via Cisco Webex</p>
                             <div className="noti1-1">
-                                <span><i class="fa fa-calendar fa-1x" aria-hidden="true"></i></span>
+                                <span><i class="fa fa-calendar-o fa-1x" aria-hidden="true"></i></span>
                                 <span className="noti2">Thursday 12, 2020</span>
                             </div>
                            <div className="noti1-1">
@@ -195,7 +195,7 @@ export const BlockHome_Teacher = () => {
                         <div className="d">
                             <p className="noti1">First Meet: Online Meeting Via Cisco Webex</p>
                             <div className="noti1-1">
-                                <span><i class="fa fa-calendar fa-1x" aria-hidden="true"></i></span>
+                                <span><span><i class="fa fa-calendar-o fa-1x" aria-hidden="true"></i></span></span>
                                 <span className="noti2">Thursday 12, 2020</span>
                             </div>
                            <div className="noti1-1">
