@@ -12,6 +12,7 @@ import Comment from './Comment';
 import { EditCreateGroup } from './Components/EditCreateGroup';
 import {Project_Information} from './Components/Project_Information';
 import {AvailableTime} from './Components/AvailableTime';
+
 //student2
 import Home_Student2 from './Home_Student2'
 import CreateGroup_Student2 from './CreateGroup_Student2';
@@ -21,12 +22,13 @@ import Calendar2 from './Calendar2';
 import Setting2 from './Setting2';
 import Notification_Student2 from './Notification_Student2';
 import { AcceptGroup } from './Components/AcceptGroup';
-
 import {Project_Information_2} from './Student2/Project_Information_2' ;
 import {AvailableTime_2} from './Student2/AvailableTime_2';
+
 //teacher
 import Home_Teacher from './Home_Teacher';
 import Notification_Teacher from './Notification_Teacher';
+import ProjectList_Teacher from './ProjectList_Teacher' ;
 
 //advisor
 import Home_Advisor from './Home_Advisor';
@@ -77,6 +79,7 @@ class App extends React.Component{
         {/* teacher */}
         <Route exact path="/home_t" component={Home_Teacher} />
         <Route exact path="/notification_t" component={Notification_Teacher} />
+        <Route exact path="/projectlist_t" component={ProjectList_Teacher} />
 
         {/* advisor */}
         <Route exact path="/home_a" component={Home_Advisor} />

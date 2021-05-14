@@ -207,7 +207,7 @@ const rows = [
 ];
 
 
-export const BlockProjectList_Advisor = () => {
+export const BlockProjectList_Teacher = () => {
 
     const classes = useStyles();
     return (
