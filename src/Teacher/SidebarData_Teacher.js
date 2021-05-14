@@ -1,9 +1,4 @@
 import React from 'react' 
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import WorkIcon from '@material-ui/icons/Work';
-import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
-import EventIcon from '@material-ui/icons/Event';
-import SettingsIcon from '@material-ui/icons/Settings';
 
 
 export const SidebarData_Teacher = [
