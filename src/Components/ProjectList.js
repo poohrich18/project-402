@@ -36,9 +36,11 @@ export const ProjectList = () => {
                 </ListGroupItem>
                 ))}
                 </>
-            ) : (
+            ) 
+            : (
                 <h4 className="text-center">No Group</h4>
-            )}
+            )
+            }
         </ListGroup>
     )
 }

@@ -64,20 +64,20 @@ export const BlockHome_Teacher = () => {
                         <Row className="pdf3">
                             <span className="pdf2-1"><i class="fa fa-file-text fa-2x" aria-hidden="true"></i></span>
                             <span className="pdf3-2">
-                                คลิกที่นี่เพื่อแจ้งข้อมูลเกี่ยวกับโครงงานวิชา คพ.401 และ คพ.402 ปีการศึกษา 2563
+                                <a href="/time_t">คลิกที่นี่เพื่อแจ้งข้อมูลวันไม่ว่างของอาจารย์</a>
                             </span>
-                            <div className="pdf3-3">Available Until 15 October 2020, 11:55 Pm</div>
+                            <div className="pdf3-3">Available Until 31 October 2020, 11:55 Pm</div>
                         </Row>
 
                         <Row className="pdf4">
                             <span className="pdf2-1"><i class="fa fa-file-text fa-2x" aria-hidden="true"></i></span>
                             <span className="pdf2-2">
-                               
-                                    คลิกที่นี่เพื่อแจ้งตารางสอบปลายภาค ภาคเรียนที่ 1 ปีการศึกษา 2563 (ต้องกรอกข้อมูลนี้ทุกคน)    
-                                    
-                                
+                            
+                                <a href="/score_t">ใบประเมินผล</a>
                             </span>
-                            <div className="pdf3-3">Available Until 31 October 2020, 11:55 Pm</div>
+                                
+                            
+                            <div className="pdf3-3">Available Until 18 December 2020, 11:55 Pm</div>
                         </Row>
                         
                     </Col>

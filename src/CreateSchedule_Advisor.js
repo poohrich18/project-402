@@ -2,7 +2,7 @@ import React from 'react';
 import './CreateSchedule_Advisor.css';
 import {Row , Col} from 'react-bootstrap';
 import Sidebar_Advisor from './Advisor/Sidebar_Advisor';
-import { BlockCreateSchedule } from './Advisor/BlockCreateSchedule';
+import BlockCreateSchedule from './Advisor/BlockCreateSchedule';
 
 function CreateSchedule_Advisor() {
     return (

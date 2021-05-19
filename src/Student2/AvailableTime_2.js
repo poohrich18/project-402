@@ -5,7 +5,7 @@ import Sidebar_Student2 from "../Student2/Sidebar_Student2";
 import Button from "@material-ui/core/Button";
 import Container from '@material-ui/core/Container';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+// import Checkbox from '@material-ui/core/Checkbox';
 import TextField from "@material-ui/core/TextField";
 import { Link } from "react-router-dom";
 import Icon from "@material-ui/core/Icon";
@@ -14,8 +14,13 @@ import {
     // Button
   } from "reactstrap";
 
-export const AvailableTime_2 = () => {
+  import { Checkbox } from 'antd';
 
+  
+export const AvailableTime_2 = () => {
+    function onChange(checkedValues) {
+        console.log('checked = ', checkedValues);
+        }
     return (
         <Row className="content">
             <Col>
@@ -40,31 +45,27 @@ export const AvailableTime_2 = () => {
                                     วันจันทร์ที่ 24 พฤษภาคม 2564
                                 </span>
                                 
-                                <FormControlLabel className="test1"
-                                    control={
-                                        <Checkbox 
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange}
-                                            color="primary"
-                                            style={{
-                                                transform: "scale(1)",
-                                            }}
-                                            
-                                        />
-                                    }
-                                    
-                                    label="09:00 - 12:00"
-                                />
-                                <FormControlLabel className="test1"
-                                    control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange}
-                                        color="primary"
-                                    />
-                                    }
-                                    label="13:00 - 16:00"
-                                />
+                            <Checkbox.Group className="checkgroup"
+                                style={{ width: '100%' , marginLeft: '30px' }} onChange={onChange}>
+                                <Row className="rowtimecheck">
+                                
+                                    <Checkbox value="slottime1">08:00 - 09:30</Checkbox>
+                                
+                                
+                                    <Checkbox value="slottime2">09:30 - 11:00</Checkbox>
+                             
+                               
+                                    <Checkbox value="slottime3">11:00 - 12:30</Checkbox>
+                               
+                               
+                                    <Checkbox value="slottime4">13:00 - 15:00</Checkbox>
+                                
+                                    <Checkbox value="slottime5">15:00 - 16:30</Checkbox>
+
+                                    <Checkbox value="slottime6">16:30 - 18:00</Checkbox>
+                                
+                                </Row>
+                            </Checkbox.Group>
                                 
                             </div>
 
@@ -73,31 +74,27 @@ export const AvailableTime_2 = () => {
                                     วันอังคารที่ 25 พฤษภาคม 2564
                                 </span>
                                 
-                                <FormControlLabel className="test1"
-                                    control={
-                                        <Checkbox 
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange}
-                                            color="primary"
-                                            style={{
-                                                transform: "scale(1)",
-                                            }}
-                                            
-                                        />
-                                    }
-                                    
-                                    label="09:00 - 12:00"
-                                />
-                                <FormControlLabel className="test1"
-                                    control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange}
-                                        color="primary"
-                                    />
-                                    }
-                                    label="13:00 - 16:00"
-                                />
+                                <Checkbox.Group className="checkgroup"
+                                    style={{ width: '100%' , marginLeft: '30px' }} onChange={onChange}>
+                                <Row className="rowtimecheck">
+                                
+                                    <Checkbox value="slottime1">08:00 - 09:30</Checkbox>
+                                
+                                
+                                    <Checkbox value="slottime2">09:30 - 11:00</Checkbox>
+                             
+                               
+                                    <Checkbox value="slottime3">11:00 - 12:30</Checkbox>
+                               
+                               
+                                    <Checkbox value="slottime4">13:00 - 15:00</Checkbox>
+                                
+                                    <Checkbox value="slottime5">15:00 - 16:30</Checkbox>
+
+                                    <Checkbox value="slottime6">16:30 - 18:00</Checkbox>
+                                
+                                </Row>
+                            </Checkbox.Group>
                                 
                             </div>
 
@@ -106,31 +103,27 @@ export const AvailableTime_2 = () => {
                                     วันพุธที่ 26 พฤษภาคม 2564
                                 </span>
                                 
-                                <FormControlLabel className="test1"
-                                    control={
-                                        <Checkbox 
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange}
-                                            color="primary"
-                                            style={{
-                                                transform: "scale(1)",
-                                            }}
-                                            
-                                        />
-                                    }
-                                    
-                                    label="09:00 - 12:00"
-                                />
-                                <FormControlLabel className="test1"
-                                    control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange}
-                                        color="primary"
-                                    />
-                                    }
-                                    label="13:00 - 16:00"
-                                />
+                                <Checkbox.Group className="checkgroup"
+                                style={{ width: '100%' , marginLeft: '30px' }} onChange={onChange}>
+                                <Row className="rowtimecheck">
+                                
+                                    <Checkbox value="slottime1">08:00 - 09:30</Checkbox>
+                                
+                                
+                                    <Checkbox value="slottime2">09:30 - 11:00</Checkbox>
+                             
+                               
+                                    <Checkbox value="slottime3">11:00 - 12:30</Checkbox>
+                               
+                               
+                                    <Checkbox value="slottime4">13:00 - 15:00</Checkbox>
+                                
+                                    <Checkbox value="slottime5">15:00 - 16:30</Checkbox>
+
+                                    <Checkbox value="slottime6">16:30 - 18:00</Checkbox>
+                                
+                                </Row>
+                            </Checkbox.Group>
                                 
                             </div>
 
@@ -139,31 +132,27 @@ export const AvailableTime_2 = () => {
                                     วันพฤหัสบดีที่ 27 พฤษภาคม 2564
                                 </span>
                                 
-                                <FormControlLabel className="test1"
-                                    control={
-                                        <Checkbox 
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange}
-                                            color="primary"
-                                            style={{
-                                                transform: "scale(1)",
-                                            }}
-                                            
-                                        />
-                                    }
-                                    
-                                    label="09:00 - 12:00"
-                                />
-                                <FormControlLabel className="test1"
-                                    control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange}
-                                        color="primary"
-                                    />
-                                    }
-                                    label="13:00 - 16:00"
-                                />
+                                <Checkbox.Group className="checkgroup"
+                                style={{ width: '100%' , marginLeft: '30px' }} onChange={onChange}>
+                                <Row className="rowtimecheck">
+                                
+                                    <Checkbox value="slottime1">08:00 - 09:30</Checkbox>
+                                
+                                
+                                    <Checkbox value="slottime2">09:30 - 11:00</Checkbox>
+                             
+                               
+                                    <Checkbox value="slottime3">11:00 - 12:30</Checkbox>
+                               
+                               
+                                    <Checkbox value="slottime4">13:00 - 15:00</Checkbox>
+                                
+                                    <Checkbox value="slottime5">15:00 - 16:30</Checkbox>
+
+                                    <Checkbox value="slottime6">16:30 - 18:00</Checkbox>
+                                
+                                </Row>
+                            </Checkbox.Group>
                                 
                             </div>
 
@@ -172,198 +161,30 @@ export const AvailableTime_2 = () => {
                                     วันศุกร์ที่ 28 พฤษภาคม 2564
                                 </span>
                                 
-                                <FormControlLabel className="test1"
-                                    control={
-                                        <Checkbox 
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange}
-                                            color="primary"
-                                            style={{
-                                                transform: "scale(1)",
-                                            }}
-                                            
-                                        />
-                                    }
-                                    
-                                    label="09:00 - 12:00"
-                                />
-                                <FormControlLabel className="test1"
-                                    control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange}
-                                        color="primary"
-                                    />
-                                    }
-                                    label="13:00 - 16:00"
-                                />
+                                <Checkbox.Group className="checkgroup"
+                                style={{ width: '100%' , marginLeft: '30px' }} onChange={onChange}>
+                                <Row className="rowtimecheck">
+                                
+                                    <Checkbox value="slottime1">08:00 - 09:30</Checkbox>
+                                
+                                
+                                    <Checkbox value="slottime2">09:30 - 11:00</Checkbox>
+                             
+                               
+                                    <Checkbox value="slottime3">11:00 - 12:30</Checkbox>
+                               
+                               
+                                    <Checkbox value="slottime4">13:00 - 15:00</Checkbox>
+                                
+                                    <Checkbox value="slottime5">15:00 - 16:30</Checkbox>
+
+                                    <Checkbox value="slottime6">16:30 - 18:00</Checkbox>
+                                
+                                </Row>
+                            </Checkbox.Group>
                                 
                             </div>
 
-                            <div className="examday">
-                                <span className="examdate1">
-                                    วันเสาร์ที่ 29 พฤษภาคม 2564
-                                </span>
-                                
-                                <FormControlLabel className="test1"
-                                    control={
-                                        <Checkbox 
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange}
-                                            color="primary"
-                                            style={{
-                                                transform: "scale(1)",
-                                            }}
-                                            
-                                        />
-                                    }
-                                    
-                                    label="09:00 - 12:00"
-                                />
-                                <FormControlLabel className="test1"
-                                    control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange}
-                                        color="primary"
-                                    />
-                                    }
-                                    label="13:00 - 16:00"
-                                />
-                                
-                            </div>
-
-                            <div className="examday">
-                                <span className="examdate1">
-                                    วันอาทิตย์ที่ 30 พฤษภาคม 2564
-                                </span>
-                                
-                                <FormControlLabel className="test1"
-                                    control={
-                                        <Checkbox 
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange}
-                                            color="primary"
-                                            style={{
-                                                transform: "scale(1)",
-                                            }}
-                                            
-                                        />
-                                    }
-                                    
-                                    label="09:00 - 12:00"
-                                />
-                                <FormControlLabel className="test1"
-                                    control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange}
-                                        color="primary"
-                                    />
-                                    }
-                                    label="13:00 - 16:00"
-                                />
-                                
-                            </div>
-
-                            <div className="examday">
-                                <span className="examdate1">
-                                    วันจันทร์ที่ 31 พฤษภาคม 2564
-                                </span>
-                                
-                                <FormControlLabel className="test1"
-                                    control={
-                                        <Checkbox 
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange}
-                                            color="primary"
-                                            style={{
-                                                transform: "scale(1)",
-                                            }}
-                                            
-                                        />
-                                    }
-                                    
-                                    label="09:00 - 12:00"
-                                />
-                                <FormControlLabel className="test1"
-                                    control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange}
-                                        color="primary"
-                                    />
-                                    }
-                                    label="13:00 - 16:00"
-                                />
-                                
-                            </div>
-
-                            <div className="examday">
-                                <span className="examdate1">
-                                    วันอังคารที่ 1 มิถุนายน 2564
-                                </span>
-                                
-                                <FormControlLabel className="test1"
-                                    control={
-                                        <Checkbox 
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange}
-                                            color="primary"
-                                            style={{
-                                                transform: "scale(1)",
-                                            }}
-                                            
-                                        />
-                                    }
-                                    
-                                    label="09:00 - 12:00"
-                                />
-                                <FormControlLabel className="test1"
-                                    control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange}
-                                        color="primary"
-                                    />
-                                    }
-                                    label="13:00 - 16:00"
-                                />
-                                
-                            </div>
-
-                            <div className="examday">
-                                <span className="examdate1">
-                                    วันพุธที่ 2 มิถุนยน 2564
-                                </span>
-                                
-                                <FormControlLabel className="test1"
-                                    control={
-                                        <Checkbox 
-                                            // checked={state.checkedB}
-                                            // onChange={handleChange}
-                                            color="primary"
-                                            style={{
-                                                transform: "scale(1)",
-                                            }}
-                                            
-                                        />
-                                    }
-                                    
-                                    label="09:00 - 12:00"
-                                />
-                                <FormControlLabel className="test1"
-                                    control={
-                                    <Checkbox
-                                        // checked={state.checkedB}
-                                        // onChange={handleChange}
-                                        color="primary"
-                                    />
-                                    }
-                                    label="13:00 - 16:00"
-                                />
-                                
-                            </div>
 
                             <TextField
                                 id="outlined-full-width"

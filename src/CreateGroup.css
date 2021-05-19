@@ -25,7 +25,7 @@
     position: absolute;
     border-radius: 25px;
     /* scroll-behavior: smooth; */
-    display: block;
+    /* display: block; */
     overflow-y: auto;
     white-space: nowrap;
 }
@@ -49,6 +49,7 @@
 .Add-Member{
     margin-left: 48px;
     margin-top: 50px;
+    margin-bottom: 20px
 }
 
 .fieldmember{
@@ -60,6 +61,21 @@
     margin-top: 50px;
 }
 
+.ant-row.ant-form-item.test {
+    width: 405px;
+    margin-top: 50px;
+}
+.ant-row.ant-form-item.groupnameinput {
+    margin-top: 50px;
+}
+
+button.ant-btn.ant-btn-dashed.ant-btn-block.button-addmem {
+    width: 405px;
+}
+
+button.ant-btn.ant-btn-dashed.ant-btn-block.button-addadv {
+    width: 405px;
+}
 .btn-create{
     padding-left: 48px;
 }
@@ -94,9 +110,11 @@ hr.hr-create{
 button.buttonadd{
     margin-left: 50px;
     margin-top: 50px;
+    /* float: right; */
 }
 
 button.buttoncancel{
     margin-top: 50px;
     margin-left: 10px;
 }
+

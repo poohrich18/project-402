@@ -1,4 +1,4 @@
-.rightblock_Schedule{
+.rightblock_Score{
     margin: 0px;
     margin-left: 276px;
     width: 1275px;
@@ -12,7 +12,7 @@
 
 }
 
-.blockwhite_Schedule{
+.blockwhite_Score{
     height: 693px; 
     display: block;
     width: 1247px;
@@ -29,7 +29,7 @@
     overflow-y: auto;
     white-space: nowrap;
 }
-.Topname_Schedule{
+.Topname_Score{
     margin-top: 28px;
     margin-left: 48px;
     font-family: SF Pro Display;
@@ -38,7 +38,7 @@
     color: #2F4050;
 }
 
-hr.hr-Schedule{
+hr.hr-Score{
     /* color: #134F71; */
     /* justify-items: center; */
     width: 1151px;
@@ -46,45 +46,4 @@ hr.hr-Schedule{
     border-top: 1px solid rgba(229, 229, 229, 1);
     margin-bottom: 0px;
     margin-left: 48px;
-}
-
-.MuiDateRangePickerInput-root {
-    justify-content: center;
-    margin-top: 50px;
-}
-
-button.buttonslot1 , button.buttonslot2 ,button.buttonslot3{
-    margin-left: 48px;
-    /* margin-top: 50px; */
-    font-size: 18px;
-    
-}
-
-button.buttonslot4 , button.buttonslot5 ,button.buttonslot6{
-    margin-left: 48px;
-    font-size: 18px;
-     margin-top: 50px;
-    
-}
-
-.slottop.row{
-    margin-right: 0px; 
-    margin-left: 0px;
-    width: 100px; 
-    height: 0px;
-    margin-top: 50px;
-    /* justify-content: center; */
-}
-
-.slotbottom.row{
-    margin-right: 0px; 
-    margin-left: 0px;
-    width: 0px; 
-    height: 0px;
-    
-    /* margin-top: 50px; */
-}
-
-.container-time{
-    margin-top: 50px;
 }

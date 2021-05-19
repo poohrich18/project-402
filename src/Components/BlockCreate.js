@@ -1,3 +1,138 @@
+// import React from "react";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// //Incude antd modules, icon and style
+// import { Form, Input, Button, Space } from 'antd';
+// import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+// import "antd/dist/antd.css";
+
+// class BlockCreate extends React.Component{
+  
+//   render(){
+   
+//   const Demo = () => {
+//     const onFinish = values => {
+//       //Here will get form values
+//       console.log('Received values of form:', values);
+//     };
+  
+//     return (
+//       <Form name="dynamic_form_nest_item" onFinish={onFinish} autoComplete="off">
+//         {/* <h4 className="GroupName">Group Name</h4> */}
+//         <Form.Item className="test"
+//             name="group"
+//             label="Group Name"
+//             rules={[
+//               {
+//                 required: true,
+//               },
+//             ]}
+//           >
+//           <Input/>
+//         </Form.Item>
+        
+//         <h4 className="Add-Member">Member</h4>
+//         <Form.List name="usersMember">
+//           {(fields, { add, remove }) => (
+//             <>
+//               {fields.map(field => (
+//                 <Space key={field.key} style={{ display: 'flex', marginBottom: 0 }} align="baseline">
+                  
+//                   <Form.Item
+//                     {...field}
+//                     name={[field.name, 'firstnameMember']}
+//                     fieldKey={[field.fieldKey, 'firstMember']}
+//                     rules={[{ required: true, message: 'Missing Member first name' }]}
+//                   >
+//                     <Input placeholder="First Name" />
+//                   </Form.Item>
+//                   <Form.Item
+//                     {...field}
+//                     name={[field.name, 'lastnameMember']}
+//                     fieldKey={[field.fieldKey, 'lastnameMember']}
+//                     rules={[{ required: true, message: 'Missing Member last name' }]}
+//                   >
+//                     <Input placeholder="Last Name" />
+//                   </Form.Item>
+//                   <MinusCircleOutlined onClick={() => remove(field.name)} />
+//                 </Space>
+//               ))}
+//               <Form.Item>
+//                 <Button 
+//                 className="button-addmem"
+//                 type="dashed" 
+//                 onClick={() => add()} 
+//                 block icon={<PlusOutlined />}>
+//                   Add Member
+//                 </Button>
+//               </Form.Item>
+//             </>
+//           )}
+//         </Form.List>
+
+//         <h4 className="Add-Advisor">Advisor</h4>
+//         <Form.List name="usersAdvis">
+//           {(fields2, { add, remove }) => (
+//             <>
+//               {fields2.map(field2 => (
+//                 <Space key={field2.key} style={{ display: 'flex', marginBottom: 0 }} align="baseline">
+                  
+//                   <Form.Item
+//                     {...field2}
+//                     name={[field2.name, 'firstnameAdvisor']}
+//                     fieldKey={[field2.fieldKey, 'firstnameAdvisor']}
+//                     rules={[{ required: true, message: 'Missing Advisor first name' }]}
+//                   >
+                    
+//                     <Input placeholder="First Name" />
+//                   </Form.Item>
+//                   <Form.Item
+//                     {...field2}
+//                     name={[field2.name, 'lastnameAdvisor']}
+//                     fieldKey={[field2.fieldKey, 'lastnameAdvisor']}
+//                     rules={[{ required: true, message: 'Missing Advisor last name' }]}
+//                   >
+//                     <Input placeholder="Last Name" />
+//                   </Form.Item>
+//                   <MinusCircleOutlined onClick={() => remove(field2.name)} />
+//                 </Space>
+//               ))}
+//               <Form.Item>
+//                 <Button 
+//                  className="button-addadv"
+//                 type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
+//                   Add Advisor
+//                 </Button>
+//               </Form.Item>
+//             </>
+//           )}
+//         </Form.List>
+//         <Form.Item>
+//           <Button  className="buttonadd" type="primary" htmlType="submit">
+//             Submit
+//           </Button>
+//         </Form.Item>
+//       </Form>
+//     );
+//   };
+
+//   return (
+//     <div className="rightblockcreate">
+//       <div className="blockwhitecreate">
+//         <h1 className="TopnameCreate">Create Group</h1>
+//         <hr className="hr-create"></hr>
+
+//         <div className="container">
+          
+//           <Demo />
+//         </div>
+        
+//       </div>
+//     </div>
+//   );
+// }
+// }
+// export default BlockCreate;
+
 import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { GlobalContext } from "../Context/GlobalState";

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col } from "react-bootstrap";
 import "../AvailableTime.css";
-import Sidebar from "./Sidebar";
+import Sidebar_Teacher from "../Teacher/Sidebar_Teacher";
 import Button from "@material-ui/core/Button";
 import Container from '@material-ui/core/Container';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -13,20 +13,17 @@ import {
     Form,
     // Button
   } from "reactstrap";
-
   import { Checkbox } from 'antd';
+export const AvailableTime_Teacher = () => {
 
-
-
-    export const AvailableTime = () => {
-        function onChange(checkedValues) {
+    function onChange(checkedValues) {
         console.log('checked = ', checkedValues);
         }
-        
+
     return (
         <Row className="content">
             <Col>
-                <Sidebar />
+                <Sidebar_Teacher/>
             </Col>
 
             <Col>
@@ -35,11 +32,11 @@ import {
                         <h1 className="Topname_AvailableTime">Available Time</h1>
                         <hr className="hr-AvailableTime"></hr>
                         
-                        <div className="topictime">
+                        {/* <div className="topictime">
                         <p>นักศึกษาโปรดทราบ</p>
                         <p>1. นักศึกษาทุกคนที่ลงทะเบียนวิชา CS401 และ CS402 ในภาคเรียนที่ 2 ปีการศึกษา 2563 ต้องแจ้งตารางสอบปลายภาคของตนเอง ภายในวันที่ 26 เมษายน 2564</p>
                         <p>2. เพื่อให้การจัดตารางสอบ Oral Exam วิชา CS401 และ CS402 ในภาคเรียนที่ 2 ปีการศึกษา 2563 เป็นไปอย่างเรียบร้อย</p>
-                        </div>
+                        </div> */}
                         
                         <Form className="formexam">
                             <div className="examday">
@@ -223,7 +220,7 @@ import {
                             
                                 // onClick={handleSubmit}
                             >
-                                <Link to="/home">Cancel</Link>
+                                <Link to="/home_t">Cancel</Link>
                             </Button>
                     </div>
                 </div>

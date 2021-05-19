@@ -1,140 +1,136 @@
 import * as React from 'react';
-import { Row, Col } from "react-bootstrap";
-import { makeStyles } from '@material-ui/core';
-import Box from '@material-ui/core/Box';
-import TextField from '@material-ui/core/TextField';
-import AdapterDateFns from '@material-ui/lab/AdapterDateFns';
-import LocalizaitonProvider from '@material-ui/lab/LocalizationProvider';
-import DateRangePicker from '@material-ui/lab/DateRangePicker';
-import DateRangePickerDay from '@material-ui/lab/DateRangePickerDay';
-import clsx from 'clsx';
-import Button from "@material-ui/core/Button";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Form, DatePicker, Button ,Space } from 'antd';
+import "antd/dist/antd.css";
+import { Checkbox } from 'antd';
 
-const useStyles = makeStyles((theme) => ({
-  highlight: {
-    borderRadius: 0,
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.common.white,
-    '&:hover, &:focus': {
-      backgroundColor: theme.palette.primary.dark,
-    },
-  },
-  firstHighlight: {
-    borderTopLeftRadius: '50%',
-    borderBottomLeftRadius: '50%',
-  },
-  endHighlight: {
-    borderTopRightRadius: '50%',
-    borderBottomRightRadius: '50%',
-  },
-}));
 
-    
-export const BlockCreateSchedule = () => {
 
-    const classes = useStyles();
-    const [value, setValue] = React.useState([null, null]);
-   
-    const renderWeekPickerDay = (date, dateRangePickerDayProps) => {
-        return (
-        <DateRangePickerDay
-            {...dateRangePickerDayProps}
-            className={clsx(dateRangePickerDayProps.className, {
-            [classes.firstHighlight]: dateRangePickerDayProps.isStartOfHighlighting,
-            [classes.endHighlight]: dateRangePickerDayProps.isEndOfHighlighting,
-            [classes.highlight]: dateRangePickerDayProps.isHighlighting,
-            })}
-        />
-        );
-    };
+const plainOptions = [
+    '08:00 - 09:30', 
+    '09:30 - 11:00', 
+    '11:00 - 12:30',
+    '13:30 - 15:00', 
+    '15:00 - 16:30', 
+    '16:30 - 18:00',
+];
+// const options = [
+//   { label: 'slot1', value: 'slot1' },
+//   { label: 'Pear', value: 'Pear' },
+//   { label: 'Orange', value: 'Orange' },
+// ];
+// const optionsWithDisabled = [
+//   { label: 'Apple', value: 'Apple' },
+//   { label: 'Pear', value: 'Pear' },
+//   { label: 'Orange', value: 'Orange', disabled: false },
+//];
+class BlockCreateSchedule extends React.Component{
+    render(){
+        const { RangePicker } = DatePicker;
+        const formItemLayout = {
+          labelCol: {
+            xs: {
+              span: 24,
+            },
+            sm: {
+              span: 8,
+            },
+          },
+          wrapperCol: {
+            xs: {
+              span: 24,
+            },
+            sm: {
+              span: 16,
+            },
+          },
+        };
+        const rangeConfig = {
+          rules: [
+            {
+              type: 'array',
+              required: true,
+              message: 'Please select time!',
+            },
+          ],
+        };
 
-    // let buttonslot1 = document.querySelector('#primary');
+        const TimeRelatedForm = () => {
+          const onFinish = (fieldsValue) => {
+            // Should format date value before submit.
+            const rangeValue = fieldsValue['range-picker'];
+            const timeValue = fieldsValue['time-picker'];
+            const testValue = fieldsValue['test'];
+           
+            const values = {
+              ...fieldsValue,
+              // 'date-picker': fieldsValue['date-picker'].format('YYYY-MM-DD'),
+              'range-picker': [rangeValue[0].format('YYYY-MM-DD'), rangeValue[1].format('YYYY-MM-DD')],
 
-    // buttonslot1.addEventListener('click' , () => buttonslot1.style.backgroundColor='#337ab7');
+            };
+            //Getting input values
+            console.log('Received values of form: ', values);
 
+           
+            
+        };
+
+        function onChange(checkedValues) {
+          console.log('checked = ', checkedValues);
+        }
     return (
+      <Form name="time_related_controls" {...formItemLayout} onFinish={onFinish}>
+       
+        <Form.Item name="range-picker" label="RangePicker" {...rangeConfig}>
+          <RangePicker />
+        </Form.Item>
+        
+        <Form.Item
+          wrapperCol={{
+            xs: {
+              span: 24,
+              offset: 0,
+            },
+            sm: {
+              span: 16,
+              offset: 8,
+            },
+          }}
+        >
+
+          
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+
+        <Checkbox.Group options={plainOptions} onChange={onChange} />
+      </Form>
+
+
+      
+
+      
+    );
+  };
+    return (
+
         <div className="rightblock_Schedule">
             <div className="blockwhite_Schedule">
                 <h1 className="Topname_Schedule">Create Schedule</h1>
                 <hr className="hr-Schedule"></hr>
 
-                <LocalizaitonProvider dateAdapter={AdapterDateFns}>
-                    <DateRangePicker
-                        label="date range"
-                        value={value}
-                        onChange={(newValue) => setValue(newValue)}
-                        renderDay={renderWeekPickerDay}
-                        renderInput={(startProps, endProps) => (
-                        <React.Fragment>
-                            <TextField {...startProps} variant="standard" />
-                            <Box sx={{ mx: 2 }}> to </Box>
-                            <TextField {...endProps} variant="standard" />
-                        </React.Fragment>
-                        )}
-                    />
-                </LocalizaitonProvider>
-                
-                <Row className="slottop">
-                    <Button
-                        className="buttonslot1"
-                        variant="outlined"
-                        color="primary"
-                        type="submit"
-                        onclick={onchange}
-                        >
-                            08:00 - 09:30
-                    </Button>
-
-                    <Button
-                        className="buttonslot2"
-                        variant="outlined"
-                        color="primary"
-                        type="submit"
-                        >
-                            09:30 - 11:00
-                    </Button>
-
-                    <Button
-                        className="buttonslot3"
-                        variant="outlined"
-                        color="primary"
-                        type="submit"
-                        >
-                            11:00 - 12:30
-                    </Button>
-                </Row>
-
-                <Row className="slotbottom">
-                    <Button
-                        className="buttonslot4"
-                        variant="outlined"
-                        color="primary"
-                        type="submit"
-                        >
-                            13:30 - 15:00
-                    </Button>
-
-                    <Button
-                        className="buttonslot5"
-                        variant="outlined"
-                        color="primary"
-                        type="submit"
-                        >
-                            15:00 - 16:30
-                    </Button>
-
-                    <Button
-                        className="buttonslot6"
-                        variant="outlined"
-                        color="primary"
-                        type="submit"
-                        >
-                            16:30 - 18:00
-                    </Button>
-                </Row>
-                
+                <div className="container-time">
+                    <TimeRelatedForm />
+                    
+                   
+                    
+                </div>
             </div>
         </div>
-
-    )
+        
+    
+    );
+  }
 }
+export default BlockCreateSchedule;

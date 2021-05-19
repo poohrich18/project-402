@@ -50,12 +50,12 @@ hr.hr-AvailableTime{
 
 div.examday{
     margin-top: 10px;
-    margin-left: 48px;
+    margin-left: 28px;
     border: 1px solid  rgba(19, 79, 113, 0.35);  
     background-color:  #F3F9FC; 
     border-radius: 10px;
     /* display: inline-block; */
-    width: 500px;
+    width: 1000px;
     height: 40px;
     justify-content: center;
 }
@@ -92,4 +92,14 @@ button.button456 {
 .topictime{
     margin-top: 20px;
     margin-left: 48px;
+}
+
+div.rowtimecheck.row{
+    margin-right: 0px;
+    margin-left: 0px;
+    width: fit-content;
+}
+
+div.ant-checkbox-group.checkgroup {
+    width: 1000px;
 }

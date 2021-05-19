@@ -24,6 +24,8 @@
     margin-right: 14px;
     position: absolute;
     border-radius: 25px;
+    overflow-y: auto;
+    white-space: nowrap;
 }
 .Topname-mygroup{
     margin-top: 28px;
@@ -45,8 +47,8 @@ hr.hr-mygroup{
 }
 
 .name-mygroup{
-    margin-top: 28px;
-    margin-left: 68px;
+    margin-top: 20px;
+    margin-left: 48px;
     font-family: SF Pro Display;
     font-size: 20px;
     font-weight: bold;
@@ -88,4 +90,15 @@ div.blockinblock{
 
 #input.exampleFormControlFile1{
     margin-top: 10px;
+}
+
+button.buttonaddmem{
+    margin-left: 48px;
+    margin-top: 0px;
+    /* float: right; */
+}
+
+button.buttonleave{
+    margin-top: 0px;
+    margin-left: 10px;
 }

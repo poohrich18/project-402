@@ -122,7 +122,7 @@ export const BlockGroup = () => {
             <Link to="/create">Add Group</Link>
           </Button>
 
-          <Button
+          {/* <Button
             className={classes.button3}
             variant="outlined"
             color="primary"
@@ -132,7 +132,7 @@ export const BlockGroup = () => {
           >
             {" "}
             Show All Group
-          </Button>
+          </Button> */}
 
           {/* <br></br>
           <br></br> */}

@@ -29,6 +29,8 @@ import {AvailableTime_2} from './Student2/AvailableTime_2';
 import Home_Teacher from './Home_Teacher';
 import Notification_Teacher from './Notification_Teacher';
 import ProjectList_Teacher from './ProjectList_Teacher' ;
+import {AvailableTime_Teacher} from './Teacher/AvailableTime_Teacher';
+import {Score_Teacher} from './Teacher/Score_Teacher';
 
 //advisor
 import Home_Advisor from './Home_Advisor';
@@ -80,6 +82,8 @@ class App extends React.Component{
         <Route exact path="/home_t" component={Home_Teacher} />
         <Route exact path="/notification_t" component={Notification_Teacher} />
         <Route exact path="/projectlist_t" component={ProjectList_Teacher} />
+        <Route exact path="/time_t" component={AvailableTime_Teacher} />
+        <Route exact path="/score_t" component={Score_Teacher} />
 
         {/* advisor */}
         <Route exact path="/home_a" component={Home_Advisor} />

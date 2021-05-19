@@ -11,7 +11,7 @@ export const BlockNoti_Advisor = () => {
 
                 <hr className="hr-noti"></hr>
 
-                <h5 className="topic_request">Request to join a group to be a member.</h5>
+                <h5 className="topic_request">Request to join a group to be a Advisor.</h5>
                     
                         <div className="list-group-noti">
                             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">

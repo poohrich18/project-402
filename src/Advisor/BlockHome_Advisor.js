@@ -79,6 +79,8 @@ export const BlockHome_Advisor = () => {
                             </span>
                             <div className="pdf3-3">Available Until 31 October 2020, 11:55 Pm</div>
                         </Row>
+
+                        
                         
                     </Col>
 
