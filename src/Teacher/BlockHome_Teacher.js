@@ -69,16 +69,21 @@ export const BlockHome_Teacher = () => {
                             <div className="pdf3-3">Available Until 31 October 2020, 11:55 Pm</div>
                         </Row>
 
-                        <Row className="pdf4">
+                        {/* <Row className="pdf4">
                             <span className="pdf2-1"><i class="fa fa-file-text fa-2x" aria-hidden="true"></i></span>
                             <span className="pdf2-2">
-                            
-                                <a href="/score_t">ใบประเมินผล</a>
+                                <a href="/score401_t">ใบประเมินผล 401</a>
                             </span>
-                                
-                            
                             <div className="pdf3-3">Available Until 18 December 2020, 11:55 Pm</div>
-                        </Row>
+                        </Row> */}
+
+                        {/* <Row className="pdf4">
+                            <span className="pdf2-1"><i class="fa fa-file-text fa-2x" aria-hidden="true"></i></span>
+                            <span className="pdf2-2">
+                                <a href="/score402_t">ใบประเมินผล 402</a>
+                            </span>
+                            <div className="pdf3-3">Available Until 18 December 2020, 11:55 Pm</div>
+                        </Row> */}
                         
                     </Col>
 

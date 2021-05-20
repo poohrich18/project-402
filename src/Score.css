@@ -541,7 +541,7 @@ p.ความเข้าใจในงานที่ทำ{
 p.คุณภาพการนำเสนอและการตอบคำถาม{
     /* background-color: darkcyan; */
     margin-left: 104px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     width: fit-content;
     /* margin-top: 10px; */
 }
@@ -579,7 +579,7 @@ p.การประยุกต์ใช้ความรู้ทางวิ
     /* background-color: darkcyan; */
     margin-left: 104px;
     /* margin-top: -20px; */
-    /* margin-bottom: 10px; */
+    margin-bottom: 0px;
     width: fit-content;
 }
 
@@ -701,9 +701,24 @@ input.ant-input.inputscoreStd2_row7 {
 }
 
 textarea.ant-input.inputcomment {
-    width: 200px;
-    height: 50px;
+    width: 398px;
+    height: 120px;
 }
+span.ความเข้าใจในงานที่ทำ_คะแนน20{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 346px;
+    font-size: 20px;
+}
+span.คุณภาพของผลงานและความสมบูรณ์ของงาน_คะแนน30{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 168px;
+    font-size: 20px;
+}
+
 span.ความเข้าใจในงานที่ทำ_คะแนน20{
     height: 50px;
     width: 200px;
@@ -738,12 +753,12 @@ span.การประยุกต์_คะแนน20{
 }
 
 .block7row.row{
-    margin-top: 10px;
+    margin-top: 15px;
     width: 100%;
     height: fit-content;
     /* background-color: crimson; */
     margin-left: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 span.ข้อเสนอแนะ{
@@ -774,7 +789,7 @@ span.คอมเม้น{
     height: 50px;
     width: 200px;
     /* background-color: darkcyan; */
-    /* margin-left: 60px; */
+    margin-left: 378px;
     font-size: 20px; 
 }
   span.blockคำชี้แจง {

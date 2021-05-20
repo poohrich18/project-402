@@ -47,7 +47,7 @@
 }
 
 .Add-Member{
-    margin-left: 48px;
+    /* margin-left: 48px; */
     margin-top: 50px;
     margin-bottom: 20px
 }
@@ -57,7 +57,7 @@
 }
 
 .Add-Advisor{
-    margin-left: 48px;
+    /* margin-left: 48px; */
     margin-top: 50px;
 }
 
@@ -108,7 +108,7 @@ hr.hr-create{
 }
 
 button.buttonadd{
-    margin-left: 50px;
+    /* margin-left: 50px; */
     margin-top: 50px;
     /* float: right; */
 }

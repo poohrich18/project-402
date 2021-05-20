@@ -30,7 +30,7 @@ import Home_Teacher from './Home_Teacher';
 import Notification_Teacher from './Notification_Teacher';
 import ProjectList_Teacher from './ProjectList_Teacher' ;
 import {AvailableTime_Teacher} from './Teacher/AvailableTime_Teacher';
-import {Score_Teacher} from './Teacher/Score_Teacher';
+// import {Score401_Teacher} from './Teacher/Score401_Teacher';
 
 //advisor
 import Home_Advisor from './Home_Advisor';
@@ -38,6 +38,8 @@ import Notification_Advisor from './Notification_Advisor';
 import { AcceptGroup_Advisor } from './Advisor/AcceptGroup_Advisor';
 import ProjectList_Advisor from './ProjectList_Advisor' ;
 import CreateSchedule_Advisor from './CreateSchedule_Advisor';
+import {Score401_Advisor} from './Advisor/Score401_Advisor';
+import {Score402_Advisor} from './Advisor/Score402_Advisor';
 
 // import {observer} from 'mobx-react' ;
 import { BrowserRouter, Route , Switch} from "react-router-dom";
@@ -83,7 +85,7 @@ class App extends React.Component{
         <Route exact path="/notification_t" component={Notification_Teacher} />
         <Route exact path="/projectlist_t" component={ProjectList_Teacher} />
         <Route exact path="/time_t" component={AvailableTime_Teacher} />
-        <Route exact path="/score_t" component={Score_Teacher} />
+        {/* <Route exact path="/score401_t" component={Score401_Teacher} /> */}
 
         {/* advisor */}
         <Route exact path="/home_a" component={Home_Advisor} />
@@ -91,6 +93,8 @@ class App extends React.Component{
         <Route exact path="/accept_a" component={AcceptGroup_Advisor} />
         <Route exact path="/projectlist_a" component={ProjectList_Advisor} />
         <Route exact path="/create_t" component={CreateSchedule_Advisor} />
+        <Route exact path="/score401_a" component={Score401_Advisor} />
+        <Route exact path="/score402_a" component={Score402_Advisor} />
 
         </Switch>
       </GlobalProvider>

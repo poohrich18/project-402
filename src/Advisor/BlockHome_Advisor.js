@@ -61,23 +61,20 @@ export const BlockHome_Advisor = () => {
 
                         <p className="form-home">ฟอร์มสำหรับแจ้งข้อมูลต่าง ๆ</p>
 
-                        <Row className="pdf3">
+                        <Row className="pdf4">
                             <span className="pdf2-1"><i class="fa fa-file-text fa-2x" aria-hidden="true"></i></span>
-                            <span className="pdf3-2">
-                                คลิกที่นี่เพื่อแจ้งข้อมูลเกี่ยวกับโครงงานวิชา คพ.401 และ คพ.402 ปีการศึกษา 2563
+                            <span className="pdf2-2">
+                                <a href="/score401_a">ใบประเมินผล 401</a>
                             </span>
-                            <div className="pdf3-3">Available Until 15 October 2020, 11:55 Pm</div>
+                            <div className="pdf3-3">Available Until 18 December 2020, 11:55 Pm</div>
                         </Row>
 
                         <Row className="pdf4">
                             <span className="pdf2-1"><i class="fa fa-file-text fa-2x" aria-hidden="true"></i></span>
                             <span className="pdf2-2">
-                               
-                                    คลิกที่นี่เพื่อแจ้งตารางสอบปลายภาค ภาคเรียนที่ 1 ปีการศึกษา 2563 (ต้องกรอกข้อมูลนี้ทุกคน)    
-                                    
-                                
+                                <a href="/score402_a">ใบประเมินผล 402</a>
                             </span>
-                            <div className="pdf3-3">Available Until 31 October 2020, 11:55 Pm</div>
+                            <div className="pdf3-3">Available Until 18 December 2020, 11:55 Pm</div>
                         </Row>
 
                         

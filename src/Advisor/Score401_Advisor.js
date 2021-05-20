@@ -1,16 +1,17 @@
 import React from 'react'
 import { Row, Col } from "react-bootstrap";
-import Sidebar_Teacher from "../Teacher/Sidebar_Teacher";
+// import Sidebar_Teacher from "./Sidebar_Teacher";
 import "../Score.css";
 import { TextField } from '@material-ui/core';
 import { Input } from 'antd';
+import Sidebar_Advisor from './Sidebar_Advisor';
 
 const { TextArea } = Input;
-export const Score_Teacher = () => {
+export const Score401_Advisor = () => {
     return (
         <Row className="content">
             <Col>
-                <Sidebar_Teacher/>
+                <Sidebar_Advisor/>
             </Col>
 
             <div className="rightblock_Score">
@@ -270,7 +271,7 @@ export const Score_Teacher = () => {
                    <div className="blockscore7">
                         <span class="blockคำชี้แจง">
                             <p className="คำชี้แจง2">
-                                เกณฑ์การวัดผล วิชา CS402 เป็นดังนี้
+                                เกณฑ์การวัดผล วิชา CS401 เป็นดังนี้
                             </p>
                             <p className="คำชี้แจง2">
                                 ช่วงคะแนน 90 - 100 == เกรด A

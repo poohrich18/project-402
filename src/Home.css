@@ -53,7 +53,8 @@ body{
     margin-right: 14px;
     position: absolute;
     border-radius: 25px;
-    
+    /* overflow-y: auto;
+    white-space: nowrap; */
 }
 
 .paragraph2.row{

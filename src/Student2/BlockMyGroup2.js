@@ -15,7 +15,10 @@ export const BlockMyGroup2 = () => {
                 <h1 className="Topname-mygroup">My Group</h1>
                 <hr className="hr-mygroup"></hr>
 
-                <span className="name-mygroup">groupname (คลิกแล้วแสดงชื่อกลุ่มที่คลิกเข้ามา)</span>
+                <span className="name-mygroup">
+                    groupname (คลิกแล้วแสดงชื่อกลุ่มที่คลิกเข้ามา)
+                </span>
+
                 <span>
                 <Button
                     id="btn-addproject"
