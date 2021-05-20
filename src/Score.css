@@ -47,3 +47,773 @@ hr.hr-Score{
     margin-bottom: 0px;
     margin-left: 48px;
 }
+
+.blockscore{
+    margin: auto;
+    background-color: #2F4050;
+  /* width: 60%; */
+  /* border: 3px solid #73AD21;
+  padding: 10px; */
+    height: 50px; 
+    display: block;
+    width: 1150px;
+    background-color: #c9ebfc; 
+    /* background-color: aqua; */
+    margin-left: 48px;
+    margin-top: 30px;
+    /* margin-bottom: 14px; */
+    margin-right: 14px;
+    /* vertical-align:middle; */
+    border: 1px solid  rgba(19, 79, 113, 0.35);  
+}
+
+p.หัวข้อใบประเมินคะแนน{
+    font-size: 18px;
+    text-align: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+div.blockscore1{
+    height: 260px; 
+    display: block;
+    width: 1150px;
+    /* margin-top: 1px; */
+    background-color: #e0f3fc; 
+    /* background-color: aqua; */
+    margin-left: 48px;
+    /* margin-top: 14px; */
+    /* margin-bottom: 14px; */
+    margin-right: 14px;
+    border: 1px solid  rgba(19, 79, 113, 0.35);  
+}
+
+
+
+
+.block1row.row{
+    margin-top: 20px;
+    width: 100%;
+    height: fit-content;
+    /* background-color: crimson; */
+    margin-left: 0px;
+}
+
+span.block1col1{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 18px;
+    font-size: 20px;
+}
+
+span.block1col2{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 80px;
+    font-size: 20px;
+
+}
+
+span.block1col3{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 96px;
+    font-size: 20px;
+
+}
+
+.block2row.row{
+    margin-top: 20px;
+    width: 100%;
+    height: fit-content;
+    /* background-color: crimson; */
+    margin-left: 0px;
+}
+
+.block3row.row{
+    margin-top: 20px;
+    width: 100%;
+    height: fit-content;
+    /* background-color: crimson; */
+    margin-left: 0px;
+}
+span.block2col1{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 44px;
+    font-size: 20px;
+}
+
+span.block2col2{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 50px;
+    font-size: 20px;
+
+}
+span.block2col3{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 60px;
+    font-size: 20px;
+
+}
+
+span.block3col3{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 370px;
+    font-size: 20px;
+
+}
+
+.block3row.row{
+    margin-top: 20px;
+    width: 100%;
+    height: fit-content;
+    /* background-color: crimson; */
+    margin-left: 0px;
+}
+.block4row.row{
+    margin-top: 20px;
+    width: 100%;
+    height: fit-content;
+    /* background-color: crimson; */
+    margin-left: 0px;
+}
+
+span.block4col1{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 18px;
+    font-size: 20px;
+}
+
+span.block4col2{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 80px;
+    font-size: 20px;
+
+}
+span.block4col3{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 98px;
+    font-size: 20px;
+
+}
+
+.block5row.row{
+    margin-top: 20px;
+    width: 100%;
+    height: fit-content;
+    /* background-color: crimson; */
+    margin-left: 0px;
+}
+
+span.block5col1{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 18px;
+    font-size: 20px;
+}
+
+span.block5col2{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 32px;
+    font-size: 20px;
+
+}
+
+div.blockscore2{
+    margin-left: 48px;
+    margin-right: 0px;
+    height: 70px;
+    width: 1150px;
+    display: block;
+    /* margin-top: 1px; */
+    background-color: #d5d9db17; 
+    /* background-color: aqua; */
+    /* margin-top: 14px; */
+    /* margin-bottom: 14px; */
+    border: 1px solid  rgba(19, 79, 113, 0.35);  
+}
+
+
+  span.std1 {
+    display: inline-block;
+    width: 200px;
+    height: 70px;
+    /* padding: 5px; */
+    border: 1px solid  rgba(19, 79, 113, 0.35);   
+    /* background-color: yellow; */
+    text-align: center; 
+    margin-left: 748px;
+    font-size: 18px;
+    /* margin-top: 0px; */
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+  }
+
+  p.id1{
+      margin-top: 10px;
+      margin-bottom: 0px;
+  }
+
+  span.std2 {
+    display: inline-block;
+    width: 200px;
+    height: 70px;
+    /* padding: 5px; */
+    border: 1px solid  rgba(19, 79, 113, 0.35);   
+    /* background-color: yellow; */
+    text-align: center; 
+    font-size: 18px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+  }
+
+div.blockscore3{
+    margin-left: 48px;
+    margin-right: 0px;
+    height: 70px;
+    width: 1150px;
+    display: block;
+    /* margin-top: 1px; */
+    background-color: #d5d9db17; 
+    /* background-color: aqua; */
+    /* margin-top: 14px; */
+    /* margin-bottom: 14px; */
+    border: 1px solid  rgba(19, 79, 113, 0.35);  
+}
+
+div.blockscore4{
+    margin-left: 48px;
+    margin-right: 0px;
+    height: 70px;
+    width: 1150px;
+    display: block;
+    /* margin-top: 1px; */
+    background-color: #d5d9db17; 
+    /* background-color: aqua; */
+    /* margin-top: 14px; */
+    /* margin-bottom: 14px; */
+    border: 1px solid  rgba(19, 79, 113, 0.35);  
+}
+
+.block4row2.row{
+    /* margin-top: 20px; */
+    width: 100%;
+    height: fit-content;
+    /* background-color: crimson; */
+    margin-left: 0px;
+}
+/* .block4row1.row{
+    margin-top: 20px;
+    width: 100%;
+    height: fit-content;
+    margin-left: 0px;
+    
+} */
+
+span.ส่วนที่1{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 32px;
+    font-size: 20px;
+    
+}
+span.คะแนนความก้าวหน้า{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 20px;
+    font-size: 20px;
+    
+}
+
+span.คะแนน{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 20px;
+    font-size: 20px;
+    
+}
+
+span.ให้โดยที่ปรึกษา{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 100px;
+    font-size: 20px;
+    
+}
+
+span.คะแนนนศ1ช่อง1{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 46px;
+    font-size: 20px; 
+}
+span.คะแนนนศ2ช่อง1{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    /* margin-left: 60px; */
+    font-size: 20px; 
+}
+
+input.ant-input.inputscoreStd1_row1 {
+    width: 200px;
+    height: 69px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid  rgba(19, 79, 113, 0.35); 
+}
+
+input.ant-input.inputscoreStd2_row1 {
+    width: 200px;
+    height: 69px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid  rgba(19, 79, 113, 0.35); 
+}
+
+span.ส่วนที่2{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 18px;
+    font-size: 20px;
+    
+}
+span.คุณภาพของรายงาน{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 20px;
+    font-size: 20px;
+    
+}
+
+span.คะแนน30{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 100px;
+    font-size: 20px;
+    
+}
+
+span.คะแนนนศ1ช่อง2{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 286px;
+    font-size: 20px; 
+}
+span.คะแนนนศ2ช่อง2{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    /* margin-left: 60px; */
+    font-size: 20px; 
+}
+
+input.ant-input.inputscoreStd1_row2 {
+    width: 200px;
+    height: 69px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid  rgba(19, 79, 113, 0.35); 
+}
+
+input.ant-input.inputscoreStd2_row2 {
+    width: 200px;
+    height: 69px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid  rgba(19, 79, 113, 0.35); 
+}
+
+div.blockscore5{
+    margin-left: 48px;
+    margin-right: 0px;
+    height: 200px;
+    width: 1150px;
+    display: block;
+    /* margin-top: 1px; */
+    background-color: #d5d9db17; 
+    /* background-color: aqua; */
+    /* margin-top: 14px; */
+    /* margin-bottom: 14px; */
+    border: 1px solid  rgba(19, 79, 113, 0.35);  
+}
+
+.block5row1.row{
+    /* margin-top: 20px; */
+    width: 100%;
+    height: fit-content;
+    /* background-color: crimson; */
+    margin-left: 0px;
+}
+span.คะแนนนศ1ช่อง3{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 17px;
+    font-size: 20px; 
+}
+span.คะแนนนศ2ช่อง3{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    /* margin-left: 60px; */
+    font-size: 20px; 
+}
+
+input.ant-input.inputscoreStd1_row3 {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid  rgba(19, 79, 113, 0.35); 
+}
+
+input.ant-input.inputscoreStd2_row3 {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid  rgba(19, 79, 113, 0.35); 
+}
+span.การนำเสนอโครงงาน{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 102px;
+    font-size: 20px;
+    
+}
+
+span.คะแนน60{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 94px;
+    font-size: 20px;
+    
+}
+
+span.ส่วน3ย่อย{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 20px;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+
+p.ความเข้าใจในงานที่ทำ{
+    /* background-color: darkcyan; */
+    margin-left: 104px;
+    /* margin-bottom: 10px; */
+    width: fit-content;
+}
+p.คุณภาพการนำเสนอและการตอบคำถาม{
+    /* background-color: darkcyan; */
+    margin-left: 104px;
+    margin-bottom: 10px;
+    width: fit-content;
+    /* margin-top: 10px; */
+}
+span.คะแนนนศ1ช่อง4{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 18px;
+    font-size: 20px; 
+}
+span.คะแนนนศ2ช่อง4{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    /* margin-left: 60px; */
+    font-size: 20px; 
+}
+
+input.ant-input.inputscoreStd1_row4 {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid  rgba(19, 79, 113, 0.35); 
+}
+
+input.ant-input.inputscoreStd2_row4 {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid  rgba(19, 79, 113, 0.35); 
+}
+p.การประยุกต์ใช้ความรู้ทางวิทยาการคอมพิวเตอร์อย่างเหมาะสม{
+    /* background-color: darkcyan; */
+    margin-left: 104px;
+    /* margin-top: -20px; */
+    /* margin-bottom: 10px; */
+    width: fit-content;
+}
+
+span.คะแนนนศ1ช่อง5{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 18px;
+    font-size: 20px; 
+}
+span.คะแนนนศ2ช่อง5{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    /* margin-left: 60px; */
+    font-size: 20px; 
+}
+
+input.ant-input.inputscoreStd1_row5 {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid  rgba(19, 79, 113, 0.35); 
+}
+
+input.ant-input.inputscoreStd2_row5 {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid  rgba(19, 79, 113, 0.35); 
+}
+
+div.blockscore6{
+    margin-left: 48px;
+    margin-right: 0px;
+    height: 200px;
+    width: 1150px;
+    display: block;
+    /* margin-top: 1px; */
+    background-color: #d5d9db17; 
+    /* background-color: aqua; */
+    /* margin-top: 14px; */
+    /* margin-bottom: 14px; */
+    border: 1px solid  rgba(19, 79, 113, 0.35);  
+    /* margin-bottom: 20px; */
+}
+
+span.คะแนนนศ1ช่อง6{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 287px;
+    font-size: 20px; 
+}
+span.คะแนนนศ2ช่อง6{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    /* margin-left: 60px; */
+    font-size: 20px; 
+}
+
+input.ant-input.inputscoreStd1_row6{
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid  rgba(19, 79, 113, 0.35); 
+}
+
+input.ant-input.inputscoreStd2_row6 {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid  rgba(19, 79, 113, 0.35); 
+}
+
+span.รวม{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 650px;
+    font-size: 30px;
+    
+}
+
+span.คะแนนนศ1ช่อง7{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 53px;
+    font-size: 20px; 
+}
+span.คะแนนนศ2ช่อง7{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    /* margin-left: 60px; */
+    font-size: 20px; 
+}
+
+input.ant-input.inputscoreStd1_row7 {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid  rgba(19, 79, 113, 0.35); 
+}
+
+input.ant-input.inputscoreStd2_row7 {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid  rgba(19, 79, 113, 0.35); 
+}
+
+textarea.ant-input.inputcomment {
+    width: 200px;
+    height: 50px;
+}
+span.ความเข้าใจในงานที่ทำ_คะแนน20{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 346px;
+    font-size: 20px;
+}
+
+span.คุณภาพการนำเสนอและการตอบคำถาม_คะแนน20{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 212px;
+    font-size: 20px;
+}
+
+span.การประยุกต์_คะแนน20{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 32px;
+    font-size: 20px;
+}
+
+.block6row.row{
+    /* margin-top: 20px; */
+    width: 100%;
+    height: fit-content;
+    /* background-color: crimson; */
+    margin-left: 0px;
+    /* margin-bottom: 20px; */
+}
+
+.block7row.row{
+    margin-top: 10px;
+    width: 100%;
+    height: fit-content;
+    /* background-color: crimson; */
+    margin-left: 0px;
+    margin-bottom: 20px;
+}
+
+span.ข้อเสนอแนะ{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    margin-left: 100px;
+    font-size: 20px;
+    
+}
+
+
+div.blockscore7{
+    margin-left: 48px;
+    margin-right: 0px;
+    /* height: 250px; */
+    width: 1150px;
+    display: block;
+    margin-top: 20px;
+    /* background-color: #d5d9db17;  */
+    /* background-color: aqua; */
+    /* margin-top: 14px; */
+    /* margin-bottom: 14px; */
+    /* border: 1px solid  rgba(19, 79, 113, 0.35);   */
+    margin-bottom: 20px;
+}
+span.คอมเม้น{
+    height: 50px;
+    width: 200px;
+    /* background-color: darkcyan; */
+    /* margin-left: 60px; */
+    font-size: 20px; 
+}
+  span.blockคำชี้แจง {
+    display: inline-block;
+    width: 300px;
+    /* height: 70px; */
+    /* padding: 5px; */
+    /* border: 1px solid  rgba(19, 79, 113, 0.35);    */
+    /* background-color: yellow; */
+    /* text-align: center;  */
+    margin-left: 20px;
+    font-size: 18px;
+    /* margin-top: 0px; */
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+  }
+
+  p.คำชี้แจง{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+}
+
+p.คำชี้แจง2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+div.blockscore8{
+    margin-left: 48px;
+    margin-right: 0px;
+    /* height: 250px; */
+    width: 1150px;
+    display: block;
+    /* margin-top: 20px; */
+    /* background-color: #d5d9db17;  */
+    /* background-color: aqua; */
+    /* margin-top: 14px; */
+    /* margin-bottom: 14px; */
+    /* border: 1px solid  rgba(19, 79, 113, 0.35);   */
+    margin-bottom: 20px;
+}
