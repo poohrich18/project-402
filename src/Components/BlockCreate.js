@@ -61,6 +61,7 @@ class BlockCreate extends React.Component{
                 required: true,
               },
             ]}
+            disabled
           >
           <Input/>
         </Form.Item>
