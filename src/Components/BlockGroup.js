@@ -37,49 +37,128 @@ export const BlockGroup = () => {
   const [newadvisorlastname, setnewadvisorlastname] = useState([]);
 
   const getGroup = () => {
-    axios.get("http://localhost:5000/group/").then((respond) => {
+    axios.get("http://localhost:5001/groups").then((respond) => {
       setgroupList(respond.data);
     });
   };
 
   useEffect(() => {
     getGroup();
+    
   }, []);
 
   const updateGroupname = (id) => {
-    axios.put("http://localhost:5000/group/update1/", {
+    axios.put("http://localhost:5001/group/update1/", {
       groupname: newgroupname,
-      id: id,
-    });
+      id: id
+    }).then((respond)=>{
+      setgroupList(
+        groupList.map((val)=>{
+          return val.id == id ? {
+            id: val.id,
+            groupname: newgroupname,
+            memberfirstname: val.memberfirstname,
+            memberlastname: val.memberlastname,
+            advisorfirstname: val.advisorfirstname,
+            advisorlastname: val.advisorlastname
+            
+          } : val;
+        })
+      )
+    })
   };
   const updateMemberFirstname = (id) => {
-    axios.put("http://localhost:5000/group/update2/", {
+    axios.put("http://localhost:5001/group/update2/", {
       memberfirstname: newfirstname,
       id: id,
-    });
-  };
+    }).then((respond)=>{
+      setgroupList(
+        groupList.map((val)=>{
+          return val.id == id ? {
+            id: val.id,
+            groupname: val.groupname,
+            memberfirstname: newfirstname,
+            memberlastname: val.memberlastname,
+            advisorfirstname: val.advisorfirstname,
+            advisorlastname: val.advisorlastname
+            
+          } : val;
+        })
+        )
+      })
+    };
+  
   const updateMemberLastname = (id) => {
-    axios.put("http://localhost:5000/group/update3/", {
+    axios.put("http://localhost:5001/group/update3/", {
       memberlastname: newlastname,
       id: id,
-    });
-  };
+    }).then((respond)=>{
+      setgroupList(
+        groupList.map((val)=>{
+          return val.id == id ? {
+            id: val.id,
+            groupname: val.groupname,
+            memberfirstname: val.memberfirstname,
+            memberlastname: newlastname,
+            advisorfirstname: val.advisorfirstname,
+            advisorlastname: val.advisorlastname
+            
+          } : val;
+        })
+        )
+      })
+    };
   const updateAvisorFirstname = (id) => {
-    axios.put("http://localhost:5000/group/update4/", {
+    axios.put("http://localhost:5001/group/update4/", {
       advisorfirstname: newadvisorfirstname,
       id: id,
-    });
-  };
-
+    }).then((respond)=>{
+      setgroupList(
+        groupList.map((val)=>{
+          return val.id == id ? {
+            id: val.id,
+            groupname: val.groupname,
+            memberfirstname: val.memberfirstname,
+            memberlastname: val.memberlastname,
+            advisorfirstname: newadvisorfirstname,
+            advisorlastname: val.advisorlastname
+            
+          } : val;
+        })
+        )
+      })
+    };
+  
   const  updateAvisorLastname = (id) => {
-    axios.put("http://localhost:5000/group/update5/", {
+    axios.put("http://localhost:5001/group/update5/", {
       advisorlaststname: newadvisorlastname,
       id: id,
-    });
-  };
+    }).then((respond)=>{
+      setgroupList(
+        groupList.map((val)=>{
+          return val.id == id ? {
+            id: val.id,
+            groupname: val.groupname,
+            memberfirstname: val.memberfirstname,
+            memberlastname: val.memberlastname,
+            advisorfirstname: val.advisorfirstname,
+            advisorlastname: newadvisorlastname
+            
+          } : val;
+        })
+        )
+      })
+    };
+  
 
   const deleteGroupname = (id) => {
-    axios.delete(`http://localhost:5000/group/delete1/${id}`);
+    axios.delete(`http://localhost:5001/group/delete/${id}`).then((respond)=>{
+      setgroupList(
+        groupList.filter((val)=>{
+          return val.id != id ;
+        })
+      )
+    });
    
   };
   // const updateGroupname = (id) => {
@@ -153,7 +232,7 @@ export const BlockGroup = () => {
                     Firstname Adivisor : {val.advisorfirstname}
                   </p>
                   <p className="card-text">
-                    Lastname Adivisor : {val.advisorlaststname}
+                    Lastname Adivisor : {val.advisorlastname}
                   </p>
                   <div className="d-flex">
                     <input
@@ -167,7 +246,7 @@ export const BlockGroup = () => {
                     <button
                       className="btn btn-warning"
                       onClick={() => {
-                        updateGroupname(val._id);
+                        updateGroupname(val.id);
                       }}
                     >
                       Update
@@ -175,7 +254,7 @@ export const BlockGroup = () => {
                     <button
                       className="btn btn-warning"
                       onClick={() => {
-                        deleteGroupname(val._id);
+                        deleteGroupname(val.id);
                       }}
                     >
                       Delete
@@ -191,7 +270,7 @@ export const BlockGroup = () => {
                       }}
                     ></input>
                     <button className="btn btn-warning"onClick={() => {
-                        updateMemberFirstname(val._id);
+                        updateMemberFirstname(val.id);
                       }}>Update</button>
                   </div>
                   <div className="d-flex">
@@ -204,7 +283,7 @@ export const BlockGroup = () => {
                       }}
                     ></input>
                     <button className="btn btn-warning"onClick={() => {
-                        updateMemberLastname(val._id);
+                        updateMemberLastname(val.id);
                       }}>Update</button>
                   </div>
                   <div className="d-flex">
@@ -217,7 +296,7 @@ export const BlockGroup = () => {
                       }}
                     ></input>
                     <button className="btn btn-warning"onClick={() => {
-                        updateAvisorFirstname(val._id);
+                        updateAvisorFirstname(val.id);
                       }}>Update</button>
                   </div>
                   <div className="d-flex">
@@ -230,7 +309,7 @@ export const BlockGroup = () => {
                       }}
                     ></input>
                     <button className="btn btn-warning"onClick={() => {
-                        updateAvisorLastname(val._id);
+                        updateAvisorLastname(val.id);
                       }}>Update</button>
                   </div>
                 </div>
