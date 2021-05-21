@@ -1,152 +1,17 @@
-// import React from "react";
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// //Incude antd modules, icon and style
-// import { Form, Input, Button, Space } from 'antd';
-// import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-// import "antd/dist/antd.css";
-
-// class BlockCreate extends React.Component{
-  
-//   render(){
-   
-//   const Demo = () => {
-//     const onFinish = values => {
-//       //Here will get form values
-//       console.log('Received values of form:', values);
-//     };
-  
-//     return (
-//       <Form name="dynamic_form_nest_item" onFinish={onFinish} autoComplete="off">
-//         {/* <h4 className="GroupName">Group Name</h4> */}
-//         <Form.Item className="test"
-//             name="group"
-//             label="Group Name"
-//             rules={[
-//               {
-//                 required: true,
-//               },
-//             ]}
-//           >
-//           <Input/>
-//         </Form.Item>
-        
-//         <h4 className="Add-Member">Member</h4>
-//         <Form.List name="usersMember">
-//           {(fields, { add, remove }) => (
-//             <>
-//               {fields.map(field => (
-//                 <Space key={field.key} style={{ display: 'flex', marginBottom: 0 }} align="baseline">
-                  
-//                   <Form.Item
-//                     {...field}
-//                     name={[field.name, 'firstnameMember']}
-//                     fieldKey={[field.fieldKey, 'firstMember']}
-//                     rules={[{ required: true, message: 'Missing Member first name' }]}
-//                   >
-//                     <Input placeholder="First Name" />
-//                   </Form.Item>
-//                   <Form.Item
-//                     {...field}
-//                     name={[field.name, 'lastnameMember']}
-//                     fieldKey={[field.fieldKey, 'lastnameMember']}
-//                     rules={[{ required: true, message: 'Missing Member last name' }]}
-//                   >
-//                     <Input placeholder="Last Name" />
-//                   </Form.Item>
-//                   <MinusCircleOutlined onClick={() => remove(field.name)} />
-//                 </Space>
-//               ))}
-//               <Form.Item>
-//                 <Button 
-//                 className="button-addmem"
-//                 type="dashed" 
-//                 onClick={() => add()} 
-//                 block icon={<PlusOutlined />}>
-//                   Add Member
-//                 </Button>
-//               </Form.Item>
-//             </>
-//           )}
-//         </Form.List>
-
-//         <h4 className="Add-Advisor">Advisor</h4>
-//         <Form.List name="usersAdvis">
-//           {(fields2, { add, remove }) => (
-//             <>
-//               {fields2.map(field2 => (
-//                 <Space key={field2.key} style={{ display: 'flex', marginBottom: 0 }} align="baseline">
-                  
-//                   <Form.Item
-//                     {...field2}
-//                     name={[field2.name, 'firstnameAdvisor']}
-//                     fieldKey={[field2.fieldKey, 'firstnameAdvisor']}
-//                     rules={[{ required: true, message: 'Missing Advisor first name' }]}
-//                   >
-                    
-//                     <Input placeholder="First Name" />
-//                   </Form.Item>
-//                   <Form.Item
-//                     {...field2}
-//                     name={[field2.name, 'lastnameAdvisor']}
-//                     fieldKey={[field2.fieldKey, 'lastnameAdvisor']}
-//                     rules={[{ required: true, message: 'Missing Advisor last name' }]}
-//                   >
-//                     <Input placeholder="Last Name" />
-//                   </Form.Item>
-//                   <MinusCircleOutlined onClick={() => remove(field2.name)} />
-//                 </Space>
-//               ))}
-//               <Form.Item>
-//                 <Button 
-//                  className="button-addadv"
-//                 type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
-//                   Add Advisor
-//                 </Button>
-//               </Form.Item>
-//             </>
-//           )}
-//         </Form.List>
-//         <Form.Item>
-//           <Button  className="buttonadd" type="primary" htmlType="submit">
-//             Submit
-//           </Button>
-//         </Form.Item>
-//       </Form>
-//     );
-//   };
-
-//   return (
-//     <div className="rightblockcreate">
-//       <div className="blockwhitecreate">
-//         <h1 className="TopnameCreate">Create Group</h1>
-//         <hr className="hr-create"></hr>
-
-//         <div className="container">
-          
-//           <Demo />
-//         </div>
-        
-//       </div>
-//     </div>
-//   );
-// }
-// }
-// export default BlockCreate;
-
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,useEffect  } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { GlobalContext } from "../Context/GlobalState";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, useAccordionToggle } from "react-bootstrap";
 // import { Form ,FormGroup } from 'react-bootstrap';
 import { makeStyles } from "@material-ui/core/styles";
 // import { Input } from '@material-ui/core';
 import { v4 as uuid } from "uuid";
-import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
+import Container from "@material-ui/core/Container";
+import Button from "@material-ui/core/Button";
 import axios from "axios";
-import Icon from '@material-ui/core/Icon';
-import TextField from '@material-ui/core/TextField';
-import IconButton from '@material-ui/core/IconButton';
+import Icon from "@material-ui/core/Icon";
+import TextField from "@material-ui/core/TextField";
+import IconButton from "@material-ui/core/IconButton";
 import {
   Form,
   FormGroup,
@@ -191,6 +56,15 @@ export const BlockCreate = () => {
   //       .catch((error) => {
   //         console.log(error);
   //       })}
+  const [userList, setuserList] = useState([]);
+
+  const getUsername = () => {
+    axios.get("http://localhost:5001/username").then((respond) => {
+      setuserList(respond.data);
+      console.log(userList)
+    });
+  };
+
   let h = useHistory();
   const [groupname, setGroupname] = useState("");
   const [memberfirstname, setmemberFirstname] = useState("");
@@ -203,16 +77,16 @@ export const BlockCreate = () => {
   const changeGroup = () => {
     const newUser = {
       id: uuid(),
-      groupname
-    }
+      groupname,
+    };
     addUser(newUser);
-    history.push('/group');
+    history.push("/group");
     console.log(groupname);
-  }
+  };
 
   const addGroup = () => {
     axios
-      .post("http://localhost:5000/group/add", {
+      .post("http://localhost:5001/groups/add", {
         groupname: groupname,
         memberfirstname: memberfirstname,
         memberlastname: memberlastname,
@@ -233,6 +107,10 @@ export const BlockCreate = () => {
       });
   };
   console.log(groupname);
+  useEffect(() => {
+    getUsername();
+    
+  }, []);
 
   return (
     <div className="rightblockcreate">
@@ -242,7 +120,6 @@ export const BlockCreate = () => {
 
         <Container>
           <Form onSubmit={changeGroup}>
-
             <h4 className="GroupName">Group Name</h4>
             <form className={classes.root}>
               <div className="fieldmember">
@@ -261,15 +138,23 @@ export const BlockCreate = () => {
             <h4 className="Add-Member">Member</h4>
             <form className={classes.root}>
               <div className="fieldmember">
-                <TextField
-                  type="text"
-                  variant="outlined"
-                  className="from-control"
-                  label="Firstname Member"
-                  onChange={(event) => {
-                    setmemberFirstname(event.target.value);
-                  }}
-                />
+                {/* {userList.map(({ firstname }) => (
+                  <tr className="text-in-table">
+                    <td>
+                 
+                    </td>
+                  </tr>
+                ))} */}
+                     <TextField
+                        // value={firstname}
+                        type="text"
+                        variant="outlined"
+                        className="from-control"
+                        label="Firstname Member"
+                        onChange={(event) => {
+                          setmemberFirstname(event.target.value);
+                        }}
+                      />
                 <TextField
                   type="text"
                   variant="outlined"
@@ -281,7 +166,7 @@ export const BlockCreate = () => {
                 />
               </div>
             </form>
-            
+
             <h4 className="Add-Advisor">Advistor</h4>
             <form className={classes.root}>
               <div className="fieldmember">
@@ -305,8 +190,6 @@ export const BlockCreate = () => {
                 />
               </div>
             </form>
-            
-
 
             <Button
               className="buttonadd"
@@ -319,7 +202,8 @@ export const BlockCreate = () => {
               Submit
             </Button>
 
-            <Button id="btn-cancel"
+            <Button
+              id="btn-cancel"
               className="buttoncancel"
               variant="outlined"
               color="primary"
