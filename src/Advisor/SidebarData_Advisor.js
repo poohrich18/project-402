@@ -27,11 +27,11 @@ export const SidebarData_Advisor = [
         icon : <i class="fa fa-briefcase fa-1x" aria-hidden="true"></i> ,
         link : "/mygroup_a"
     },
-    {
-        title : "Calendar" ,
-        icon : <i class="fa fa-calendar fa-1x" aria-hidden="true"></i>,
-        link : "/calendar_a"
-    },
+    // {
+    //     title : "Calendar" ,
+    //     icon : <i class="fa fa-calendar fa-1x" aria-hidden="true"></i>,
+    //     link : "/calendar_a"
+    // },
     {
         title : "Setting" ,
         icon : <i class="fa fa-cog fa-1x" aria-hidden="true"></i> ,

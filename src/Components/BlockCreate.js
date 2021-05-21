@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 //Incude antd modules, icon and style
 import { Form, Input, Button, Space } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import "antd/dist/antd.css";
+
+import { AutoComplete } from 'antd';
+
 
 class BlockCreate extends React.Component{
   
@@ -14,9 +18,40 @@ class BlockCreate extends React.Component{
       //Here will get form values
       console.log('Received values of form:', values);
     };
+
+    const dataStdSource = [
+      'Chotika Photipunya', 
+      'Kununya Detboriphan', 
+      'Padsanan Parikput',
+      'Supitcha Ratanatrimas', 
+      'VITAS JUN-URAIRAT',
+    ];
+
+    const dataTeacherSource = [
+      'Thapana Boonchoo',
+      'Kasidit Chanchio',
+      'Nuttanont Hongwarittorrn',
+      'Wirat Jareewongpaiboon',
+      'Pakorn Leesutthipornchai',
+      'Nutchakorn Ngamsaowaros',
+      'Sirikunya Nilpanich',
+      'Pranot Phasugcheewin',
+      'Monvorarat Pongpaiboon',
+      'Denduang Pradubsuwun',
+      'Wanida Putthividhya',
+      'Prapaporn Rattanatamrong',
+      'Songsak Rongviriyapanich',
+      'Wilawan Rukpakavong',
+      'Onjira Sithisak',
+      'Pokpong Songmuang',
+      'Nirun Subsomboon',
+      'Tanatorn Tanantong',
+      'Yaowadee Temtanapat',
+      'Saowaluk Watanapa',
+    ];
   
     return (
-      <Form name="dynamic_form_nest_item" onFinish={onFinish} autoComplete="off">
+      <Form name="dynamic_form_nest_item" onFinish={onFinish} autoComplete="on">
         {/* <h4 className="GroupName">Group Name</h4> */}
         <Form.Item className="test"
             name="group"
@@ -37,22 +72,22 @@ class BlockCreate extends React.Component{
               {fields.map(field => (
                 <Space key={field.key} style={{ display: 'flex', marginBottom: 0 }} align="baseline">
                   
-                  <Form.Item
+                  <Form.Item style={{ width: 250 }}
                     {...field}
-                    name={[field.name, 'firstnameMember']}
-                    fieldKey={[field.fieldKey, 'firstMember']}
-                    rules={[{ required: true, message: 'Missing Member first name' }]}
+                    name={[field.name, 'nameMember']}
+                    fieldKey={[field.fieldKey, 'nameMember']}
+                    rules={[{ required: true, message: 'Missing Name Member' }]}
                   >
-                    <Input placeholder="First Name" />
+                   
+                    <AutoComplete
+                      style={{ width: 200 }}
+                      dataSource={dataStdSource}
+                      placeholder="Search Member"
+                      filterOption={(inputValue, option) => 
+                        option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
+                    />
                   </Form.Item>
-                  <Form.Item
-                    {...field}
-                    name={[field.name, 'lastnameMember']}
-                    fieldKey={[field.fieldKey, 'lastnameMember']}
-                    rules={[{ required: true, message: 'Missing Member last name' }]}
-                  >
-                    <Input placeholder="Last Name" />
-                  </Form.Item>
+
                   <MinusCircleOutlined onClick={() => remove(field.name)} />
                 </Space>
               ))}
@@ -78,21 +113,20 @@ class BlockCreate extends React.Component{
                   
                   <Form.Item
                     {...field2}
-                    name={[field2.name, 'firstnameAdvisor']}
-                    fieldKey={[field2.fieldKey, 'firstnameAdvisor']}
-                    rules={[{ required: true, message: 'Missing Advisor first name' }]}
+                    name={[field2.name, 'nameAdvisor']}
+                    fieldKey={[field2.fieldKey, 'nameAdvisor']}
+                    rules={[{ required: true, message: 'Missing Advisor Name' }]}
                   >
-                    
-                    <Input placeholder="First Name" />
+                     <AutoComplete
+                      style={{ width: 200 }}
+                      dataSource={dataTeacherSource}
+                      placeholder="Search Advisor"
+                      filterOption={(inputValue, option) => 
+                        option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
+                    />
+                   
                   </Form.Item>
-                  <Form.Item
-                    {...field2}
-                    name={[field2.name, 'lastnameAdvisor']}
-                    fieldKey={[field2.fieldKey, 'lastnameAdvisor']}
-                    rules={[{ required: true, message: 'Missing Advisor last name' }]}
-                  >
-                    <Input placeholder="Last Name" />
-                  </Form.Item>
+                  
                   <MinusCircleOutlined onClick={() => remove(field2.name)} />
                 </Space>
               ))}
@@ -110,7 +144,16 @@ class BlockCreate extends React.Component{
           <Button  className="buttonadd" type="primary" htmlType="submit">
             Submit
           </Button>
+          <Button  className="buttoncancel" type="primary" htmlType="submit">
+            <Link to="/group">Cancel</Link>
+          </Button>
+
         </Form.Item>
+        {/* <Form.Item>
+          <Button  className="buttoncancel" type="primary" htmlType="submit">
+            <Link to="/group">Cancel</Link>
+          </Button>
+        </Form.Item> */}
       </Form>
     );
   };

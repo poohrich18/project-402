@@ -1,0 +1,175 @@
+.rightblockcheck{
+    margin: 0px;
+    margin-left: 276px;
+    width: 1275px;
+    height: 721px;
+    position: absolute;
+    background-color: #2F4050;
+    /* background-color: cornflowerblue; */
+    /* width: 500em;
+    height: 58em; */
+    /* background-color: burlywood; */
+   
+}
+
+.blockwhitecheck{
+    height: 693px; 
+    display: block;
+    width: 1247px;
+    background-color: white;
+    /* background-color: aqua; */
+    margin-left: 14px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    margin-right: 14px;
+    position: absolute;
+    border-radius: 25px;
+    display: block;
+    overflow-y: auto;
+    white-space: nowrap;
+}
+
+.TopnameCheck{
+    margin-top: 28px;
+    margin-left: 48px;
+    font-family: SF Pro Display;
+    font-size: 32px;
+    font-weight: bold;
+    color: #2F4050;
+}
+
+hr.hr-tableexam{
+    /* color: #134F71; */
+    /* justify-items: center; */
+    width: 1151px;
+    margin-top: 12px;
+    border-top: 1px solid rgba(229, 229, 229, 1);
+    margin-bottom: 0px;
+    margin-left: 48px;
+}
+
+table, td, th {  
+    border: 1px solid #ddd;
+    text-align: left;
+    margin-bottom: 20px;
+    border: 2px solid  rgba(19, 79, 113, 1); 
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 15px;
+    
+  }
+
+th.day{
+    /* font-size: 14px; */
+    width: 80px;
+    text-align: center;
+}
+
+td.day1 , td.day2 , td.day3 , td.day4 , td.day5 , td.day6{
+    width: 70px;
+    text-align: center;
+}
+
+th.slot1 , th.slot2 , th.slot3 , th.slot4 , th.slot5 , th.slot6{
+    /* font-size: 14px; */
+    width: 160px;
+    text-align: center;
+}
+
+.ReceiveEdit {
+    margin-left: 48px;
+    margin-right: 48px;
+    margin-bottom: 20px;
+}
+
+
+
+
+.layout-screen-phone{
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.layout-table-SaleSummary{
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.layout-table-main-SaleSummary{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .layout-text-SaleSummary{
+  text-align: center;
+  
+  }
+  .layout-table-SaleSummary{
+    justify-content: center;
+    text-align: center;
+  }
+  
+  
+  
+  
+  table{
+    border-collapse:collapse;
+    box-shadow: 0 5px 10px #cacaca;
+    background-color: #EEEAE7;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  thead{
+    color: #746354;
+    
+  }
+  
+  tbody{
+    border: 1px solid  rgba(19, 79, 113, 0.5); 
+  }
+span.row1col1{
+    height: 30px;
+    width: 90px;
+    /* background-color: darkcyan; */
+    /* margin-left: 46px; */
+    font-size: 20px; 
+}
+span.row1col2{
+    height: 30px;
+    width: 90px;
+    /* background-color: darkcyan; */
+    /* margin-left: 60px; */
+    font-size: 20px; 
+}
+
+input.ant-input.numbergroup {
+    width: 65%;
+    height: 33px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0px;
+    
+    /* border: 1px solid  rgba(19, 79, 113, 0.8);  */
+}
+
+input.ant-input.adv1 {
+    width: 35%;
+    height: 33px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0px;
+    /* border: 1px solid  rgba(19, 79, 113, 0.8);  */
+}
+  
+  
+  
+  
+  

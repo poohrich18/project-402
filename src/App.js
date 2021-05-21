@@ -40,6 +40,7 @@ import ProjectList_Advisor from './ProjectList_Advisor' ;
 import CreateSchedule_Advisor from './CreateSchedule_Advisor';
 import {Score401_Advisor} from './Advisor/Score401_Advisor';
 import {Score402_Advisor} from './Advisor/Score402_Advisor';
+import Check from './Check' ;
 
 // import {observer} from 'mobx-react' ;
 import { BrowserRouter, Route , Switch} from "react-router-dom";
@@ -95,6 +96,7 @@ class App extends React.Component{
         <Route exact path="/create_t" component={CreateSchedule_Advisor} />
         <Route exact path="/score401_a" component={Score401_Advisor} />
         <Route exact path="/score402_a" component={Score402_Advisor} />
+        <Route exact path="/table_a" component={Check} />
 
         </Switch>
       </GlobalProvider>

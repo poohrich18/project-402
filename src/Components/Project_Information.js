@@ -151,15 +151,15 @@ const addProject = () => {
               <div className="fieldmember">
                 <TextField
                   id="outlined-full-width"
-                  label="ชื่อ (ภาษาไทย)"
-                  style={{ marginTop: 10, marginLeft: 10, width: 250 }}
+                  label="ชื่อ นามสกุล (ภาษาไทย)"
+                  style={{ marginTop: 10, marginLeft: 10, width: 420 }}
                   placeholder="Placeholder"
                   variant="outlined"
                   onChange={(event) => {
                     setmember1Firstname(event.target.value);
                   }}
                 />
-                <TextField
+                {/* <TextField
                   id="outlined-full-width"
                   label="นามสกุล (ภาษาไทย)"
                   style={{ marginTop: 10, marginLeft: 15, width: 250 }}
@@ -168,7 +168,7 @@ const addProject = () => {
                   onChange={(event) => {
                     setmember1Lastname(event.target.value);
                   }}
-                />
+                /> */}
               </div>
 
               <h5 className="GroupName">เลขทะเบียนนักศึกษา</h5>
@@ -200,15 +200,15 @@ const addProject = () => {
               <div className="fieldmember">
                 <TextField
                   id="outlined-full-width"
-                  label="ชื่อ (ภาษาไทย)"
-                  style={{ marginTop: 10, marginLeft: 10, width: 250 }}
+                  label="ชื่อ นามสกุล(ภาษาไทย)"
+                  style={{ marginTop: 10, marginLeft: 10, width: 420 }}
                   placeholder="Placeholder"
                   variant="outlined"
                   onChange={(event) => {
                     setmember2Firstname(event.target.value);
                   }}
                 />
-                <TextField
+                {/* <TextField
                   id="outlined-full-width"
                   label="นามสกุล (ภาษาไทย)"
                   style={{ marginTop: 10, marginLeft: 15, width: 250 }}
@@ -217,7 +217,7 @@ const addProject = () => {
                   onChange={(event) => {
                     setmember2Lastname(event.target.value);
                   }}
-                />
+                /> */}
               </div>
 
               <h5 className="GroupName">เลขทะเบียนนักศึกษา</h5>
@@ -250,7 +250,7 @@ const addProject = () => {
                 <TextField
                   id="outlined-full-width"
                   label="อาจารย์ที่ปรึกษา"
-                  style={{ marginTop: 10, marginLeft: 10, width: 400 }}
+                  style={{ marginTop: 10, marginLeft: 10, width: 420 }}
                   placeholder="Placeholder"
                   variant="outlined"
                   onChange={(event) => {

@@ -1,9 +1,9 @@
 import React from 'react'
 import '../App.css';
 import {SidebarData_Advisor} from './SidebarData_Advisor';
-import {SidebarData_Message_Advisor} from './SidebarData_Message_Advisor' ;
+import {SidebarData_ProjectList_Advisor} from './SidebarData_ProjectList_Advisor' ;
 import {SidebarData_Noti_Advisor} from './SidebarData_Noti_Advisor' ;
-import {SidebarData_Comment_Advisor} from './SidebarData_Comment_Advisor' ;
+import {SidebarData_TableExam_Advisor} from './SidebarData_TableExam_Advisor' ;
 import {SidebarLogout_Advisor} from './SidebarLogout_Advisor';
 
 function Sidebar_Advisor() {
@@ -34,7 +34,7 @@ function Sidebar_Advisor() {
             <hr class="solid"></hr>
 
             <ul className="SidebarList">
-                {SidebarData_Message_Advisor.map((val,key) => {
+                {SidebarData_ProjectList_Advisor.map((val,key) => {
                     return (
                         <li 
                             
@@ -68,7 +68,7 @@ function Sidebar_Advisor() {
                         </li>
                     );
                 })}
-                {SidebarData_Comment_Advisor.map((val,key) => {
+                {SidebarData_TableExam_Advisor.map((val,key) => {
                     return (
                         <li 
                             
