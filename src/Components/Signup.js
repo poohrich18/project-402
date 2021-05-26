@@ -60,7 +60,7 @@ export const Signup = () => {
       
     >
       {(formik) => (
-        <div>
+        <div className="formlogin">
           <h1 className="aa">Log in</h1>
           <Form>
             <TextField label="Username" name="username" type="text" />

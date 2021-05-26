@@ -6,7 +6,7 @@ import {Signup} from './Components/Signup';
 function Login() {
   return (
     <div className="container mt-3">
-      <div className="row">
+      <div className="rowlogin">
         <div className="col-md-5">
           <Signup />
         </div>
