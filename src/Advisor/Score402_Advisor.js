@@ -5,7 +5,9 @@ import "../Score.css";
 import { TextField } from '@material-ui/core';
 import { Input } from 'antd';
 import Sidebar_Advisor from './Sidebar_Advisor';
+import { Select } from 'antd';
 
+const { Option } = Select;
 const { TextArea } = Input;
 export const Score402_Advisor = () => {
     return (
@@ -48,7 +50,25 @@ export const Score402_Advisor = () => {
 
 
                             <span className="block2col2">
-                                36_nng-m2
+                                {/* 36_nng-m2 */}
+                                {/* 36_nng-m2 */}
+                                <Select
+                                    showSearch
+                                    style={{ width: 150 , textAlign: "center"}}
+                                    placeholder="Select ProjCode"
+                                    optionFilterProp="children"
+                                    // onChange={onChange}
+                                    // onFocus={onFocus}
+                                    // onBlur={onBlur}
+                                    // onSearch={onSearch}
+                                    // filterOption={(input, option) =>
+                                    // option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                    // }
+                                >
+                                    <Option value="team1">01_scw_r2</Option>
+                                    <Option value="team2">02_scw_r2</Option>
+                                    <Option value="team36">36_nng_m2</Option>
+                                 </Select>
                             </span>
 
                             <span className="block2col3">
