@@ -44,6 +44,8 @@ import {Score401_Advisor} from './Advisor/Score401_Advisor';
 import {Score402_Advisor} from './Advisor/Score402_Advisor';
 import Check from './Check' ;
 
+
+import Student from './Components/Student' ;
 // import {observer} from 'mobx-react' ;
 import { BrowserRouter, Route , Switch} from "react-router-dom";
 import {GlobalProvider} from './Context/GlobalState';
@@ -101,6 +103,8 @@ class App extends React.Component{
         <Route exact path="/score401_a" component={Score401_Advisor} />
         <Route exact path="/score402_a" component={Score402_Advisor} />
         <Route exact path="/table_a" component={Check} />
+
+        <Route exact path="/student" render={props => <Student />} />
 
         </Switch>
       </GlobalProvider>

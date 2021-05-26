@@ -176,8 +176,8 @@ class BlockCreate extends React.Component{
 
     return (
       <Form name="dynamic_form_nest_item" onFinish={onFinish} autoComplete="on">
-        {/* <h4 className="GroupName">Group Name</h4> */}
-        <Form.Item className="test"
+        <h4 className="GroupName">Group Name</h4>
+        <TextField className="test"
             name="group"
             label="Group Name"
             rules={[
@@ -191,7 +191,7 @@ class BlockCreate extends React.Component{
             }}
           >
           <Input/>
-        </Form.Item>
+        </TextField>
         
         <h4 className="Add-Member">Member</h4>
         <Form.List name="usersMember">
@@ -211,7 +211,9 @@ class BlockCreate extends React.Component{
                   >
                    
                     <AutoComplete
-                      style={{ width: 200 }}
+
+                      style={{ width: 250 }}
+
                       dataSource={userList.map(item=>{return item.name})}
                       placeholder="Search Member"
                       filterOption={(inputValue, option) => 
@@ -242,7 +244,7 @@ class BlockCreate extends React.Component{
               {fields2.map(field2 => (
                 <Space key={field2.key} style={{ display: 'flex', marginBottom: 0 }} align="baseline">
                   
-                  <Form.Item
+                  <Form.Item style={{ width: 250 }}
                     {...field2}
                     name={[field2.name, 'nameAdvisor']}
                     fieldKey={[field2.fieldKey, 'nameAdvisor']}
@@ -253,7 +255,7 @@ class BlockCreate extends React.Component{
                    
                   >
                      <AutoComplete
-                      style={{ width: 200 }}
+                      style={{ width: 250 }}
                       dataSource={advisorList.map(item=>{return item.name})}
                       placeholder="Search Advisor"
                       filterOption={(inputValue, option) => 
@@ -268,7 +270,8 @@ class BlockCreate extends React.Component{
               <Form.Item>
                 <Button 
                  className="button-addadv"
-                type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
+                  type="dashed" 
+                  onClick={() => add()} block icon={<PlusOutlined />}>
                   Add Advisor
                 </Button>
               </Form.Item>
@@ -276,7 +279,11 @@ class BlockCreate extends React.Component{
           )}
         </Form.List>
         <Form.Item>
-          <Button  className="buttonadd" type="primary" htmlType="submit" onClick={addGroup2}>
+          <Button  
+            className="buttonadd" 
+            type="primary" 
+            htmlType="submit" 
+            onClick={addGroup2}>
             Submit
           </Button>
           <Button  className="buttoncancel" type="primary" htmlType="submit">
@@ -310,10 +317,3 @@ class BlockCreate extends React.Component{
 }
 }
 export default BlockCreate;
-
-
-
-
-
-  
-

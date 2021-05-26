@@ -3,9 +3,7 @@ const bodyParser = require("body-parser");
 const mysql = require("mysql");
 const cors = require("cors");
 
-
 const port = process.env.PORT || 5001;
-
 
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
@@ -13,16 +11,16 @@ const session = require("express-session");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
-const jwt =require('jsonwebtoken')
+const jwt = require("jsonwebtoken");
 
 const app = express();
 
 app.use(express.json());
-const corsOptions ={
-    origin:'http://localhost:3000/', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
+const corsOptions = {
+  origin: "http://localhost:3000/",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
 app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -38,7 +36,6 @@ app.use(
     },
   })
 );
-
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -74,55 +71,53 @@ const db = mysql.createPool({
 // })
 
 app.post("/username/register", (req, res) => {
-    const username = req.body.username;
-    const password = req.body.password;
-  
-    bcrypt.hash(password, saltRounds, (err, hash) => {
-      if (err) {
-        console.log(err);
-      }
-      db.getConnection((err, connection) => {
-        connection.query(
+  const username = req.body.username;
+  const password = req.body.password;
+
+  bcrypt.hash(password, saltRounds, (err, hash) => {
+    if (err) {
+      console.log(err);
+    }
+    db.getConnection((err, connection) => {
+      connection.query(
         "INSERT INTO username (id, pass) VALUES (?,?)",
         [username, hash],
         (err, result) => {
-            connection.release();
+          connection.release();
           console.log(err);
         }
       );
     });
-    });
   });
+});
 
-  const verifyJWT = (req,res,next)=>{
-      const token = req.headers["x-access-token"];
-      if(!token){
-          res.send("I want token ,pleas give me next time");
-      }else{
-            jwt.verify(token,"jwtSecret",(err,decoded)=>{
-                if(err){
-                    res.json({auth:false,message:"YOu Fail to Oauth"});
-                }else{
-                    req.Username_id =decoded.id;
-                    next();
-                }
-            }) 
+const verifyJWT = (req, res, next) => {
+  const token = req.headers["x-access-token"];
+  if (!token) {
+    res.send("I want token ,pleas give me next time");
+  } else {
+    jwt.verify(token, "jwtSecret", (err, decoded) => {
+      if (err) {
+        res.json({ auth: false, message: "YOu Fail to Oauth" });
+      } else {
+        req.Username_id = decoded.id;
+        next();
       }
-  }  
-  
-  app.get("/username/isUserAuth",verifyJWT, (req, res) => {
-    res.send("Verify Complete")
-  });
+    });
+  }
+};
 
+app.get("/username/isUserAuth", verifyJWT, (req, res) => {
+  res.send("Verify Complete");
+});
 
-
-  app.get("/username/login2", (req, res) => {
-    if (req.session.user) {
-      res.send({ loggedIn: true, username: req.session.id });
-    } else {
-      res.send({ loggedIn: false });
-    }
-  });
+app.get("/username/login2", (req, res) => {
+  if (req.session.user) {
+    res.send({ loggedIn: true, username: req.session.id });
+  } else {
+    res.send({ loggedIn: false });
+  }
+});
 
 //log in
 app.post("/username/login", (req, res) => {
@@ -130,13 +125,14 @@ app.post("/username/login", (req, res) => {
   const password = req.body.password;
   db.getConnection((err, connection) => {
     connection.query(
-      "SELECT * from username WHERE id = ? && pass =?",[username,password],
+      "SELECT * from username WHERE id = ? && pass =?",
+      [username, password],
       (err, result) => {
         connection.release(); // return the connection to pool
 
         if (result[0].id == username) {
           if (result[0].pass == password) {
-            console.log("aa",result[0].type)
+            console.log("aa", result[0].type);
             res.send(result[0]);
           }
         } else {
@@ -149,42 +145,43 @@ app.post("/username/login", (req, res) => {
 
 //log in
 app.post("/username/login2", (req, res) => {
-    const username = req.body.username;
-    const password = req.body.password;
-    db.getConnection((err, connection) => {
-        connection.query(
+  const username = req.body.username;
+  const password = req.body.password;
+  db.getConnection((err, connection) => {
+    connection.query(
       "SELECT * FROM username WHERE id = ?;",
       username,
       (err, result) => {
         if (err) {
           res.send({ err: err });
         }
-  
+
         if (result.length > 0) {
           bcrypt.compare(password, result[0].pass, (error, response) => {
             if (response) {
-                
-                const id = result[0].Username_id
-                const token = jwt.sign({id},"jwtSecret",{
-                  expiresIn: 300,
-              })
-              
+              const id = result[0].Username_id;
+              const token = jwt.sign({ id }, "jwtSecret", {
+                expiresIn: 300,
+              });
+
               console.log(req.session.id);
               req.session.username = result;
 
-              res.json({auth:true,token: token,result: result});
-
+              res.json({ auth: true, token: token, result: result });
             } else {
-              res.json({ auth:false ,message: "Wrong username/password combination!" });
+              res.json({
+                auth: false,
+                message: "Wrong username/password combination!",
+              });
             }
           });
         } else {
-          res.json({ auth:false,message: "User doesn't exist" });
+          res.json({ auth: false, message: "User doesn't exist" });
         }
       }
     );
-    });
   });
+});
 
 // Show all group
 app.get("/groups", (req, res) => {
@@ -202,18 +199,18 @@ app.get("/groups", (req, res) => {
 });
 
 app.get("/showgroups", (req, res) => {
-    db.getConnection((err, connection) => {
-      connection.query("SELECT * from projectDB", (err, result) => {
-        connection.release(); // return the connection to pool
-  
-        if (!err) {
-          res.send(result);
-        } else {
-          console.log(err);
-        }
-      });
+  db.getConnection((err, connection) => {
+    connection.query("SELECT * from projectDB", (err, result) => {
+      connection.release(); // return the connection to pool
+
+      if (!err) {
+        res.send(result);
+      } else {
+        console.log(err);
+      }
     });
   });
+});
 
 app.get("/username", (req, res) => {
   db.getConnection((err, connection) => {
@@ -244,18 +241,18 @@ app.get("/advisor", (req, res) => {
 });
 
 app.get("/studentscore", (req, res) => {
-    db.getConnection((err, connection) => {
-      connection.query("SELECT * from studentscore", (err, result) => {
-        connection.release(); // return the connection to pool
-  
-        if (!err) {
-          res.send(result);
-        } else {
-          console.log(err);
-        }
-      });
+  db.getConnection((err, connection) => {
+    connection.query("SELECT * from studentscore", (err, result) => {
+      connection.release(); // return the connection to pool
+
+      if (!err) {
+        res.send(result);
+      } else {
+        console.log(err);
+      }
     });
   });
+});
 //Add grop
 app.post("/groups/add", (req, res) => {
   const groupname = req.body.groupname;
@@ -410,15 +407,19 @@ app.put("/group/update5/", (req, res) => {
 app.delete("/group/delete/:id", (req, res) => {
   const id = req.params.id;
   db.getConnection((err, connection) => {
-    connection.query("DELETE FROM projectdb WHERE id = ?", id, (err, result) => {
-      connection.release(); // return the connection to pool
+    connection.query(
+      "DELETE FROM projectdb WHERE id = ?",
+      id,
+      (err, result) => {
+        connection.release(); // return the connection to pool
 
-      if (err) {
-        console.log(err);
-      } else {
-        res.send(result);
+        if (err) {
+          console.log(err);
+        } else {
+          res.send(result);
+        }
       }
-    });
+    );
   });
 });
 
