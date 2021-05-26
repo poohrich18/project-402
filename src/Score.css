@@ -150,19 +150,20 @@ span.block2col1{
 
 span.block2col2{
     height: 50px;
-    width: 200px;
+    width: 150px;
     /* background-color: darkcyan; */
-    margin-left: 50px;
+    margin-left: 26px;
     font-size: 20px;
 
 }
+
 span.block2col3{
     height: 50px;
     width: 200px;
     /* background-color: darkcyan; */
-    margin-left: 60px;
+    margin-left: 34px;
     font-size: 20px;
-
+    text-align: center;
 }
 
 span.block3col3{

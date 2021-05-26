@@ -119,7 +119,7 @@ const addProject = () => {
             <hr className="hr-InformProject"></hr>
 
             <Form>
-              <h4 className="GroupName">ชื่อโครงงานภาษาไทย</h4>
+              <h4 className="projectthai">ชื่อโครงงานภาษาไทย</h4>
               <div className="fieldmember">
                 <TextField
                   id="outlined-full-width"

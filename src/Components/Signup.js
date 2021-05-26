@@ -74,129 +74,89 @@ export const Signup = () => {
   );
 };
 
-// const schema = Yup.object().shape({
-//   username: Yup.string()
-//     .max(10, 'Must be 10 characters')
-//     .required('Required'),
-//   password: Yup.string()
-//     .min(6, 'Password must be at least 6 charaters')
-//     .required('Password is required'),
-// });
+// import React from "react";
+// import { Form, Input, Button, Checkbox } from 'antd';
 
-// class Signup extends React.Component {
-
-//     validate = Yup.object({
-//     username: Yup.string()
-//       .max(10, 'Must be 10 characters')
-//       .required('Required'),
-//     password: Yup.string()
-//       .min(6, 'Password must be at least 6 charaters')
-//       .required('Password is required'),
-//       posts: []
-//   })
-
-//   // constructor(props) {
-//   //   super(props);
-
-//   // }
-
-//   // componentDidMount() {
-//   //   axios.get('http://localhost:5000/username/')
-//   //   .then((response) => {
-//   //        console.log(response);
-//   //       const data = response.data ;
-//   //       this.setState({post:data});
-//   //       console.log("data has been recived");
-//   //       console.log(response.data[0].id);
-
-//   //       })
-//   //   .catch((error) => {
-//   //     console.log(error);
-//   //   });
-//   // }
-//   handleusernameChange: function(e) {
-//     this.setState({username: e.target.value});
-//  },
-//  handlePasswordChange: function(e) {
-//     this.setState({password: e.target.value});
-//  },
-
-//  handleLogin: function() {
-//      console.log("EMail: " + this.state.email);
-//      console.log("Password: " + this.state.password);
-//  }
-
-//   render() {
-//     return (
-//       <Formik
-//         initialValues={{
-//           username: '',
-//           password: '',
-//         }}
-//         validationSchema={schema}
-//         onSubmit={values => {
-//           console.log(values)
-//         }}
-//       >
-//         {formik => (
-//           <div>
-//             <h1 className="aa">Log in</h1>
-//             <Form>
-//               <TextField label="Username" name="username" type="text" />
-//               <TextField label="Password" name="password" type="password" />
-//               <button onclick={this.componentDidMount} className="btn btn-primary mt-3" type="submit">Submit</button>
-//               <button className="btn btn-danger mt-3 ml-3" type="reset">Reset</button>
-//             </Form>
-//           </div>
-//         )}
-//       </Formik>
-//     );
-//   }
-// }
-
-// export default Signup;
 
 // export const Signup = () => {
-//   const validate = Yup.object({
-//     username: Yup.string()
-//       .max(10, 'Must be 10 characters')
-//       .required('Required'),
-//     password: Yup.string()
-//       .min(6, 'Password must be at least 6 charaters')
-//       .required('Password is required'),
+//   const layout = {
+//     labelCol: {
+//       span: 8,
+//     },
+//     wrapperCol: {
+//       span: 16,
+//     },
+//   };
+//   const tailLayout = {
+//     wrapperCol: {
+//       offset: 8,
+//       span: 16,
+//     },
+//   };
+  
+//   const Demo = () => {
+//     const onFinish = (values) => {
+//       console.log('Success:', values);
+//     };
+  
+//     const onFinishFailed = (errorInfo) => {
+//       console.log('Failed:', errorInfo);
+//     };
+  
+//     return (
+//       <Form
+//         {...layout}
+//         name="basic"
+//         initialValues={{
+//           remember: true,
+//         }}
+//         onFinish={onFinish}
+//         onFinishFailed={onFinishFailed}
+//       >
+//         <Form.Item
+//           label="Username"
+//           name="username"
+//           rules={[
+//             {
+//               required: true,
+//               message: 'Please input your username!',
+//             },
+//           ]}
+//         >
+//           <Input />
+//         </Form.Item>
+  
+//         <Form.Item
+//           label="Password"
+//           name="password"
+//           rules={[
+//             {
+//               required: true,
+//               message: 'Please input your password!',
+//             },
+//           ]}
+//         >
+//           <Input.Password />
+//         </Form.Item>
+  
+//         <Form.Item {...tailLayout} name="remember" valuePropName="checked">
+//           <Checkbox>Remember me</Checkbox>
+//         </Form.Item>
+  
+//         <Form.Item {...tailLayout}>
+//           <Button type="primary" htmlType="submit">
+//             Submit
+//           </Button>
+//         </Form.Item>
+//       </Form>
+//     );
+//   };
 
-//   })
-
-//   componentDidMount() {
-//     const parameter ={"username":'SS',"password":'CXCX'};
-//   axios.post('http://localhost:3000/',parameter).then(res=>{
-//     console.log(res.data);
-//   })
-//   }
 //   return (
-//     <Formik
-//       initialValues={{
-//         username: '',
-//         password: '',
-//       }}
-//       validationSchema={validate}
-//       onSubmit={values => {
-//         console.log(values)
-//       }}
-//     >
-//       {formik=> (
-//         <div>
-//           <h1 className="aa">Log in</h1>
-//           <Form>
-//             <TextField label="Username" name="username" type="text" />
-//             <TextField label="Password" name="password" type="password" />
-//             <button className="btn btn-primary mt-3" type="submit">Submit</button>
-//             <button className="btn btn-danger mt-3 ml-3" type="reset">Reset</button>
-//           </Form>
-//         </div>
-//       )}
-//     </Formik>
-//   )
-
+    
+//     <div>
+//       <h1 className="aa">Log in</h1>
+//               <Demo />
+//       </div>
+//   );
 // }
-// export default Signup;

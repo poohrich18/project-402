@@ -38,8 +38,9 @@
     color: #2F4050;
 }
 .GroupName{
-    margin-left: 48px;
+    /* margin-left: 48px; */
     margin-top: 50px;
+    margin-bottom: 20px
 }
 
 .fieldgroupname{

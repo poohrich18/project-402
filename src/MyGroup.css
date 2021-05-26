@@ -102,3 +102,13 @@ button.buttonleave{
     margin-top: 0px;
     margin-left: 10px;
 }
+
+button.button-edit-ok{
+    margin-left: 48px;
+    margin-top: 20px;
+}
+
+button.button-editcancel{
+    margin-left: 10px;
+    margin-top: 20px;
+}
