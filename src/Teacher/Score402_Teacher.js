@@ -7,46 +7,7 @@ import { Input } from "antd";
 
 const { TextArea } = Input;
 export const Score402_Teacher = () => {
-  const [studenScore, setstudentScore] = useState([]);
-
-  const [new10score1_1, setnew10score1_1] = useState([]);
-  const [new20score2_1, setnew20score2_1] = useState([]);
-  const [new30score3_1, setnew30score3_1] = useState([]);
-  const [new20score4_1, setnew20score4_1] = useState([]);
-  const [new20score5_1, setnew20score5_1] = useState([]);
-  const [new60score6_1, setnew60score6_1] = useState([]);
-  const [newTotalscore7_1, setnewTotalscore7_1] = useState([]);
-
-  const [new10score1_1, setnew10score1_1] = useState([]);
-  const [new20score2_1, setnew20score2_1] = useState([]);
-  const [new30score3_1, setnew30score3_1] = useState([]);
-  const [new20score4_1, setnew20score4_1] = useState([]);
-  const [new20score5_1, setnew20score5_1] = useState([]);
-  const [new60score6_1, setnew60score6_1] = useState([]);
-  const [newTotalscore7_1, setnewTotalscore7_1] = useState([]);
-
-  const [new10score1_2, setnew10score1_2] = useState([]);
-  const [new20score2_2, setnew20score2_2] = useState([]);
-  const [new30score3_2, setnew30score3_] = useState([]);
-  const [new20score4_2, set2new20score4_2] = useState([]);
-  const [new20score5_2, setnew20score5_2] = useState([]);
-  const [new60score6_2, setnew60score6_2] = useState([]);
-  const [newTotalscore7_2, setnewTotalscore7_2] = useState([]);
-
-  const getStudentscore = () => {
-    axios.get("http://localhost:5001/studentscore").then((respond) => {
-      setgroupList(respond.data);
-    });
-  };
-
-  const getAllGroup = () => {
-    axios.get("http://localhost:5001/studentscore").then((respond) => {
-      setgroupList(respond.data);
-    });
-  };
-  useEffect(() => {
-    getStudentscore();
-  }, []);
+  
 
   return (
     <Row className="content">

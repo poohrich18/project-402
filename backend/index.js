@@ -111,13 +111,9 @@ app.get("/username/isUserAuth", verifyJWT, (req, res) => {
   res.send("Verify Complete");
 });
 
-app.get("/username/login2", (req, res) => {
-  if (req.session.user) {
-    res.send({ loggedIn: true, username: req.session.id });
-  } else {
-    res.send({ loggedIn: false });
-  }
-});
+
+
+
 
 //log in
 app.post("/username/login", (req, res) => {
@@ -144,44 +140,44 @@ app.post("/username/login", (req, res) => {
 });
 
 //log in
-app.post("/username/login2", (req, res) => {
-  const username = req.body.username;
-  const password = req.body.password;
-  db.getConnection((err, connection) => {
-    connection.query(
-      "SELECT * FROM username WHERE id = ?;",
-      username,
-      (err, result) => {
-        if (err) {
-          res.send({ err: err });
-        }
+// app.post("/username/login2", (req, res) => {
+//   const username = req.body.username;
+//   const password = req.body.password;
+//   db.getConnection((err, connection) => {
+//     connection.query(
+//       "SELECT * FROM username WHERE id = ?;",
+//       username,
+//       (err, result) => {
+//         if (err) {
+//           res.send({ err: err });
+//         }
 
-        if (result.length > 0) {
-          bcrypt.compare(password, result[0].pass, (error, response) => {
-            if (response) {
-              const id = result[0].Username_id;
-              const token = jwt.sign({ id }, "jwtSecret", {
-                expiresIn: 300,
-              });
+//         if (result.length > 0) {
+//           bcrypt.compare(password, result[0].pass, (error, response) => {
+//             if (response) {
+//               const id = result[0].Username_id;
+//               const token = jwt.sign({ id }, "jwtSecret", {
+//                 expiresIn: 300,
+//               });
 
-              console.log(req.session.id);
-              req.session.username = result;
+//               console.log(req.session.id);
+//               req.session.username = result;
 
-              res.json({ auth: true, token: token, result: result });
-            } else {
-              res.json({
-                auth: false,
-                message: "Wrong username/password combination!",
-              });
-            }
-          });
-        } else {
-          res.json({ auth: false, message: "User doesn't exist" });
-        }
-      }
-    );
-  });
-});
+//               res.json({ auth: true, token: token, result: result });
+//             } else {
+//               res.json({
+//                 auth: false,
+//                 message: "Wrong username/password combination!",
+//               });
+//             }
+//           });
+//         } else {
+//           res.json({ auth: false, message: "User doesn't exist" });
+//         }
+//       }
+//     );
+//   });
+// });
 
 // Show all group
 app.get("/groups", (req, res) => {
@@ -226,6 +222,8 @@ app.get("/username", (req, res) => {
   });
 });
 
+
+
 app.get("/advisor", (req, res) => {
   db.getConnection((err, connection) => {
     connection.query("SELECT * from advisor", (err, result) => {
@@ -253,6 +251,39 @@ app.get("/studentscore", (req, res) => {
     });
   });
 });
+
+app.get("/score/nng", (req, res) => {
+    db.getConnection((err, connection) => {
+
+      connection.query("SELECT * FROM projectdb WHERE Comm1 = 'nng' OR Comm2 = 'nng' OR Comm3 = 'nng' OR AdvId= 'nng'", (err, result) => {
+        connection.release(); // return the connection to pool
+        
+        if (!err) {
+          res.send(result);
+          
+        } else {
+          console.log(err);
+        }
+      });
+    });
+  });
+  
+  app.get("namegroup/nng", (req, res) => {
+    db.getConnection((err, connection) => {
+
+      connection.query("SELECT * FROM projectdb WHERE Comm1 = 'nng' OR Comm2 = 'nng' OR Comm3 = 'nng' OR AdvId= 'nng'", (err, result) => {
+        connection.release(); // return the connection to pool
+        
+        if (!err) {
+          res.send(result);
+          
+        } else {
+          console.log(err);
+        }
+      });
+    });
+  });
+
 //Add grop
 app.post("/groups/add", (req, res) => {
   const groupname = req.body.groupname;
