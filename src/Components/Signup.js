@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component,useState } from "react";
 import { Formik, Form } from "formik";
 import { TextField } from "./TextField";
 import * as Yup from "yup";
@@ -22,11 +22,14 @@ export const Signup = () => {
 
   let history = useHistory();
 
+  const [username, setUsername] = useState([]);
+  const [password, setPassword] = useState([]);
+   
   return (
     <Formik
       initialValues={{
-        username: "",
-        password: "",
+        username: setUsername,
+        password: setPassword,
       }}
       validationSchema={validate}
       onSubmit={(values) => {
@@ -54,6 +57,7 @@ export const Signup = () => {
             console.log(error);
           });
       }}
+      
     >
       {(formik) => (
         <div>
@@ -68,8 +72,10 @@ export const Signup = () => {
               Reset
             </button>
           </Form>
+         
         </div>
       )}
+      
     </Formik>
   );
 };

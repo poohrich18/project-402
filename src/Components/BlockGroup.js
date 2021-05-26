@@ -37,7 +37,7 @@ export const BlockGroup = () => {
   const [newadvisorlastname, setnewadvisorlastname] = useState([]);
 
   const getGroup = () => {
-    axios.get("http://localhost:5001/groups").then((respond) => {
+    axios.get("http://localhost:5001/showgroups").then((respond) => {
       setgroupList(respond.data);
     });
   };
@@ -57,10 +57,10 @@ export const BlockGroup = () => {
           return val.id == id ? {
             id: val.id,
             groupname: newgroupname,
-            memberfirstname: val.memberfirstname,
-            memberlastname: val.memberlastname,
-            advisorfirstname: val.advisorfirstname,
-            advisorlastname: val.advisorlastname
+            memberfirstname: val.Std_Name_1,
+            memberlastname: val.Std_Name_2,
+            advisorfirstname: val.AdvId,
+            advisorlastname: val.ProjNameEN
             
           } : val;
         })
@@ -76,11 +76,11 @@ export const BlockGroup = () => {
         groupList.map((val)=>{
           return val.id == id ? {
             id: val.id,
-            groupname: val.groupname,
+            groupname: val.ProjNameTH,
             memberfirstname: newfirstname,
-            memberlastname: val.memberlastname,
-            advisorfirstname: val.advisorfirstname,
-            advisorlastname: val.advisorlastname
+            memberlastname: val.Std_Name_2,
+            advisorfirstname: val.AdvId,
+            advisorlastname: val.ProjNameEN
             
           } : val;
         })
@@ -97,11 +97,11 @@ export const BlockGroup = () => {
         groupList.map((val)=>{
           return val.id == id ? {
             id: val.id,
-            groupname: val.groupname,
-            memberfirstname: val.memberfirstname,
+            groupname: val.ProjNameTH,
+            memberfirstname: val.Std_Name_1,
             memberlastname: newlastname,
-            advisorfirstname: val.advisorfirstname,
-            advisorlastname: val.advisorlastname
+            advisorfirstname: val.AdvId,
+            advisorlastname: val.ProjNameEN
             
           } : val;
         })
@@ -117,11 +117,11 @@ export const BlockGroup = () => {
         groupList.map((val)=>{
           return val.id == id ? {
             id: val.id,
-            groupname: val.groupname,
-            memberfirstname: val.memberfirstname,
-            memberlastname: val.memberlastname,
+            groupname: val.ProjNameTH,
+            memberfirstname: val.Std_Name_1,
+            memberlastname: val.Std_Name_2,
             advisorfirstname: newadvisorfirstname,
-            advisorlastname: val.advisorlastname
+            advisorlastname: val.ProjNameEN
             
           } : val;
         })
@@ -138,10 +138,10 @@ export const BlockGroup = () => {
         groupList.map((val)=>{
           return val.id == id ? {
             id: val.id,
-            groupname: val.groupname,
-            memberfirstname: val.memberfirstname,
-            memberlastname: val.memberlastname,
-            advisorfirstname: val.advisorfirstname,
+            groupname: val.ProjNameTH,
+            memberfirstname: val.Std_Name_1,
+            memberlastname: val.Std_Name_2,
+            advisorfirstname: val.AdvId,
             advisorlastname: newadvisorlastname
             
           } : val;
@@ -220,25 +220,25 @@ export const BlockGroup = () => {
               <div className=" group list">
                 <div className="card-body text-left">
                   <p className="card-text">
-                    Groupname: {val.groupname}
+                    Groupname THAI: {val.ProjNameTH}
                     </p>
                   <p className="card-text">
-                    Firstname Member: {val.memberfirstname}
+                  Groupname ENGLLISH: {val.ProjNameEN}
                   </p>
                   <p className="card-text">
-                    Lastname Member: {val.memberlastname}
+                    Member1: {val.Std_Name_1}
                   </p>
                   <p className="card-text">
-                    Firstname Adivisor : {val.advisorfirstname}
+                   Member2 : {val.Std_Name_2}
                   </p>
                   <p className="card-text">
-                    Lastname Adivisor : {val.advisorlastname}
+                    Adivisor ID : {val.AdvId}
                   </p>
                   <div className="d-flex">
                     <input
                       type="text"
                       type="String"
-                      placeholder="Gropname"
+                      placeholder="Gropname THAI"
                       onChange={(e) => {
                         setnewgroupname(e.target.value);
                       }}
@@ -264,7 +264,7 @@ export const BlockGroup = () => {
                     <input
                       type="text"
                       type="String"
-                      placeholder="Firstname"
+                      placeholder="Gropname ENG"
                       onChange={(e) => {
                         setnewfirstname(e.target.value);
                       }}
@@ -277,7 +277,7 @@ export const BlockGroup = () => {
                     <input
                       type="text"
                       type="String"
-                      placeholder="Lastname"
+                      placeholder="Member1"
                       onChange={(e) => {
                         setnewlastname(e.target.value);
                       }}
@@ -290,7 +290,7 @@ export const BlockGroup = () => {
                     <input
                       type="text"
                       type="String"
-                      placeholder="Adivisor Firstname"
+                      placeholder="Member2"
                       onChange={(e) => {
                         setnewadvisorfirstname(e.target.value);
                       }}
@@ -303,7 +303,7 @@ export const BlockGroup = () => {
                     <input
                       type="text"
                       type="String"
-                      placeholder="Adivisor Lastname"
+                      placeholder="Adivisor ID"
                       onChange={(e) => {
                         setnewadvisorlastname(e.target.value);
                       }}

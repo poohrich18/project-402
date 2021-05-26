@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useContext,useEffect  } from "react";
+
+import { Link, useHistory } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 //Incude antd modules, icon and style
 import { Form, Input, Button, Space } from 'antd';
@@ -7,6 +8,19 @@ import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import "antd/dist/antd.css";
 
 import { AutoComplete } from 'antd';
+
+import { GlobalContext } from "../Context/GlobalState";
+import { Row, Col, useAccordionToggle } from "react-bootstrap";
+// import { Form ,FormGroup } from 'react-bootstrap';
+import { makeStyles } from "@material-ui/core/styles";
+// import { Input } from '@material-ui/core';
+import { v4 as uuid } from "uuid";
+import Container from "@material-ui/core/Container";
+// import Button from "@material-ui/core/Button";
+import axios from "axios";
+import Icon from "@material-ui/core/Icon";
+import TextField from "@material-ui/core/TextField";
+import IconButton from "@material-ui/core/IconButton";
 
 
 class BlockCreate extends React.Component{
@@ -50,9 +64,9 @@ class BlockCreate extends React.Component{
       'Saowaluk Watanapa',
     ];
     
-    const classes = useStyles();
-  const { addUser } = useContext(GlobalContext);
-  const history = useHistory();
+  //   const classes = useStyles();
+  // const { addUser } = useContext(GlobalContext);
+  // const history = useHistory();
 
   // const componentDidMount = () => {
   //     axios.get('http://localhost:5000/group/')
@@ -68,6 +82,7 @@ class BlockCreate extends React.Component{
   //         console.log(error);
   //       })}
   const [userList, setuserList] = useState([]);
+  const [advisorList, setadvisorList] = useState([]);
 
   const getUsername = () => {
     axios.get("http://localhost:5001/username").then((respond) => {
@@ -76,22 +91,31 @@ class BlockCreate extends React.Component{
     });
   };
 
+  const getAdvisor = () => {
+    axios.get("http://localhost:5001/advisor").then((respond) => {
+      setadvisorList(respond.data);
+    });
+  };
+
   let h = useHistory();
   const [groupname, setGroupname] = useState("");
+  const [membername, setmembername] = useState("");
   const [memberfirstname, setmemberFirstname] = useState("");
   const [memberlastname, setmemberLastname] = useState("");
+  const [advisorname, setadvisorname] = useState("");
   const [advisorfirstname, setadvisorFirstname] = useState("");
   const [advisorlastname, setadvisorlastname] = useState("");
 
   const [groupList, setgroupList] = useState([]);
+  const [groupList2, setgroupList2] = useState([]);
 
   const changeGroup = () => {
     const newUser = {
       id: uuid(),
       groupname,
     };
-    addUser(newUser);
-    history.push("/group");
+    // addUser(newUser);
+    // history.push("/group");
     console.log(groupname);
   };
 
@@ -99,8 +123,10 @@ class BlockCreate extends React.Component{
     axios
       .post("http://localhost:5001/groups/add", {
         groupname: groupname,
+        membername: membername,
         memberfirstname: memberfirstname,
         memberlastname: memberlastname,
+        advisorname: advisorname,
         advisorfirstname: advisorfirstname,
         advisorlastname: advisorlastname,
       })
@@ -109,18 +135,43 @@ class BlockCreate extends React.Component{
           ...groupList,
           {
             groupname: groupname,
+            membername: membername,
             memberfirstname: memberfirstname,
             memberlastname: memberlastname,
+            advisorname: advisorname,
             advisorfirstname: advisorfirstname,
             advisorlastname: advisorlastname,
           },
         ]);
       });
   };
-  console.log(groupname);
+
+  const addGroup2 = () => {
+    axios
+      .post("http://localhost:5001/groups/add2", {
+        groupname: groupname,
+        membername: membername,
+        advisorname: advisorname
+       
+      })
+      .then(() => {
+        setgroupList2([
+          ...groupList2,
+          {
+            groupname: groupname,
+            membername: membername,
+            advisorname: advisorname
+          },
+        ]);
+      });
+  };
+
+  console.log(membername);
+  
+  
   useEffect(() => {
     getUsername();
-    
+    getAdvisor();
   }, []);
 
     return (
@@ -134,7 +185,10 @@ class BlockCreate extends React.Component{
                 required: true,
               },
             ]}
-            disabled
+            onChange={(e)=>{
+              setGroupname(e.target.values)
+              console.log("sssss",groupname)
+            }}
           >
           <Input/>
         </Form.Item>
@@ -151,11 +205,14 @@ class BlockCreate extends React.Component{
                     name={[field.name, 'nameMember']}
                     fieldKey={[field.fieldKey, 'nameMember']}
                     rules={[{ required: true, message: 'Missing Name Member' }]}
+                    onChange={(e)=>{
+                      setmembername(prev=>[prev,field.name[0]])
+                    }}
                   >
                    
                     <AutoComplete
                       style={{ width: 200 }}
-                      dataSource={dataStdSource}
+                      dataSource={userList.map(item=>{return item.name})}
                       placeholder="Search Member"
                       filterOption={(inputValue, option) => 
                         option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
@@ -177,7 +234,7 @@ class BlockCreate extends React.Component{
             </>
           )}
         </Form.List>
-
+            
         <h4 className="Add-Advisor">Advisor</h4>
         <Form.List name="usersAdvis">
           {(fields2, { add, remove }) => (
@@ -190,10 +247,14 @@ class BlockCreate extends React.Component{
                     name={[field2.name, 'nameAdvisor']}
                     fieldKey={[field2.fieldKey, 'nameAdvisor']}
                     rules={[{ required: true, message: 'Missing Advisor Name' }]}
+                    onChange={(e)=>{
+                      setadvisorname(prev=>[prev,field2.name[0]])
+                    }}
+                   
                   >
                      <AutoComplete
                       style={{ width: 200 }}
-                      dataSource={dataTeacherSource}
+                      dataSource={advisorList.map(item=>{return item.name})}
                       placeholder="Search Advisor"
                       filterOption={(inputValue, option) => 
                         option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
@@ -215,7 +276,7 @@ class BlockCreate extends React.Component{
           )}
         </Form.List>
         <Form.Item>
-          <Button  className="buttonadd" type="primary" htmlType="submit">
+          <Button  className="buttonadd" type="primary" htmlType="submit" onClick={addGroup2}>
             Submit
           </Button>
           <Button  className="buttoncancel" type="primary" htmlType="submit">

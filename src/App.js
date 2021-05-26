@@ -1,6 +1,8 @@
 import React  from 'react';
 import './App.css';
 import Login from './Login';
+import Signup from './Components/Signup' ;
+import test from './Components/test' ;
 import Home from './Home';
 import CreateGroup from './CreateGroup';
 import Group from './Group';
@@ -55,7 +57,9 @@ class App extends React.Component{
         <Switch>
 
         {/* student1 */}
+        {/* <Route exact path="/" component={Login} /> */}
         <Route exact path="/" component={Login} />
+        <Route exact path="/test" component={test} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/create" component={CreateGroup} />
         <Route exact path="/group" component={Group} />
