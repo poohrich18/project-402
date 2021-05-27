@@ -12,6 +12,7 @@ const { Option } = Select;
 const { TextArea } = Input;
 export const Score402_Advisor = () => {
   const [studentGroupNNG, setstudentGroupNNG] = useState([]);
+  const [newCheck, setnewCheck] = useState([]);
   const [newgroupnameNNG, setnewgroupNNG] = useState([]);
 
   const [new10score1_1, setnew10score1_1] = useState([]);
@@ -41,14 +42,15 @@ export const Score402_Advisor = () => {
       setstudentGroupNNG(respond.data);
     });
   };
-  const getGropNNG = () => {
-    axios.get("http://localhost:5001/namegroup/nng").then((respond) => {
-      setnewgroupNNG(respond.data);
-    });
-  };
+  // const getGropNNG = () => {
+  //   axios.post("http://localhost:5001/namegroup/nng").then((respond) => {
+  //     setnewCheck(respond.data);
+  //     setnewgroupNNG(respond.data);
+  //   });
+  // };
   useEffect(() => {
     getAdvisorNNG();
-    //getGropNNG();
+    
   }, []);
 
   return (
@@ -61,7 +63,7 @@ export const Score402_Advisor = () => {
         <div className="blockwhite_Score">
           {/* <h1 className="Topname_Score">Score</h1>
                     <hr className="hr-Score"></hr> */}
-
+      
           <div className="blockscore">
             <p className="หัวข้อใบประเมินคะแนน">
               ใบรายงานผลคะแนน วิชา CS402 โครงงานพิเศษ 1 ภาคเรียนที่ 1/2563
@@ -81,43 +83,50 @@ export const Score402_Advisor = () => {
               <span className="block2col1">กลุ่มโครงงาน:</span>
 
               <span className="block2col2">
-                <Select
+                <select
                   showSearch
                   style={{ width: 150, textAlign: "center" }}
                   placeholder="Select ProjCode"
                   optionFilterProp="children"
-                  // onChange={(e) => {
-                  //   setnewgroupNNG(e.target.values);
-                  // }}
+                  
+                  onChange= {(e)=>{
+                    axios.post("http://localhost:5001/namegroup/nng",{newCheck:e.target.value}).then((respond) => {
+                      console.log(e.target.value)
+                      setnewCheck(respond.data);
+                      console.log(newCheck)
+                      console.log(newCheck[0]?newCheck[0].ProjNameTH:null)
+                      
+                    });
+                    
+                  }}
                   
                 >
                   {studentGroupNNG.map((val, key) => {
                     return (
-                      <Option>{val.ProjCode}</Option>
+                      <option value={val.ProjCode} >{val.ProjCode}</option>
                     );
                   })}
-                </Select>
+                </select>
               </span>
 
               <span className="block2col3">
-                ระบบบริหารจัดการโครงงานพิเศษ 1 และ โครงงานพิเศษ 2
+              {newCheck[0]?newCheck[0].ProjNameTH:null}
               </span>
             </Row>
 
-            <Row className="block3row">
+            <row className="block3row">
               <span className="block3col3">
-                ADMINISTRATIVE SYSTEM FOR SPECIAL PROJECT 1 AND SPECIAL PROJECT
-                2
+              {newCheck[0]?newCheck[0].ProjNameEN:null}
               </span>
-            </Row>
+            </row>
 
             <Row className="block4row">
               <span className="block4col1">อาจารย์ที่ปรึกษา:</span>
 
-              <span className="block4col2">nng</span>
+              <span className="block4col2">{newCheck[0]?newCheck[0].AdvId:null}</span>
 
               <span className="block4col3">
-                ระบบบริหารจัดการโครงงานพิเศษ 1 และ โครงงานพิเศษ 2
+                {newCheck[0]?newCheck[0].ProjNameTH:null}
               </span>
             </Row>
 
@@ -130,12 +139,12 @@ export const Score402_Advisor = () => {
 
           <div className="blockscore2">
             <span class="std1">
-              <p className="id1">6009610426</p>
-              <p>ภูริช อภิชลติ</p>
+              <p className="id1">{newCheck[0]?newCheck[0].Username_id_1:null}</p>
+              <p>{newCheck[0]?newCheck[0].Std_Name_1:null}</p>
             </span>
             <span class="std2">
-              <p className="id1">6009650075</p>
-              <p>สุพิชชา รัตนไตรมาส</p>
+              <p className="id1">{newCheck[0]?newCheck[0].Username_id_2:null}</p>
+              <p>{newCheck[0]?newCheck[0].Std_Name_2:null}</p>
             </span>
           </div>
 
