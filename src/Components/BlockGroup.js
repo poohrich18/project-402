@@ -215,7 +215,7 @@ export const BlockGroup = () => {
 
           {/* <br></br>
           <br></br> */}
-          {groupList.map((val, key) => {
+          {/* {groupList.map((val, key) => {
             return (
               <div className=" group list">
                 <div className="card-body text-left">
@@ -315,7 +315,7 @@ export const BlockGroup = () => {
                 </div>
               </div>
             );
-          })}
+          })} */}
         </Container>
 
         <Container>

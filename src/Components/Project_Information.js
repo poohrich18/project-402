@@ -258,7 +258,7 @@ const addProject = () => {
               <Button
                 // id="btn-create"
                 className="button123"
-                onClick={addProject}
+                onClick={addProject()}
                 variant="outlined"
                 color="primary"
                 type="submit"

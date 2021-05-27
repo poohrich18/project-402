@@ -45,13 +45,13 @@ import {Score402_Advisor} from './Advisor/Score402_Advisor';
 import Check from './Check' ;
 import TotalScore_Advisor from './TotalScore_Advisor' ;
 import MyGroup_Advisor from './MyGroup_Advisor' ;
-
+import Group_Advisor from './Group_Advisor';
 
 import Student from './Components/Student' ;
 // import {observer} from 'mobx-react' ;
 import { BrowserRouter, Route , Switch} from "react-router-dom";
 import {GlobalProvider} from './Context/GlobalState';
-
+// import aaaa from './Components/aaaa' ;
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 class App extends React.Component{
@@ -75,6 +75,7 @@ class App extends React.Component{
         <Route exact path="/edit/:id" component={EditCreateGroup} />
         <Route exact path="/project_inform" component={Project_Information} />
         <Route exact path="/time" component={AvailableTime} />
+        {/* <Route exact path="/aaaa" component={aaaa} /> */}
         
         {/* student2 */}
         <Route exact path="/home2" component={Home_Student2} />
@@ -108,6 +109,7 @@ class App extends React.Component{
         <Route exact path="/totalscore_a" component={TotalScore_Advisor} />
         <Route exact path="/mygroup_a" component={MyGroup_Advisor} />
         <Route exact path="/student" render={props => <Student />} />
+        <Route exact path="/group_a" component={Group_Advisor} />
 
         </Switch>
       </GlobalProvider>
