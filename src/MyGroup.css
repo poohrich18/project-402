@@ -80,11 +80,11 @@ hr.hr-mygroup{
 
 div.blockinblock{
     width: 1111px;
-    height: 450px;
+    /* height: 450px; */
     background-color:  #F3F9FC; 
     display: block;
     margin-left: 68px;
-    margin-top: 14px;
+    margin-top: 50px;
     border-radius: 10px;
 }
 

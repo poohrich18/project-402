@@ -44,6 +44,7 @@ import {Score401_Advisor} from './Advisor/Score401_Advisor';
 import {Score402_Advisor} from './Advisor/Score402_Advisor';
 import Check from './Check' ;
 import TotalScore_Advisor from './TotalScore_Advisor' ;
+import MyGroup_Advisor from './MyGroup_Advisor' ;
 
 
 import Student from './Components/Student' ;
@@ -105,7 +106,7 @@ class App extends React.Component{
         <Route exact path="/score402_a" component={Score402_Advisor} />
         <Route exact path="/table_a" component={Check} />
         <Route exact path="/totalscore_a" component={TotalScore_Advisor} />
-
+        <Route exact path="/mygroup_a" component={MyGroup_Advisor} />
         <Route exact path="/student" render={props => <Student />} />
 
         </Switch>
