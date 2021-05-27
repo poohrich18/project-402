@@ -78,27 +78,20 @@ export const BlockCreate = () => {
   };
 
   return (
-    <Row className="content">
-      <Col>
-        {" "}
-        <Sidebar />{" "}
-      </Col>
+        <div className="rightblockcreate">
+          <div className="blockwhitecreate">
+            <h1 className="TopnameCreate">Create Group</h1>
 
-      <Col>
-        <div className="rightblock_InformProject">
-          <div className="blockwhite_InformProject">
-            <h1 className="Topname_InformProject">Project Information</h1>
-
-            <hr className="hr-InformProject"></hr>
+            <hr className="hr-create"></hr>
 
             <Form>
-              <h4 className="projectTopicInform">ชื่อโครงงานภาษาไทย</h4>
+              <h4 className="projectTopicInform">Group Name</h4>
               <div className="fieldmember">
                 <input
                   id="outlined-full-width"
-                  label="ชื่อโครงงานภาษาไทย"
-                  style={{ marginTop: 10, marginLeft: 10, width: 800 }}
-                  placeholder="Placeholder"
+                  label="Enter Name"
+                  style={{ marginTop: 10, marginLeft: 8, width: 500 , fontSize: 14 , height:30 }}
+                  placeholder="Enter Name"
                   variant="outlined"
                   onChange={(event) => {
                     setGroupname(event.target.value);
@@ -106,13 +99,13 @@ export const BlockCreate = () => {
                 />
               </div>
 
-              <h4 className="projectTopicInform">ชื่อโครงงานภาษาอังกฤษ</h4>
+              <h4 className="projectTopicInform">Member</h4>
               <div className="fieldmember">
                 <input
                   id="outlined-full-width"
                   label="ชื่อโครงงานภาษาอังกฤษ"
-                  style={{ marginTop: 10, marginLeft: 10, width: 800 }}
-                  placeholder="Placeholder"
+                  style={{ marginTop: 10, marginLeft: 8, width: 500  , fontSize: 14 , height:30}}
+                  placeholder="Member Name"
                   variant="outlined"
                   onChange={(event) => {
                     setmembername(event.target.value);
@@ -120,13 +113,13 @@ export const BlockCreate = () => {
                 />
               </div>
 
-              <h4 className="projectTopicInform">นักศึกษาคนที่ 1</h4>
+              <h4 className="projectTopicInform">Advisor</h4>
               <div className="fieldmember">
                 <input
                   id="outlined-full-width"
                   label="ชื่อ นามสกุล (ภาษาไทย)"
-                  style={{ marginTop: 10, marginLeft: 10, width: 420 }}
-                  placeholder="Placeholder"
+                  style={{ marginTop: 10, marginLeft: 8, width: 500  , fontSize: 14 , height:30 }}
+                  placeholder="Advisor Name"
                   variant="outlined"
                   onChange={(event) => {
                     setadvisorname(event.target.value);
@@ -161,7 +154,6 @@ export const BlockCreate = () => {
             </Form>
           </div>
         </div>
-      </Col>
-    </Row>
+     
   );
 };
