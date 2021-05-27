@@ -57,11 +57,11 @@ export const Project_Information = () => {
 const [projnamethai, setprojnamethai] = useState("");
 const [projnameeng, setprojnameeng] = useState("");
 const [member1firstname, setmember1Firstname] = useState("");
-const [member1lastname, setmember1Lastname] = useState("");
+// const [member1lastname, setmember1Lastname] = useState("");
 const [id1, setid1] = useState("");
 const [semester1, setsemester1] = useState("");
 const [member2firstname, setmember2Firstname] = useState("");
-const [member2lastname, setmember2Lastname] = useState("");
+// const [member2lastname, setmember2Lastname] = useState("");
 const [id2, setid2] = useState("");
 const [semester2, setsemester2] = useState("");
 const [advisor, setadvisor] = useState("");
@@ -71,15 +71,13 @@ const [projectList, setprojectList] = useState([]);
 
 const addProject = () => {
   axios
-    .post("http://localhost:5000/projinfo/add", {
+    .post("http://localhost:5001/projinfo/add", {
       projnamethai: projnamethai,
       projnameeng: projnameeng,
       member1firstname: member1firstname,
-      member1lastname: member1lastname,
       id1: id1,
       semester1: semester1,
       member2firstname: member2firstname,
-      member2lastname: member2lastname,
       id2: id2,
       semester2: semester2,
       advisor: advisor,
@@ -91,11 +89,9 @@ const addProject = () => {
           projnamethai: projnamethai,
           projnameeng: projnameeng,
           member1firstname: member1firstname,
-          member1lastname: member1lastname,
           id1: id1,
           semester1: semester1,
           member2firstname: member2firstname,
-          member2lastname: member2lastname,
           id2: id2,
           semester2: semester2,
           advisor: advisor,
@@ -262,7 +258,7 @@ const addProject = () => {
               <Button
                 // id="btn-create"
                 className="button123"
-                onClick={addProject}
+                onClick={addProject()}
                 variant="outlined"
                 color="primary"
                 type="submit"

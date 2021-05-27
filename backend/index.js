@@ -50,6 +50,8 @@ const db = mysql.createPool({
   database: "project402",
 });
 
+
+
 // Get all beers
 // app.get('/groups', (req, res) => {
 
@@ -91,29 +93,25 @@ app.post("/username/register", (req, res) => {
   });
 });
 
-const verifyJWT = (req, res, next) => {
-  const token = req.headers["x-access-token"];
-  if (!token) {
-    res.send("I want token ,pleas give me next time");
-  } else {
-    jwt.verify(token, "jwtSecret", (err, decoded) => {
-      if (err) {
-        res.json({ auth: false, message: "YOu Fail to Oauth" });
-      } else {
-        req.Username_id = decoded.id;
-        next();
-      }
-    });
-  }
-};
+// const verifyJWT = (req, res, next) => {
+//   const token = req.headers["x-access-token"];
+//   if (!token) {
+//     res.send("I want token ,pleas give me next time");
+//   } else {
+//     jwt.verify(token, "jwtSecret", (err, decoded) => {
+//       if (err) {
+//         res.json({ auth: false, message: "YOu Fail to Oauth" });
+//       } else {
+//         req.Username_id = decoded.id;
+//         next();
+//       }
+//     });
+//   }
+// };
 
-app.get("/username/isUserAuth", verifyJWT, (req, res) => {
-  res.send("Verify Complete");
-});
-
-
-
-
+// app.get("/username/isUserAuth", verifyJWT, (req, res) => {
+//   res.send("Verify Complete");
+// });
 
 //log in
 app.post("/username/login", (req, res) => {
@@ -222,8 +220,6 @@ app.get("/username", (req, res) => {
   });
 });
 
-
-
 app.get("/advisor", (req, res) => {
   db.getConnection((err, connection) => {
     connection.query("SELECT * from advisor", (err, result) => {
@@ -253,36 +249,80 @@ app.get("/studentscore", (req, res) => {
 });
 
 app.get("/score/nng", (req, res) => {
-    db.getConnection((err, connection) => {
-
-      connection.query("SELECT * FROM projectdb WHERE Comm1 = 'nng' OR Comm2 = 'nng' OR Comm3 = 'nng' OR AdvId= 'nng'", (err, result) => {
+  db.getConnection((err, connection) => {
+    connection.query(
+      "SELECT * FROM projectdb WHERE Comm1 = 'nng' OR Comm2 = 'nng' OR Comm3 = 'nng' OR AdvId= 'nng'",
+      (err, result) => {
         connection.release(); // return the connection to pool
-        
+
         if (!err) {
           res.send(result);
-          
         } else {
           console.log(err);
         }
-      });
-    });
+      }
+    );
   });
-  
-  app.get("namegroup/nng", (req, res) => {
-    db.getConnection((err, connection) => {
+});
 
-      connection.query("SELECT * FROM projectdb WHERE Comm1 = 'nng' OR Comm2 = 'nng' OR Comm3 = 'nng' OR AdvId= 'nng'", (err, result) => {
+app.get("/score2/nng", (req, res) => {
+  db.getConnection((err, connection) => {
+    connection.query(
+      "SELECT * FROM substudentscore WHERE Comm = 'nng'",
+      (err, result) => {
         connection.release(); // return the connection to pool
-        
+
         if (!err) {
           res.send(result);
-          
         } else {
           console.log(err);
         }
-      });
-    });
+      }
+    );
   });
+});
+
+app.post("/namegroup/nng", (req, res) => {
+  const newCheck = req.body.newCheck;
+  //console.log(newCheck)
+  db.getConnection((err, connection) => {
+    connection.query(
+      "SELECT * FROM projectdb WHERE ProjCode = ?",
+      newCheck,
+      (err, result) => {
+        connection.release(); // return the connection to pool
+
+        if (!err) {
+          // console.log(result)
+          res.send(result);
+        } else {
+          console.log(err);
+        }
+      }
+    );
+  });
+});
+
+app.post("/namegroup2/nng", (req, res) => {
+  const newcheckname = req.body.newcheckname;
+  console.log(newcheckname);
+  db.getConnection((err, connection) => {
+    connection.query(
+      "SELECT * FROM substudentscore WHERE Std_Name = ? AND Comm = 'nng'",
+      newcheckname,
+      (err, result) => {
+        connection.release(); // return the connection to pool
+
+        if (!err) {
+          console.log(result);
+          res.send(result);
+        } else {
+          console.log(err);
+        }
+      }
+    );
+  });
+});
 
 //Add grop
 app.post("/groups/add", (req, res) => {
@@ -308,7 +348,7 @@ app.post("/groups/add", (req, res) => {
         if (err) {
           console.log(err);
         } else {
-          res.send("Valuses inserted");
+          result.send("Valuses inserted");
         }
       }
     );
@@ -320,19 +360,54 @@ app.post("/groups/add2", (req, res) => {
   const membername = req.body.membername;
   const advisorname = req.body.advisorname;
 
-  console.log("memname", membername);
-  console.log("groupname", groupname);
   db.getConnection((err, connection) => {
     connection.query(
       "INSERT INTO groups(groupname,membername,advisorname) VALUES(?,?,?)",
       [groupname, membername, advisorname],
+      (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          result.send("Valuses inserted");
+        }
+      }
+    );
+  });
+});
+
+//Add grop
+app.post("/projinfo/add", (req, res) => {
+  const projnamethai = req.body.projnamethai;
+  const projnameeng = req.body.projnameeng;
+  const member1firstname = req.body.member1firstname;
+  const id1 = req.body.id1;
+  const semester1 = req.body.semester1;
+  const member2firstname = req.body.member2firstname;
+  const id2 = req.body.id2;
+  const semester2 = req.body.semester2;
+  const advisor = req.body.advisor;
+  
+  db.getConnection((err, connection) => {
+    connection.query(
+      "INSERT INTO projectdb( ProjNameTH, ProjNameEN, Username_id_1, Std_Name_1,Std_Type_1, Username_id_2, Std_Name_2,Std_Type_2,AdvId) VALUES(?,?,?,?,?,?,?,?,?)",
+      [
+        projnamethai,
+        projnameeng,
+        id1,
+        member1firstname,
+        semester1,
+        id2,
+        member2firstname,
+        semester2,
+        advisor,
+      ],
       (err, result) => {
         connection.release(); // return the connection to pool
 
         if (err) {
           console.log(err);
         } else {
-          res.send("Valuses inserted");
+          result.send("Valuses inserted");
         }
       }
     );
