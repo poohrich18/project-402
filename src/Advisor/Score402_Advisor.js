@@ -7,6 +7,8 @@ import { Input } from "antd";
 import Sidebar_Advisor from "./Sidebar_Advisor";
 import { Select } from "antd";
 import axios from "axios";
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -269,6 +271,18 @@ export const Score402_Advisor = () => {
               <p className="คำชี้แจง">- กรรมการสรุปผลการสอบ 10 นาที</p>
             </span>
           </div>
+
+          <Button
+            id="btn-create"
+            className="buttonttt"
+            // onClick={addProject}
+            variant="outlined"
+            color="primary"
+            type="submit"
+            endIcon={<Icon>add</Icon>}
+          >Submit
+          </Button>
+
         </div>
       </div>
     </Row>

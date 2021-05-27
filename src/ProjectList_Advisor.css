@@ -53,3 +53,7 @@ button.buttonttt{
      margin-bottom: 20px;
      float: right;
  }
+
+ .table.table.table-bordered {
+     margin-top: 20px;
+}

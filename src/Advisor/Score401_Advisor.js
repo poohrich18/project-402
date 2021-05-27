@@ -6,10 +6,14 @@ import { TextField } from '@material-ui/core';
 import { Input } from 'antd';
 import Sidebar_Advisor from './Sidebar_Advisor';
 import { Select } from 'antd';
-
+import Button from "@material-ui/core/Button";
+import Icon from "@material-ui/core/Icon";
 const { Option } = Select;
 
 const { TextArea } = Input;
+
+
+
 export const Score401_Advisor = () => {
     return (
         <Row className="content">
@@ -354,7 +358,16 @@ export const Score401_Advisor = () => {
                    </div>
 
                   
-                    
+                   <Button
+                        id="btn-create"
+                        className="buttonttt"
+                        // onClick={addProject}
+                        variant="outlined"
+                        color="primary"
+                        type="submit"
+                        endIcon={<Icon>add</Icon>}
+                    >Submit
+                    </Button>
 
                         
                    

@@ -115,7 +115,7 @@ const addProject = () => {
             <hr className="hr-InformProject"></hr>
 
             <Form>
-              <h4 className="projectthai">ชื่อโครงงานภาษาไทย</h4>
+              <h4 className="projectTopicInform">ชื่อโครงงานภาษาไทย</h4>
               <div className="fieldmember">
                 <TextField
                   id="outlined-full-width"
@@ -129,7 +129,7 @@ const addProject = () => {
                 />
               </div>
 
-              <h4 className="GroupName">ชื่อโครงงานภาษาอังกฤษ</h4>
+              <h4 className="projectTopicInform">ชื่อโครงงานภาษาอังกฤษ</h4>
               <div className="fieldmember">
                 <TextField
                   id="outlined-full-width"
@@ -143,7 +143,7 @@ const addProject = () => {
                 />
               </div>
 
-              <h4 className="GroupName">นักศึกษาคนที่ 1</h4>
+              <h4 className="projectTopicInform">นักศึกษาคนที่ 1</h4>
               <div className="fieldmember">
                 <TextField
                   id="outlined-full-width"
@@ -167,7 +167,7 @@ const addProject = () => {
                 /> */}
               </div>
 
-              <h5 className="GroupName">เลขทะเบียนนักศึกษา</h5>
+              <h5 className="projectTopicInform">เลขทะเบียนนักศึกษา</h5>
               <div className="fieldmember">
                 <TextField
                   id="outlined-full-width"
@@ -192,7 +192,7 @@ const addProject = () => {
                 />
               </div>
 
-              <h4 className="GroupName">นักศึกษาคนที่ 2</h4>
+              <h4 className="projectTopicInform">นักศึกษาคนที่ 2</h4>
               <div className="fieldmember">
                 <TextField
                   id="outlined-full-width"
@@ -216,7 +216,7 @@ const addProject = () => {
                 /> */}
               </div>
 
-              <h5 className="GroupName">เลขทะเบียนนักศึกษา</h5>
+              <h5 className="projectTopicInform">เลขทะเบียนนักศึกษา</h5>
               <div className="fieldmember">
                 <TextField
                   id="outlined-full-width"
@@ -241,7 +241,7 @@ const addProject = () => {
                 />
               </div>
 
-              <h4 className="GroupName">อาจารย์ที่ปรึกษา</h4>
+              <h4 className="projectTopicInform">อาจารย์ที่ปรึกษา</h4>
               <div className="fieldmember">
                 <TextField
                   id="outlined-full-width"
