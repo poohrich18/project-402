@@ -5,7 +5,7 @@ import Signup from './Components/Signup' ;
 import test from './Components/test' ;
 import Home from './Home';
 import CreateGroup from './CreateGroup';
-import Group from './Group';
+// import Group from './Group';
 import MyGroup from './MyGroup';
 import Calendar from './Calendar';
 import Setting from './Setting';
@@ -18,7 +18,7 @@ import {AvailableTime} from './Components/AvailableTime';
 //student2
 import Home_Student2 from './Home_Student2'
 import CreateGroup_Student2 from './CreateGroup_Student2';
-import Group2 from './Group2';
+// import Group2 from './Group2';
 import MyGroup_Student2 from './MyGroup_Student2';
 import Calendar2 from './Calendar2';
 import Setting2 from './Setting2';
@@ -26,6 +26,7 @@ import Notification_Student2 from './Notification_Student2';
 import { AcceptGroup } from './Components/AcceptGroup';
 import {Project_Information_2} from './Student2/Project_Information_2' ;
 import {AvailableTime_2} from './Student2/AvailableTime_2';
+import Comment2 from './Comment2';
 
 //teacher
 import Home_Teacher from './Home_Teacher';
@@ -66,7 +67,7 @@ class App extends React.Component{
         <Route exact path="/test" component={test} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/create" component={CreateGroup} />
-        <Route exact path="/group" component={Group} />
+        {/* <Route exact path="/group" component={Group} /> */}
         <Route exact path="/mygroup" component={MyGroup} />
         <Route exact path="/calendar" component={Calendar} />
         <Route exact path="/setting" component={Setting} />
@@ -80,13 +81,13 @@ class App extends React.Component{
         {/* student2 */}
         <Route exact path="/home2" component={Home_Student2} />
         <Route exact path="/create2" component={CreateGroup_Student2} />
-        <Route exact path="/group2" component={Group2} />
+        {/* <Route exact path="/group2" component={Group2} /> */}
         <Route exact path="/mygroup2" component={MyGroup_Student2} />
         <Route exact path="/calendar2" component={Calendar2} />
         <Route exact path="/setting2" component={Setting2} />
         <Route exact path="/notification2" component={Notification_Student2} />
         <Route exact path="/accept" component={AcceptGroup} />
-        
+        <Route exact path="/comment2" component={Comment2} />
         <Route exact path="/project_inform2" component={Project_Information_2} />
         <Route exact path="/time2" component={AvailableTime_2} />
 

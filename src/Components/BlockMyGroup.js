@@ -48,11 +48,17 @@ export const BlockMyGroup = () => {
                 <h1 className="Topname-mygroup">My Group</h1>
                 <hr className="hr-mygroup"></hr>
                 
-                <span className="name-mygroup">
+                {/* <span className="name-mygroup">
                     groupname (คลิกแล้วแสดงชื่อกลุ่มที่คลิกเข้ามา)
-                </span>
+                </span> */}
 
-                <span>
+                <Row className="blockmem-img">
+                    <span className="manypeople">Member(3)</span>
+                    <span><img className="pichome" src={pooh2} alt=""/></span>
+                    <span><img className="picpro" src={praew1} alt=""/></span>
+                    <span><img className="picpro" src={sweetmango} alt=""/></span>
+
+                    <span>
                   <Button
                       id="btn-addproject"
                       className="buttonaddmem"
@@ -74,15 +80,10 @@ export const BlockMyGroup = () => {
                       type="submit"
                       // endIcon={<Icon>add</Icon>}
                   >
-                      <Link to="/group">Leave Group</Link>
+                      <Link to="/create">Leave Group</Link>
                   </Button>
                 </span>
                 
-                <Row className="blockmem-img">
-                    <span className="manypeople">Member(3)</span>
-                    <span><img className="pichome" src={pooh2} alt=""/></span>
-                    <span><img className="picpro" src={praew1} alt=""/></span>
-                    <span><img className="picpro" src={sweetmango} alt=""/></span>
                 </Row>
 
                 <div className="blockinblock">

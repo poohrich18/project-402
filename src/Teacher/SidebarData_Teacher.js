@@ -20,7 +20,7 @@ export const SidebarData_Teacher = [
     {
         title : "My Group" ,
         icon : <i class="fa fa-briefcase fa-1x" aria-hidden="true"></i> ,
-        link : "/group_t"
+        link : "/mygroup_t"
     },
     {
         title : "Calendar" ,

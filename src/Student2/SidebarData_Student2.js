@@ -12,11 +12,11 @@ export const SidebarData_Student2 = [
         icon : <i class="fa fa-plus-square fa-1x" aria-hidden="true"></i> ,
         link : "/create2"
     },
-    {
-        title : "Group" ,
-        icon : <i class="fa fa-users fa-1x" aria-hidden="true"></i> ,
-        link : "/group2"
-    },
+    // {
+    //     title : "Group" ,
+    //     icon : <i class="fa fa-users fa-1x" aria-hidden="true"></i> ,
+    //     link : "/group2"
+    // },
     {
         title : "My Group" ,
         icon : <i class="fa fa-briefcase fa-1x" aria-hidden="true"></i> ,

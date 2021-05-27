@@ -68,7 +68,7 @@ function Sidebar_Teacher() {
                         </li>
                     );
                 })}
-                {SidebarData_Comment_Teacher.map((val,key) => {
+                {/* {SidebarData_Comment_Teacher.map((val,key) => {
                     return (
                         <li 
                             
@@ -80,10 +80,9 @@ function Sidebar_Teacher() {
                             }}
                         >
                             <div id="icon">{val.icon}</div> <div id="title">{val.title}</div>
-                            {/* <span class="badge badge-danger">1</span> */}
                         </li>
                     );
-                })}
+                })} */}
             </ul>
             
 

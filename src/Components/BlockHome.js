@@ -96,7 +96,7 @@ export const BlockHome = () => {
                             
                             <span className="stuname">Phurit Apichonlati</span>
 
-                            <span><img className="pichome" src={user} alt=""/></span>
+                            <span><img className="pichome" src={pooh2} alt=""/></span>
                            
                         </Row>
                         
