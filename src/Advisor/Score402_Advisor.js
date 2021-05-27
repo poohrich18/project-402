@@ -92,7 +92,7 @@ export const Score402_Advisor = () => {
                   //   setnewgroupNNG(e.target.values);
                   // }}
                   
-                >
+                > 
                   {studentGroupNNG.map((val, key) => {
                     return (
                       <Option>{val.ProjCode}</Option>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import 'font-awesome/css/font-awesome.css'
 import pooh2 from '../assets/pooh2.jpg';
+import user from '../assets/user.png';
 import { Link } from '@material-ui/core';
 
 export const BlockHome = () => {
@@ -95,7 +96,7 @@ export const BlockHome = () => {
                             
                             <span className="stuname">Phurit Apichonlati</span>
 
-                            <span><img className="pichome" src={pooh2} alt=""/></span>
+                            <span><img className="pichome" src={user} alt=""/></span>
                            
                         </Row>
                         

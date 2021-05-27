@@ -28,11 +28,12 @@ export const ProjectList = () => {
                                 className="btn btn-warning mr-1" 
                                 to={`/edit/${user.id}`}>Edit</Link>
                        
-                        <Button
-                        className="btn-delete"
-                        onClick={() => removeUser(user.id)}
-                        color="danger">Delete</Button>
-                    </div>
+                            <Button
+                                className="btn-delete"
+                                onClick={() => removeUser(user.id)}
+                                color="danger">Delete
+                            </Button>
+                        </div>
                 </ListGroupItem>
                 ))}
                 </>
