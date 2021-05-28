@@ -88,3 +88,7 @@ button.buttonslot4 , button.buttonslot5 ,button.buttonslot6{
 .container-time{
     margin-top: 50px;
 }
+
+div.ant-checkbox-group {
+    margin-left: 48px;
+}

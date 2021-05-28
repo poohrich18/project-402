@@ -14,18 +14,49 @@ import { Form , Input , Space } from 'antd';
 import TextField from "@material-ui/core/TextField";
 import { AutoComplete } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import { Upload, message } from 'antd';
+import { InboxOutlined } from '@ant-design/icons';
+
 export const BlockMyGroup2 = () => {
-    const [modalPickUpIsOpen, setModalPickUpIsOpen] = useState(false);
+  const [modalPickUpIsOpen, setModalPickUpIsOpen] = useState(false);
+  const { Dragger } = Upload;
+
+  const props = {
+    name: 'file',
+    multiple: true,
+    action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    onChange(info) {
+      const { status } = info.file;
+      if (status !== 'uploading') {
+        console.log(info.file, info.fileList);
+      }
+      if (status === 'done') {
+        message.success(`${info.file.name} file uploaded successfully.`);
+      } else if (status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+    },
+    onDrop(e) {
+      console.log('Dropped files', e.dataTransfer.files);
+    },
+  };
+
     return (
         <div className="rightblocktask">
             <div className="blockwhitetask">
                 <h1 className="Topname-mygroup">My Group</h1>
                 <hr className="hr-mygroup"></hr>
                 
-                <span className="name-mygroup">
+                {/* <span className="name-mygroup">
                     groupname (คลิกแล้วแสดงชื่อกลุ่มที่คลิกเข้ามา)
-                </span>
-                <span>
+                </span> */}
+                
+                <Row className="blockmem-img">
+                    <span className="manypeople">Member(3)</span>
+                    <span><img className="pichome" src={pooh2} alt=""/></span>
+                    <span><img className="picpro" src={praew1} alt=""/></span>
+                    <span><img className="picpro" src={sweetmango} alt=""/></span>
+                    <span>
                 <Button
                     id="btn-addproject"
                     className="buttonaddmem"
@@ -49,23 +80,27 @@ export const BlockMyGroup2 = () => {
                     type="submit"
                     // endIcon={<Icon>add</Icon>}
                 >
-                    <Link to="/group">Leave Group</Link>
+                    <Link to="/create2">Leave Group</Link>
                 </Button>
                 </span>
                 
-                <Row className="blockmem-img">
-                    <span className="manypeople">Member(3)</span>
-                    <span><img className="pichome" src={pooh2} alt=""/></span>
-                    <span><img className="picpro" src={praew1} alt=""/></span>
-                    <span><img className="picpro" src={sweetmango} alt=""/></span>
                 </Row>
 
                 <div className="blockinblock">
-                <form>
-                    <div class="form-group">
-                        
+                  <form>
+                  <div class="form-group">
+                        <Dragger {...props}>
+                          <p className="ant-upload-drag-icon">
+                            <InboxOutlined />
+                          </p>
+                          <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                          <p className="ant-upload-hint">
+                            Support for a single or bulk upload. Strictly prohibit from uploading company data or other
+                            band files
+                          </p>
+                        </Dragger>
                     </div>
-                    </form>
+                  </form>
                 </div>
                 
                 

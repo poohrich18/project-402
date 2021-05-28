@@ -19,11 +19,11 @@ export const SidebarData = [
         icon : <i class="fa fa-plus-square fa-1x" aria-hidden="true"></i> ,
         link : "/create"
     },
-    {
-        title : "Group" ,
-        icon : <i class="fa fa-users fa-1x" aria-hidden="true"></i> ,
-        link : "/group"
-    },
+    // {
+    //     title : "Group" ,
+    //     icon : <i class="fa fa-users fa-1x" aria-hidden="true"></i> ,
+    //     link : "/group"
+    // },
     {
         title : "My Group" ,
         icon : <i class="fa fa-briefcase fa-1x" aria-hidden="true"></i> ,
