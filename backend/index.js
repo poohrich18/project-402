@@ -50,8 +50,6 @@ const db = mysql.createPool({
   database: "project402",
 });
 
-
-
 // Get all beers
 // app.get('/groups', (req, res) => {
 
@@ -234,9 +232,9 @@ app.get("/advisor", (req, res) => {
   });
 });
 
-app.get("/studentscore", (req, res) => {
+app.get("/projectdb", (req, res) => {
   db.getConnection((err, connection) => {
-    connection.query("SELECT * from studentscore", (err, result) => {
+    connection.query("SELECT * from projectdb", (err, result) => {
       connection.release(); // return the connection to pool
 
       if (!err) {
@@ -288,12 +286,12 @@ app.post("/namegroup/nng", (req, res) => {
   db.getConnection((err, connection) => {
     connection.query(
       "SELECT * FROM projectdb WHERE ProjCode = ?",
-      newCheck,
+      [newCheck, newCheck],
       (err, result) => {
         connection.release(); // return the connection to pool
 
         if (!err) {
-          // console.log(result)
+          //console.log(result)
           res.send(result);
         } else {
           console.log(err);
@@ -308,7 +306,7 @@ app.post("/namegroup2/nng", (req, res) => {
   console.log(newcheckname);
   db.getConnection((err, connection) => {
     connection.query(
-      "SELECT * FROM substudentscore WHERE Std_Name = ? AND Comm = 'nng'",
+      "SELECT * FROM substudentscore WHERE  = ? AND Comm = 'nng'",
       newcheckname,
       (err, result) => {
         connection.release(); // return the connection to pool
@@ -342,33 +340,35 @@ app.post("/groups/add", (req, res) => {
         advisorfirstname,
         advisorlastname,
       ],
-      (err, result) => {
+      (err,result) => {
         connection.release(); // return the connection to pool
 
         if (err) {
           console.log(err);
         } else {
-          result.send("Valuses inserted");
+          res.send("Valuses inserted");
         }
       }
     );
   });
 });
 
-app.post("/groups/add2", (req, res) => {
+app.post("/groups/increed/", (req, res) => {
   const groupname = req.body.groupname;
   const membername = req.body.membername;
   const advisorname = req.body.advisorname;
 
-  db.getConnection((err, connection) => {
+  console.log(groupname)
+  db.getConnection((connection,err ) => {
     connection.query(
       "INSERT INTO groups(groupname,membername,advisorname) VALUES(?,?,?)",
       [groupname, membername, advisorname],
-      (err, result) => {
+      (err,result) => {
         if (err) {
           console.log(err);
         } else {
-          result.send("Valuses inserted");
+          console.log(res);
+          res.send("Valuses inserted");
         }
       }
     );
@@ -386,10 +386,11 @@ app.post("/projinfo/add", (req, res) => {
   const id2 = req.body.id2;
   const semester2 = req.body.semester2;
   const advisor = req.body.advisor;
-  
-  db.getConnection((err, connection) => {
+  console.log(advisor)
+
+  db.getConnection((connection,err ) => {
     connection.query(
-      "INSERT INTO projectdb( ProjNameTH, ProjNameEN, Username_id_1, Std_Name_1,Std_Type_1, Username_id_2, Std_Name_2,Std_Type_2,AdvId) VALUES(?,?,?,?,?,?,?,?,?)",
+      "INSERT INTO projectdb( ProjNameTH, ProjNameEN, Username_id_1, Std_Name_1 ,Std_Type_1, Username_id_2 , Std_Name_2 ,Std_Type_2 ,AdvId) VALUES(?,?,?,?,?,?,?,?,?)",
       [
         projnamethai,
         projnameeng,
@@ -399,15 +400,69 @@ app.post("/projinfo/add", (req, res) => {
         id2,
         member2firstname,
         semester2,
-        advisor,
+        advisor
+        
       ],
-      (err, result) => {
+      (err, res) => {
         connection.release(); // return the connection to pool
 
         if (err) {
           console.log(err);
         } else {
-          result.send("Valuses inserted");
+          console.log(result);
+          res.send("Valuses inserted");
+        }
+      }
+    );
+  });
+});
+
+app.put("/score/update/", (req, res) => {
+  const score_1 = req.body.score_1;
+  const score_2 = req.body.score_2;
+  const score_3 = req.body.score_3;
+  const score_4 = req.body.score_4;
+  const score_5 = req.body.score_5;
+  const score_6 = req.body.score_6;
+  const score_total = req.body.score_total;
+  const score_comment = req.body.score_comment;
+  const score_11 = req.body.score_11;
+  const score_12 = req.body.score_12;
+  const score_13 = req.body.score_13;
+  const score_14 = req.body.score_14;
+  const score_15 = req.body.score_15;
+  const score_16 = req.body.score_16;
+  const score_total2 = req.body.score_total2;
+  const id = req.body.id;
+  console.log(id);
+
+  db.getConnection((err, connection) => {
+    connection.query(
+      "UPDATE projectdb SET Total1 =?,ความก้าวหน้า1 =? ,รายงาน1 =?,presentation1 =?, ความเข้าใจ1 = ?,การนำเสนอ1 =?,การใช้ความรู้1 =?,comment =?,Total2 =? ,ความก้าวหน้า2 =? ,รายงาน2 =?,presentation2 =?, ความเข้าใจ2 = ?,การนำเสนอ2 =?,การใช้ความรู้2 =? WHERE id = ?",
+      [
+        score_total,
+        score_1,
+        score_2,
+        score_3,
+        score_4,
+        score_5,
+        score_6,
+        score_comment,
+        score_total2,
+        score_11,
+        score_12,
+        score_13,
+        score_14,
+        score_15,
+        score_16,
+        id,
+      ],
+      (err, result) => {
+        connection.release(); // return the connection to pool
+        if (err) {
+          console.log(err);
+        } else {
+          res.send(result);
         }
       }
     );

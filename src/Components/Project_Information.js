@@ -125,6 +125,7 @@ const addProject = () => {
                   variant="outlined"
                   onChange={(event) => {
                     setprojnamethai(event.target.value);
+                    console.log(projnamethai)
                   }}
                 />
               </div>
@@ -139,6 +140,7 @@ const addProject = () => {
                   variant="outlined"
                   onChange={(event) => {
                     setprojnameeng(event.target.value);
+                    console.log(projnameeng)
                   }}
                 />
               </div>
@@ -258,7 +260,7 @@ const addProject = () => {
               <Button
                 // id="btn-create"
                 className="button123"
-                onClick={addProject()}
+                onClick={addProject}
                 variant="outlined"
                 color="primary"
                 type="submit"

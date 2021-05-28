@@ -25,36 +25,81 @@ export const Score402_Advisor = () => {
   const [new20score5_1, setnew20score5_1] = useState([]);
   const [new60score6_1, setnew60score6_1] = useState([]);
   const [newTotalscore7_1, setnewTotalscore7_1] = useState([]);
+  const [newcomment, setnewcomment] = useState([]);
 
   const [new10score1_2, setnew10score1_2] = useState([]);
   const [new20score2_2, setnew20score2_2] = useState([]);
-  const [new30score3_2, setnew30score3_] = useState([]);
-  const [new20score4_2, set2new20score4_2] = useState([]);
+  const [new30score3_2, setnew30score3_2] = useState([]);
+  const [new20score4_2, setnew20score4_2] = useState([]);
   const [new20score5_2, setnew20score5_2] = useState([]);
   const [new60score6_2, setnew60score6_2] = useState([]);
   const [newTotalscore7_2, setnewTotalscore7_2] = useState([]);
 
-//   const getStudentscore = () => {
-//     axios
-//     .post("http://localhost:5001/p/add", {
-//       name: newcheckname[0] ,
-//       stdname : newcheckname[1]
-    
-//     })
-//     .then(() => {
-//       setscoreList([
-//         ...scoreList,
-//         {
-//           name: newcheckname[0] ,
-//       stdname : newcheckname[1]
-          
-//         },
-//       ]);
-//     });
-// };
-      
-      
- 
+  const updateScorename = (id) => {
+    axios
+      .put("http://localhost:5001/score/update/", {
+        score_1: new10score1_1,
+        score_2: new20score2_1,
+        score_3: new30score3_1,
+        score_4: new20score4_1,
+        score_5: new20score5_1,
+        score_6: new60score6_1,
+        score_total: newTotalscore7_1,
+        score_comment: newcomment,
+        score_11: new10score1_2,
+        score_12: new20score2_2,
+        score_13: new30score3_2,
+        score_14: new20score4_2,
+        score_15: new20score5_2,
+        score_16: new60score6_2,
+        score_total2: newTotalscore7_2,
+        id: id
+      })
+      .then((respond) => {
+        setnewCheck(
+          newCheck.map((val) => {
+            return val.id == id ? {
+                  score_1: new10score1_1,
+                  score_2: new20score2_1,
+                  score_3: new30score3_1,
+                  score_4: new20score4_1,
+                  score_5: new20score5_1,
+                  score_6: new60score6_1,
+                  score_total: newTotalscore7_1,
+                  score_somment: newcomment,
+                  score_11: new10score1_2,
+                  score_12: new20score2_2,
+                  score_13: new30score3_2,
+                  score_14: new20score4_2,
+                  score_15: new20score5_2,
+                  score_16: new60score6_2,
+                  score_17: newTotalscore7_2,
+                  id:id
+                }
+              : val;
+          })
+        );
+      });
+  };
+
+  //   const getStudentscore = () => {
+  //     axios
+  //     .post("http://localhost:5001/p/add", {
+  //       name: newcheckname[0] ,
+  //       stdname : newcheckname[1]
+
+  //     })
+  //     .then(() => {
+  //       setscoreList([
+  //         ...scoreList,
+  //         {
+  //           name: newcheckname[0] ,
+  //       stdname : newcheckname[1]
+
+  //         },
+  //       ]);
+  //     });
+  // };
 
   const getAdvisorNNG = () => {
     axios.get("http://localhost:5001/score/nng").then((respond) => {
@@ -81,7 +126,7 @@ export const Score402_Advisor = () => {
   //           memberlastname: val.Std_Name_2,
   //           advisorfirstname: val.AdvId,
   //           advisorlastname: newadvisorlastname
-            
+
   //         } : val;
   //       })
   //       )
@@ -96,7 +141,6 @@ export const Score402_Advisor = () => {
   // };
   useEffect(() => {
     getAdvisorNNG();
-    getScoreNNG();
     
   }, []);
 
@@ -110,7 +154,7 @@ export const Score402_Advisor = () => {
         <div className="blockwhite_Score">
           {/* <h1 className="Topname_Score">Score</h1>
                     <hr className="hr-Score"></hr> */}
-      
+
           <div className="blockscore">
             <p className="หัวข้อใบประเมินคะแนน">
               ใบรายงานผลคะแนน วิชา CS402 โครงงานพิเศษ 1 ภาคเรียนที่ 1/2563
@@ -135,46 +179,51 @@ export const Score402_Advisor = () => {
                   style={{ width: 150, textAlign: "center" }}
                   placeholder="Select ProjCode"
                   optionFilterProp="children"
-                  
-                  onChange= {(e)=>{
-                    axios.post("http://localhost:5001/namegroup/nng",{newCheck:e.target.value}).then((respond) => {
-                      console.log(e.target.value)
-                      setnewCheck(respond.data);
-                      console.log(newCheck)
-                      console.log(newCheck[0]?newCheck[0].ProjNameTH:null)
-                      
-                    });
-                    
+                  onChange={(e) => {
+                    axios
+                      .post("http://localhost:5001/namegroup/nng", {
+                        newCheck: e.target.value,
+                      })
+                      .then((respond) => {
+                        console.log(e.target.value);
+                        setnewCheck(respond.data);
+                        console.log(newCheck[0]);
+                        console.log(
+                          newCheck[0] ? newCheck[0].ProjNameTH : null
+                        );
+                      });
                   }}
-                 
-                 
                 >
                   {studentGroupNNG.map((val, key) => {
                     return (
-                      <option value={val.ProjCode} >{val.ProjCode}</option>
+                      <option key={key} value={val.ProjCode}>
+                        {val.ProjCode}
+                      </option>
                     );
                   })}
                 </select>
               </span>
 
               <span className="block2col3">
-              {newCheck[0]?newCheck[0].ProjNameTH:null}
+                {newCheck[0] ? newCheck[0].ProjNameTH : null}
               </span>
             </Row>
 
             <row className="block3row">
               <span className="block3col3">
-              {newCheck[0]?newCheck[0].ProjNameEN:null}
+                {newCheck[0] ? newCheck[0].ProjNameEN : null}
               </span>
             </row>
 
             <Row className="block4row">
               <span className="block4col1">อาจารย์ที่ปรึกษา:</span>
 
-              <span className="block4col2">{newCheck[0]?newCheck[0].AdvId:null}</span>
+              <span className="block4col2">
+                {newCheck[0] ? newCheck[0].AdvId : null}
+              </span>
 
               <span className="block4col3">
-                {newCheck[0]?newCheck[0].ProjNameTH:null}
+                {newCheck[0] ? newCheck[0].ProjNameTH : null}
               </span>
             </Row>
 
@@ -187,22 +236,16 @@ export const Score402_Advisor = () => {
 
           <div className="blockscore2">
             <span class="std1">
-              <p className="id1">{newCheck[0]?newCheck[0].Username_id_1:null}</p>
-              <span  onChange= {(e)=>{
-                    axios.post("http://localhost:5001/namegroup2/nng",{newcheckname:e.target.value}).then((respond) => {
-                      console.log(e.target.value)
-                      setnewcheckname(respond.data);
-                      console.log(newcheckname)
-                      console.log(newcheckname[0]?newcheckname[0].Comm:null)
-                      console.log(newcheckname[0]?newcheckname[0].ProjCode:null)
-                      
-                    });
-                    
-                  }}>{newCheck[0]?newCheck[0].Std_Name_1:null}</span>
+              <p className="id1">
+                {newCheck[0] ? newCheck[0].Username_id_1 : null}
+              </p>
+              <span>{newCheck[0] ? newCheck[0].Std_Name_1 : null}</span>
             </span>
             <span class="std2">
-              <p className="id1">{newCheck[0]?newCheck[0].Username_id_2:null}</p>
-              <p>{newCheck[0]?newCheck[0].Std_Name_2:null}</p>
+              <p className="id1">
+                {newCheck[0] ? newCheck[0].Username_id_2 : null}
+              </p>
+              <p>{newCheck[0] ? newCheck[0].Std_Name_2 : null}</p>
             </span>
           </div>
 
@@ -215,10 +258,22 @@ export const Score402_Advisor = () => {
               <span className="คะแนน">(10 คะแนน)</span>
               <span className="ให้โดยที่ปรึกษา">(ให้โดยที่ปรึกษา)</span>
               <span className="คะแนนนศ1ช่อง1">
-                <Input className="inputscoreStd1_row1" placeholder="" />
+                <Input
+                  className="inputscoreStd1_row1"
+                  placeholder=""
+                  onChange={(e) => {
+                    setnew10score1_1(e.target.value);
+                  }}
+                />
               </span>
               <span className="คะแนนนศ2ช่อง1">
-                <Input className="inputscoreStd2_row1" placeholder="" />
+                <Input
+                  className="inputscoreStd2_row1"
+                  placeholder=""
+                  onChange={(e) => {
+                    setnew10score1_2(e.target.value);
+                  }}
+                />
               </span>
             </Row>
           </div>
@@ -229,10 +284,16 @@ export const Score402_Advisor = () => {
               <span className="คุณภาพของรายงาน">คุณภาพของรายงาน</span>
               <span className="คะแนน30">(20 คะแนน)</span>
               <span className="คะแนนนศ1ช่อง2">
-                <Input className="inputscoreStd1_row2" placeholder="" />
+                <Input className="inputscoreStd1_row2" placeholder="" 
+                onChange={(e) => {
+                  setnew20score2_1(e.target.value);
+                }}/>
               </span>
               <span className="คะแนนนศ2ช่อง2">
-                <Input className="inputscoreStd2_row2" placeholder="" />
+                <Input className="inputscoreStd2_row2" placeholder="" 
+                onChange={(e) => {
+                  setnew20score2_2(e.target.value);
+                }}/>
               </span>
             </Row>
           </div>
@@ -246,10 +307,16 @@ export const Score402_Advisor = () => {
                   (30 คะแนน)
                 </span>
                 <span className="คะแนนนศ1ช่อง3">
-                  <Input className="inputscoreStd1_row3" placeholder="" />
+                  <Input className="inputscoreStd1_row3" placeholder="" 
+                  onChange={(e) => {
+                    setnew30score3_1(e.target.value);
+                  }}/>
                 </span>
                 <span className="คะแนนนศ2ช่อง3">
-                  <Input className="inputscoreStd2_row3" placeholder="" />
+                  <Input className="inputscoreStd2_row3" placeholder=""
+                  onChange={(e) => {
+                    setnew30score3_2(e.target.value);
+                  }} />
                 </span>
                 <p className="คุณภาพการนำเสนอและการตอบคำถาม">
                   คุณภาพการนำเสนอและการตอบคำถาม
@@ -257,30 +324,48 @@ export const Score402_Advisor = () => {
                     (20 คะแนน)
                   </span>
                   <span className="คะแนนนศ1ช่อง4">
-                    <Input className="inputscoreStd1_row4" placeholder="" />
+                    <Input className="inputscoreStd1_row4" placeholder=""
+                    onChange={(e) => {
+                      setnew20score4_1(e.target.value);
+                    }} />
                   </span>
                   <span className="คะแนนนศ2ช่อง4">
-                    <Input className="inputscoreStd2_row4" placeholder="" />
+                    <Input className="inputscoreStd2_row4" placeholder="" 
+                    onChange={(e) => {
+                      setnew20score4_2(e.target.value);
+                    }}/>
                   </span>
                 </p>
                 <p className="การประยุกต์ใช้ความรู้ทางวิทยาการคอมพิวเตอร์อย่างเหมาะสม">
                   การประยุกต์ใช้ความรู้ทางวิทยาการคอมพิวเตอร์อย่างเหมาะสม
                   <span className="การประยุกต์_คะแนน20">(20 คะแนน)</span>
                   <span className="คะแนนนศ1ช่อง5">
-                    <Input className="inputscoreStd1_row5" placeholder="" />
+                    <Input className="inputscoreStd1_row5" placeholder="" 
+                    onChange={(e) => {
+                      setnew20score5_1(e.target.value);
+                    }}/>
                   </span>
                   <span className="คะแนนนศ2ช่อง5">
-                    <Input className="inputscoreStd2_row5" placeholder="" />
+                    <Input className="inputscoreStd2_row5" placeholder="" 
+                    onChange={(e) => {
+                      setnew20score5_2(e.target.value);
+                    }}/>
                   </span>
                 </p>
               </span>
               <span className="การนำเสนอโครงงาน">การนำเสนอโครงงาน</span>
               <span className="คะแนน60">(60 คะแนน)</span>
               <span className="คะแนนนศ1ช่อง6">
-                <Input className="inputscoreStd1_row6" placeholder="0" />
+                <Input className="inputscoreStd1_row6" placeholder="0" 
+                onChange={(e) => {
+                  setnew60score6_1(e.target.value);
+                }}/>
               </span>
               <span className="คะแนนนศ2ช่อง6">
-                <Input className="inputscoreStd2_row6" placeholder="0" />
+                <Input className="inputscoreStd2_row6" placeholder="0"
+                onChange={(e) => {
+                  setnew60score6_2(e.target.value);
+                }} />
               </span>
             </Row>
           </div>
@@ -289,10 +374,16 @@ export const Score402_Advisor = () => {
             <Row className="block6row">
               <span className="รวม">รวม</span>
               <span className="คะแนนนศ1ช่อง7">
-                <Input className="inputscoreStd1_row7" placeholder="0" />
+                <Input className="inputscoreStd1_row7" placeholder="0" 
+                onChange={(e) => {
+                  setnewTotalscore7_1(e.target.value);
+                }}/>
               </span>
               <span className="คะแนนนศ2ช่อง7">
-                <Input className="inputscoreStd2_row7" placeholder="0" />
+                <Input className="inputscoreStd2_row7" placeholder="0"
+                onChange={(e) => {
+                  setnewTotalscore7_2(e.target.value);
+                }} />
               </span>
             </Row>
             <Row className="block7row">
@@ -300,11 +391,13 @@ export const Score402_Advisor = () => {
                 ระบุข้อเสนอแนะ/สิ่งที่ต้องปรับปรุง
               </span>
               <span className="คอมเม้น">
-                <TextArea className="inputcomment" rows={4} />
+                <TextArea className="inputcomment" rows={4}
+                onChange={(e) => {
+                  setnewcomment(e.target.value);
+                }} />
               </span>
             </Row>
           </div>
-         
 
           <div className="blockscore7">
             <span class="blockคำชี้แจง">
@@ -332,14 +425,16 @@ export const Score402_Advisor = () => {
           <Button
             id="btn-create"
             className="buttonttt"
-            // onClick={addProject}
+            onClick={() => {
+              updateScorename(newCheck[0] ?newCheck[0].id:null);
+            }}
             variant="outlined"
             color="primary"
             type="submit"
             endIcon={<Icon>add</Icon>}
-          >Submit
+          >
+            Submit
           </Button>
-
         </div>
       </div>
     </Row>

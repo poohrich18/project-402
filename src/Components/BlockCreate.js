@@ -59,11 +59,11 @@ export const BlockCreate = () => {
   const [advisorname, setadvisorname] = useState("");
 
   const addGroup2 = () => {
-    axios
-      .post("http://localhost:5001/groups/add2", {
+    axios.post("http://localhost:5001/groups/increed/", {
         groupname: groupname,
         membername: membername,
         advisorname: advisorname,
+        
       })
       .then(() => {
         setgroupList2([
