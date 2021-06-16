@@ -85,10 +85,107 @@ button.buttonslot4 , button.buttonslot5 ,button.buttonslot6{
     /* margin-top: 50px; */
 }
 
-.container-time{
+/* .container-time{
     margin-top: 50px;
-}
+} */
 
 div.ant-checkbox-group {
     margin-left: 48px;
+}
+
+.range , .slot{
+    margin-top: 20px;
+    margin-left: 48px;
+    font-size: 16px;
+    font-family: SF Pro Display;
+    color: #2F4050;
+    font-weight: bold;
+    width: fit-content;
+}
+
+span.slot{
+    margin-top: 20px;
+    margin-left: 48px;
+    font-size: 16px;
+    font-family: SF Pro Display;
+    color: #2F4050;
+    font-weight: bold;
+}
+
+.ant-form-item-control-input-content {
+    flex: auto;
+    max-width: 100%;
+    margin-left: 48px;
+    margin-top: 4px;
+}
+
+.ant-picker-range {
+    position: relative;
+    display: inline-flex;
+    border-radius: 6px !important ;
+    height: 40px;
+    color: #2F4050 ;
+}
+
+button.btnsubmitSchedule{
+    /* margin-left: 48px; */
+    margin-top: 20px;
+    color: #2F4050;
+    /* border-radius: 10px; */
+}
+
+.ant-col.ant-form-item-control.ant-col-xs-24.ant-col-xs-offset-0.ant-col-sm-16.ant-col-sm-offset-8 {
+    margin-left: 0px;
+}
+
+span.buttonaddslot{
+    margin-right: 48px;
+    margin-top: 12px;
+    margin-left: 20px;
+    /* margin-bottom: 20px; */
+    float: right;
+}
+
+.ant-form-item-explain.ant-form-item-explain-error {
+    color: #ff4d4f;
+    margin-left: 48px;
+    margin-top: 10px;
+}
+
+button.buttonaddslott{
+    float: right;
+    justify-content: right;
+    
+}
+div.timeslot1{
+    height: 40px;
+    width: 130px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* margin-left: 48px; */
+    border: 1px solid  rgba(235, 235, 235, 0.35);  
+    background-color:  rgb(248, 248, 248); 
+    border-radius: 4px;
+    /* padding: 50px 0; */
+    /* text-align: center;
+    vertical-align: middle; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-weight: lighter ;  */
+    
+}
+
+
+.checkboxsize{
+    width: 16px;
+    height: 16px;
+}
+
+p.time1{
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 14px;
 }

@@ -259,7 +259,7 @@ const addProject = () => {
 
               <Button
                 // id="btn-create"
-                className="button123"
+                className="button12345"
                 onClick={addProject}
                 variant="outlined"
                 color="primary"
@@ -272,7 +272,7 @@ const addProject = () => {
 
               <Button
                 // id="btn-cancel"
-                className="button456"
+                className="button45678"
                 variant="outlined"
                 color="primary"
                 type="submit"

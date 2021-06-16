@@ -104,126 +104,77 @@ export const BlockMyGroup = () => {
                 </div>
                 
                 
-                <Modal isOpen={modalPickUpIsOpen}>
+                <Modal 
+                  // className="modalpopup"
+                  isOpen={modalPickUpIsOpen}>
                   <div id='layout-text-modal-ReceiveStaffEdit'>
                       <h1 className="Topname-mygroup">Edit Group</h1>
                       <hr className="hr-mygroup"></hr> 
+
+                      
                   </div>
 
-                  <h4 className="GroupName">Group Name</h4>
-                  <TextField className="test"
-                    name="group"
-                    label="Group Name"
-                    rules={[
-                      {
-                        required: true,
-                      },
-                    ]}
-                  >
-                    <Input/>
-                  </TextField>
-                        
-                  <h4 className="Add-Member">Member</h4>
-                    <Form.List name="usersMember">
-                      {(fields, { add, remove }) => (
-                        <>
-                          {fields.map(field => (
-                            <Space key={field.key} style={{ display: 'flex', marginBottom: 0 }} align="baseline">
-                                  
-                              <Form.Item style={{ width: 250 }}
-                                {...field}
-                                name={[field.name, 'nameMember']}
-                                fieldKey={[field.fieldKey, 'nameMember']}
-                                rules={[{ required: true, message: 'Missing Name Member' }]}
-                              >
-                                <AutoComplete
-                                  style={{ width: 250 }}
-                                  //   dataSource={userList.map(item=>{return item.name})}
-                                  placeholder="Search Member"
-                                  filterOption={(inputValue, option) => 
-                                  option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
-                                  />
-                              </Form.Item>
+                  <h4 className="projectTopicInform">Group Name</h4>
+                  <div className="fieldmember">
+                    <TextField
+                      id="outlined-full-width"
+                      label="Enter Name"
+                      style={{ marginTop: 10, marginLeft: 8, width: 500}}
+                      placeholder="Enter Name"
+                      variant="outlined"
+                      // onChange={(event) => {
+                      //   setGroupname(event.target.value);
+                      // }}
+                    />
+                  </div>
 
-                              <MinusCircleOutlined onClick={() => 
-                                remove(field.name)} />
-                            </Space>
-                          ))}
-                            
-                          <Form.Item>
-                              <Button 
-                                className="button-addmem"
-                                type="dashed" 
-                                onClick={() => add()} 
-                                block icon={<PlusOutlined />}
-                              >Add Member
-                              </Button>
-                          </Form.Item>
-                        </>
-                      )}
-                    </Form.List>
-            
-                    <h4 className="Add-Advisor">Advisor</h4>
-                    <Form.List name="usersAdvis">
-                      {(fields2, { add, remove }) => (
-                        <>
-                          {fields2.map(field2 => (
-                            <Space key={field2.key} style={{ display: 'flex', marginBottom: 0 }} align="baseline">
-                              
-                              <Form.Item style={{ width: 250 }}
-                                {...field2}
-                                name={[field2.name, 'nameAdvisor']}
-                                fieldKey={[field2.fieldKey, 'nameAdvisor']}
-                                rules={[{ required: true, message: 'Missing Advisor Name' }]}
-                                // onChange={(e)=>{
-                                //   setadvisorname(prev=>[prev,field2.name[0]])
-                                // }}
-                              
-                              >
-                                <AutoComplete
-                                  style={{ width: 250 }}
-                                //   dataSource={advisorList.map(item=>{return item.name})}
-                                  placeholder="Search Advisor"
-                                  filterOption={(inputValue, option) => 
-                                    option.props.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
-                                />
-                              
-                              </Form.Item>
-                              
-                              <MinusCircleOutlined onClick={() => remove(field2.name)} />
-                            </Space>
-                          ))}
-                          <Form.Item>
-                            <Button 
-                            className="button-addadv"
-                              type="dashed" 
-                              onClick={() => add()} block icon={<PlusOutlined />}>
-                              Add Advisor
-                            </Button>
-                          </Form.Item>
-                        </>
-                      )}
-                    </Form.List>
+                  <h4 className="projectTopicInform">Member</h4>
+                  <div className="fieldmember">
+                    <TextField
+                      id="outlined-full-width"
+                      label="Member Name"
+                      style={{ marginTop: 10, marginLeft: 8, width: 500}}
+                      placeholder="Member Name"
+                      variant="outlined"
+                      // onChange={(event) => {
+                      //   setmembername(event.target.value);
+                      // }}
+                    />
+                  </div>
+
+                  <h4 className="projectTopicInform">Advisor</h4>
+                  <div className="fieldmember">
+                    <TextField
+                      id="outlined-full-width"
+                      label="Advisor Name"
+                      style={{ marginTop: 10, marginLeft: 8, width: 500 }}
+                      placeholder="Advisor Name"
+                      variant="outlined"
+                      // onChange={(event) => {
+                      //   setadvisorname(event.target.value);
+                      // }}
+                    />
+                  </div>
                     
-                    <Form.Item>
+                    
                       <Button  
-                        className="button-edit-ok"
+                        className="button123"
                         variant="outlined"
                         color="primary"
                         type="submit"
-                      >Submit
+                      >Edit
                       </Button>
                       
                       <Button  
-                        className="button-editcancel" 
-                        // className="buttonleave"
+                        className="button456"
                         variant="outlined"
                         color="primary"
                         type="submit"
+                        // endIcon={<Icon>close</Icon>}
                         onClick={() => setModalPickUpIsOpen(false)}>Cancel
                       </Button>
 
-                    </Form.Item>
+                    
                 </Modal>
             </div>
         </div>

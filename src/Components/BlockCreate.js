@@ -87,10 +87,10 @@ export const BlockCreate = () => {
             <Form>
               <h4 className="projectTopicInform">Group Name</h4>
               <div className="fieldmember">
-                <input
+                <TextField
                   id="outlined-full-width"
                   label="Enter Name"
-                  style={{ marginTop: 10, marginLeft: 8, width: 500 , fontSize: 14 , height:30 }}
+                  style={{ marginTop: 10, marginLeft: 8, width: 500}}
                   placeholder="Enter Name"
                   variant="outlined"
                   onChange={(event) => {
@@ -101,10 +101,10 @@ export const BlockCreate = () => {
 
               <h4 className="projectTopicInform">Member</h4>
               <div className="fieldmember">
-                <input
+                <TextField
                   id="outlined-full-width"
-                  label="ชื่อโครงงานภาษาอังกฤษ"
-                  style={{ marginTop: 10, marginLeft: 8, width: 500  , fontSize: 14 , height:30}}
+                  label="Member Name"
+                  style={{ marginTop: 10, marginLeft: 8, width: 500}}
                   placeholder="Member Name"
                   variant="outlined"
                   onChange={(event) => {
@@ -115,10 +115,10 @@ export const BlockCreate = () => {
 
               <h4 className="projectTopicInform">Advisor</h4>
               <div className="fieldmember">
-                <input
+                <TextField
                   id="outlined-full-width"
-                  label="ชื่อ นามสกุล (ภาษาไทย)"
-                  style={{ marginTop: 10, marginLeft: 8, width: 500  , fontSize: 14 , height:30 }}
+                  label="Advisor Name"
+                  style={{ marginTop: 10, marginLeft: 8, width: 500 }}
                   placeholder="Advisor Name"
                   variant="outlined"
                   onChange={(event) => {
@@ -129,7 +129,7 @@ export const BlockCreate = () => {
 
               <Button
                 // id="btn-create"
-                className="button123"
+                className="buttonadd"
                 variant="outlined"
                 color="primary"
                 type="submit"
@@ -141,7 +141,7 @@ export const BlockCreate = () => {
 
               <Button
                 // id="btn-cancel"
-                className="button456"
+                className="buttoncancel"
                 variant="outlined"
                 color="primary"
                 type="submit"

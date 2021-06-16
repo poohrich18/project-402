@@ -78,82 +78,82 @@ export const BlockCreate_Student2 = () => {
   };
 
   return (
-        <div className="rightblockcreate">
-          <div className="blockwhitecreate">
-            <h1 className="TopnameCreate">Create Group</h1>
+    <div className="rightblockcreate">
+    <div className="blockwhitecreate">
+      <h1 className="TopnameCreate">Create Group</h1>
 
-            <hr className="hr-create"></hr>
+      <hr className="hr-create"></hr>
 
-            <Form>
-              <h4 className="projectTopicInform">Group Name</h4>
-              <div className="fieldmember">
-                <input
-                  id="outlined-full-width"
-                  label="Enter Name"
-                  style={{ marginTop: 10, marginLeft: 8, width: 500 , fontSize: 14 , height:30 }}
-                  placeholder="Enter Name"
-                  variant="outlined"
-                  onChange={(event) => {
-                    setGroupname(event.target.value);
-                  }}
-                />
-              </div>
-
-              <h4 className="projectTopicInform">Member</h4>
-              <div className="fieldmember">
-                <input
-                  id="outlined-full-width"
-                  label="ชื่อโครงงานภาษาอังกฤษ"
-                  style={{ marginTop: 10, marginLeft: 8, width: 500  , fontSize: 14 , height:30}}
-                  placeholder="Member Name"
-                  variant="outlined"
-                  onChange={(event) => {
-                    setmembername(event.target.value);
-                  }}
-                />
-              </div>
-
-              <h4 className="projectTopicInform">Advisor</h4>
-              <div className="fieldmember">
-                <input
-                  id="outlined-full-width"
-                  label="ชื่อ นามสกุล (ภาษาไทย)"
-                  style={{ marginTop: 10, marginLeft: 8, width: 500  , fontSize: 14 , height:30 }}
-                  placeholder="Advisor Name"
-                  variant="outlined"
-                  onChange={(event) => {
-                    setadvisorname(event.target.value);
-                  }}
-                />
-              </div>
-
-              <Button
-                // id="btn-create"
-                className="button123"
-                variant="outlined"
-                color="primary"
-                type="submit"
-                onClick={addGroup2}
-                endIcon={<Icon>add</Icon>}
-              >
-                Submit
-              </Button>
-
-              <Button
-                // id="btn-cancel"
-                className="button456"
-                variant="outlined"
-                color="primary"
-                type="submit"
-                endIcon={<Icon>close</Icon>}
-
-                // onClick={handleSubmit}
-              >
-                <Link to="/home2">Cancel</Link>
-              </Button>
-            </Form>
-          </div>
+      <Form>
+        <h4 className="projectTopicInform">Group Name</h4>
+        <div className="fieldmember">
+          <TextField
+            id="outlined-full-width"
+            label="Enter Name"
+            style={{ marginTop: 10, marginLeft: 8, width: 500}}
+            placeholder="Enter Name"
+            variant="outlined"
+            onChange={(event) => {
+              setGroupname(event.target.value);
+            }}
+          />
         </div>
+
+        <h4 className="projectTopicInform">Member</h4>
+        <div className="fieldmember">
+          <TextField
+            id="outlined-full-width"
+            label="Member Name"
+            style={{ marginTop: 10, marginLeft: 8, width: 500}}
+            placeholder="Member Name"
+            variant="outlined"
+            onChange={(event) => {
+              setmembername(event.target.value);
+            }}
+          />
+        </div>
+
+        <h4 className="projectTopicInform">Advisor</h4>
+        <div className="fieldmember">
+          <TextField
+            id="outlined-full-width"
+            label="Advisor Name"
+            style={{ marginTop: 10, marginLeft: 8, width: 500 }}
+            placeholder="Advisor Name"
+            variant="outlined"
+            onChange={(event) => {
+              setadvisorname(event.target.value);
+            }}
+          />
+        </div>
+
+        <Button
+          // id="btn-create"
+          className="buttonadd"
+          variant="outlined"
+          color="primary"
+          type="submit"
+          onClick={addGroup2}
+          endIcon={<Icon>add</Icon>}
+        >
+          Submit
+        </Button>
+
+        <Button
+          // id="btn-cancel"
+          className="buttoncancel"
+          variant="outlined"
+          color="primary"
+          type="submit"
+          endIcon={<Icon>close</Icon>}
+
+          // onClick={handleSubmit}
+        >
+          <Link to="/home2">Cancel</Link>
+        </Button>
+      </Form>
+    </div>
+  </div>
      
   );
 };

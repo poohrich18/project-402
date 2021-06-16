@@ -80,12 +80,12 @@ label.test1{
 
 button.button000 {
     margin-Left: 48px;
-    margin-Top: 40px;
+    margin-Top: 20px;
     margin-Bottom: 20px;
 }
 button.button456 {
     margin-Bottom: 20px;
-    margin-Top: 40px;
+    margin-Top: 20px;
     margin-left: 10px;
 }
 
@@ -102,4 +102,37 @@ div.rowtimecheck.row{
 
 div.ant-checkbox-group.checkgroup {
     width: 1000px;
+}
+
+
+span.timeslot11{
+    height: 40px;
+    width: 920px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* margin-left: 20px; */
+    /* margin-left: 48px; */
+    margin-right: 20px;
+    border: 1px solid  rgba(235, 235, 235, 0.35);  
+    background-color:  rgb(248, 248, 248); 
+    border-radius: 4px;
+    /* padding: 50px 0; */
+    /* text-align: center;
+    vertical-align: middle; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-weight: lighter ;  */
+    
+}
+
+.y{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    /* margin-left: 20px; */
+    margin-right: 20px;
+    font-weight: bold;
 }
