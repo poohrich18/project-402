@@ -359,9 +359,9 @@ app.post("/groups/increed/", (req, res) => {
   const advisorname = req.body.advisorname;
 
   console.log(groupname)
-  db.getConnection((connection,err ) => {
+  db.getConnection((err, connection) => {
     connection.query(
-      "INSERT INTO groups(groupname,membername,advisorname) VALUES(?,?,?)",
+      "INSERT INTO groups (groupname,membername,advisorname) VALUES(?,?,?)",
       [groupname, membername, advisorname],
       (err,result) => {
         if (err) {
@@ -388,7 +388,7 @@ app.post("/projinfo/add", (req, res) => {
   const advisor = req.body.advisor;
   console.log(advisor)
 
-  db.getConnection((connection,err ) => {
+  db.getConnection((err, connection) => {
     connection.query(
       "INSERT INTO projectdb( ProjNameTH, ProjNameEN, Username_id_1, Std_Name_1 ,Std_Type_1, Username_id_2 , Std_Name_2 ,Std_Type_2 ,AdvId) VALUES(?,?,?,?,?,?,?,?,?)",
       [
@@ -403,7 +403,7 @@ app.post("/projinfo/add", (req, res) => {
         advisor
         
       ],
-      (err, res) => {
+      (err, result) => {
         connection.release(); // return the connection to pool
 
         if (err) {
