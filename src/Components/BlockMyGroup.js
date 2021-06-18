@@ -158,7 +158,7 @@ export const BlockMyGroup = () => {
                     
                     
                       <Button  
-                        className="button123"
+                        className="button-edit-ok"
                         variant="outlined"
                         color="primary"
                         type="submit"
@@ -166,7 +166,7 @@ export const BlockMyGroup = () => {
                       </Button>
                       
                       <Button  
-                        className="button456"
+                        className="button-editcancel"
                         variant="outlined"
                         color="primary"
                         type="submit"

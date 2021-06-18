@@ -144,6 +144,31 @@ export const BlockCreateSchedule = () => {
                           
                           </Checkbox.Group>
                         </div>
+
+                        <Button
+                // id="btn-create"
+                className="buttonadd"
+                variant="outlined"
+                color="primary"
+                type="submit"
+                // onClick={addGroup2}
+                endIcon={<Icon>add</Icon>}
+              >
+                Submit
+              </Button>
+
+              <Button
+                // id="btn-cancel"
+                className="buttoncancel"
+                variant="outlined"
+                color="primary"
+                type="submit"
+                endIcon={<Icon>close</Icon>}
+
+                // onClick={handleSubmit}
+              >
+                <Link to="/home_a">Cancel</Link>
+              </Button>
                         {/* <Form.Item >
                         <Button
                         // id="btn-create"
